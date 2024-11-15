@@ -1,0 +1,22 @@
+.hero-container {
+  background-image: url('../../assets/hero.png');
+  background-size: cover;
+  background-position: center;
+}
+  
+  .hero-container h1 {
+    font-size: 3rem;
+  }
+  
+  .hero-container p {
+    margin: 20px 0;
+    font-size: 1.5rem;
+  }
+  
+  .cta-button {
+    padding: 10px 20px;
+    background-color: #fda521;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }

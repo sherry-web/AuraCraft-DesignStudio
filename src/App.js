@@ -1,22 +1,54 @@
-import React from 'react';
-import Home from './components/Home';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Login from './components/pages/Login';
+import Dashboard from './components/pages/Dashboard';
+import PrivateRoute from './components/pages/PrivateRoute';
+import Home from './components/Home/Home'; // Import Home properly
 import AboutUs from './components/AboutUs';
 import Services from './components/Services';
 import Works from './components/Works';
 import Footer from './components/Footer';
 import Header from './components/Header';
 
-function App() {
+const App = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  const login = () => setIsAuthenticated(true);
+  const logout = () => setIsAuthenticated(false);
+
   return (
-    <div>
+    <Router>
+      {/* Header is always visible */}
       <Header />
-      <Home />
-      <AboutUs />
-      <Services />
-      <Works />
+
+      {/* Application Routes */}
+      <Routes>
+        {/* Home page */}
+        <Route path="/" element={<Home />} />
+
+        {/* Login page */}
+        <Route path="/login" element={<Login onLogin={login} />} />
+
+        {/* Protected route for Dashboard */}
+        <Route
+          path="/dashboard"
+          element={
+            <PrivateRoute isAuthenticated={isAuthenticated}>
+              <Dashboard onLogout={logout} />
+            </PrivateRoute>
+          }
+        />
+
+        {/* Other pages */}
+        <Route path="/about-us" element={<AboutUs />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/works" element={<Works />} />
+      </Routes>
+
+      {/* Footer is always visible */}
       <Footer />
-    </div>
+    </Router>
   );
-}
+};
 
 export default App;

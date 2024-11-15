@@ -1,0 +1,24 @@
+.service-cards-container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
+}
+
+.service-card {
+  background: #e9e3d5;
+  border: 1px solid #033043;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  max-width: 300px;
+}
+
+.service-card h3 {
+  color: #033043;
+  margin-bottom: 10px;
+}
+
+.service-card p {
+  color: #0a7273;
+}
