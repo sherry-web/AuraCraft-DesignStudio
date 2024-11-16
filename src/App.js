@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Login from './components/pages/Login';
-import Dashboard from './components/pages/Dashboard';
-import PrivateRoute from './components/pages/PrivateRoute';
-import Home from './components/Home/Home'; // Import Home properly
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; 
+import NavBar from './components/NavBar';
+import Login from './components/pages/Login'; 
+import Home from './components/Home/Home';
+import Dashboard from './components/pages/Dashboard'; 
+import PrivateRoute from './components/pages/PrivateRoute';  
 import AboutUs from './components/AboutUs';
 import Services from './components/Services';
 import Works from './components/Works';
+import ContactForm from './components/pages/ContactForm';
 import Footer from './components/Footer';
 import Header from './components/Header';
+
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -18,34 +21,24 @@ const App = () => {
 
   return (
     <Router>
-      {/* Header is always visible */}
+      <NavBar />
       <Header />
-
-      {/* Application Routes */}
       <Routes>
-        {/* Home page */}
         <Route path="/" element={<Home />} />
-
-        {/* Login page */}
         <Route path="/login" element={<Login onLogin={login} />} />
-
-        {/* Protected route for Dashboard */}
-        <Route
-          path="/dashboard"
+        <Route 
+          path="/dashboard" 
           element={
             <PrivateRoute isAuthenticated={isAuthenticated}>
               <Dashboard onLogout={logout} />
             </PrivateRoute>
-          }
+          } 
         />
-
-        {/* Other pages */}
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/services" element={<Services />} />
         <Route path="/works" element={<Works />} />
+        <Route path="/contact" element={<ContactForm />} />
       </Routes>
-
-      {/* Footer is always visible */}
       <Footer />
     </Router>
   );
