@@ -27,3 +27,34 @@
     color: #fda521;
   }
   
+  .header-container {
+    width: 100%;
+    background-color: var(--color-primary);
+    padding: var(--spacing-medium) 0;
+    color: var(--color-white);
+  }
+  
+  .header-title {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-h1);
+    text-align: center;
+  }
+  
+  .header-nav {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--spacing-small);
+  }
+  
+  .header-nav a {
+    font-family: var(--font-secondary);
+    font-size: var(--font-size-body);
+    margin: 0 var(--spacing-small);
+    color: var(--color-white);
+    text-decoration: none;
+  }
+  
+  .header-nav a:hover {
+    text-decoration: underline;
+  }
+  

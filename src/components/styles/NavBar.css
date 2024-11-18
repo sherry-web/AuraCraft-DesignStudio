@@ -1,32 +1,53 @@
+/* Navbar container */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #033043;
-    padding: 1rem 2rem;
-  }
-  
-  .navbar-logo a {
-    color: #FDA521;
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-decoration: none;
-  }
-  
-  .navbar-links {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-  }
-  
-  .navbar-links li a {
-    color: #E9E3D5;
-    text-decoration: none;
-    font-size: 1rem;
-    transition: color 0.3s ease;
-  }
-  
-  .navbar-links li a:hover {
-    color: #FDA521;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #033043;
+  color: #fff;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo */
+.navbar-logo {
+  width: 120px;  /* Adjust size to fit your logo */
+  height: auto;
+}
+
+/* Links */
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.navbar-links a:hover {
+  color: #FDA521;
+}
+
+/* CTA button */
+.navbar-cta {
+  background-color: #FDA521;
+  color: #033043;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.navbar-cta:hover {
+  background-color: #E9E3D5;
+}

@@ -1,13 +1,14 @@
-.button {
-    padding: 10px 20px;
-    background-color: #FDA521; /* Example color */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .button:hover {
-    background-color: #E9E3D5; /* Hover color */
-  }
+.modern-button {
+  padding: 0.8rem 1.5rem;
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform var(--transition-speed), background-color var(--transition-speed);
+}
+
+.modern-button:hover {
+  transform: scale(1.05);
+  background-color: var(--accent-color);
+}

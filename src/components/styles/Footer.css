@@ -1,10 +1,21 @@
 .footer-container {
-    background: #333;
-    color: white;
-    padding: 1rem;
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-  }
-  
+  background-color: var(--color-primary);
+  color: var(--color-light);
+  padding: var(--spacing-medium) 0;
+  text-align: center;
+}
+
+.footer-content {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-small);
+}
+
+.footer-links a {
+  color: var(--color-secondary);
+  margin: 0 var(--spacing-small);
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}

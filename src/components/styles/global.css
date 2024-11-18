@@ -1,10 +1,175 @@
+/* Importing Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&family=Poppins:wght@300;400;600&display=swap');
+
+/* Global Font Styles */
+:root {
+  --font-primary: 'Poppins', sans-serif; /* For titles, headings, and buttons */
+  --font-secondary: 'Nunito', sans-serif; /* For body text and paragraphs */
+
+  /* Color Palette */
+  --color-primary: #033043; /* Primary Dark Blue */
+  --color-secondary: #FDA521; /* Vibrant Yellow */
+  --color-accent: #0A7273; /* Teal Green */
+  --color-light: #E9E3D5; /* Light Beige */
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* Typography */
+  --font-size-base: 16px;
+  --font-size-h1: 2.5rem; /* 40px */
+  --font-size-h2: 2rem; /* 32px */
+  --font-size-h3: 1.75rem; /* 28px */
+  --font-size-body: 1rem; /* 16px */
+  --font-size-small: 0.875rem; /* 14px */
+
+  /* Spacing */
+  --spacing-xsmall: 4px;
+  --spacing-small: 8px;
+  --spacing-medium: 16px;
+  --spacing-large: 24px;
+  --spacing-xlarge: 32px;
+  --spacing-xxlarge: 64px;
+
+  /* Borders */
+  --border-radius: 8px;
+
+  /* Container Max Width */
+  --container-max-width: 1200px;
+  --container-padding: 20px;
+}
+
+/* Global Body Styles */
 body {
-  font-family: Arial, sans-serif;
+  font-family: var(--font-secondary);
+  color: var(--color-primary);
+  background-color: var(--color-light);
+  font-size: var(--font-size-base);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* Header and Footer */
+.header, .footer {
+  padding: var(--spacing-medium) 0;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  text-align: center;
+}
+
+.footer {
+  margin-top: var(--spacing-large);
+}
+
+/* Container */
+.container {
+  max-width: var(--container-max-width);
+  padding: var(--container-padding);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Section */
+.section {
+  margin-bottom: var(--spacing-xlarge);
+  padding: var(--spacing-large);
+  width: 100%;
+  text-align: center;
+  background-color: var(--color-light);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Section Titles and Content */
+.section-title {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-h2);
+  margin-bottom: var(--spacing-medium);
+  color: var(--color-primary);
+}
+
+.section-content {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-body);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-large);
+  color: var(--color-primary);
+}
+
+/* Buttons */
+.button {
+  padding: var(--spacing-small) var(--spacing-medium);
+  font-family: var(--font-primary);
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button:hover {
+  background-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  margin: 0;
+  color: var(--color-primary);
+}
+
+/* Paragraph */
+p {
+  font-size: var(--font-size-body);
+  color: var(--color-primary);
+}
+
+/* Heading Sizes */
+h1 {
+  font-size: var(--font-size-h1);
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+}
+
+h3 {
+  font-size: var(--font-size-h3);
+}
+
+/* Global Layout Styles */
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.container {
-  padding: 2rem;
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: var(--spacing-small);
+  }
+
+  .section {
+    margin-bottom: var(--spacing-medium);
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  .footer {
+    padding: var(--spacing-small) 0;
+  }
 }

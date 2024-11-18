@@ -1,0 +1,59 @@
+.about-container {
+  padding: 60px 20px;
+  background-color: #E9E3D5;
+  text-align: center;
+}
+
+
+.about-container h2 {
+  font-size: 2.5rem;
+  color: #033043;
+  margin-bottom: 20px;
+}
+
+.about-container p {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.read-more-button {
+  background-color: #FDA521;
+  color: #033043;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.read-more-button:hover {
+  background-color: #033043;
+  color: #fff;
+}
+.about-us-content {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin-top: 20px;
+  color: #333;
+}
+
+.about-us-title {
+  font-size: 2rem;
+  color: #033043; /* Dark color from the palette */
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Responsive adjustments for About Us */
+@media (max-width: 768px) {
+  .about-us-container {
+    padding: 20px;
+    margin-bottom: 40px;
+  }
+
+  .about-us-title {
+    font-size: 1.5rem;
+  }
+}

@@ -1,20 +1,77 @@
 .testimonials-container {
-    background: #fda521;
-    padding: 30px;
-    text-align: center;
-  }
-  
-  .testimonial-card {
-    background: #033043;
-    color: #e9e3d5;
-    margin: 10px auto;
-    padding: 15px;
-    border-radius: 8px;
-    max-width: 400px;
-  }
-  
-  .testimonial-card h4 {
-    margin-top: 10px;
-    font-style: italic;
-  }
-  
+  text-align: center;
+}
+
+.testimonials-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-large);
+}
+
+.testimonial-card {
+  padding: var(--spacing-medium);
+  background-color: var(--color-light);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-feedback {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-body);
+  color: var(--color-dark);
+  margin-bottom: var(--spacing-small);
+  line-height: 1.6;
+}
+
+.testimonial-name {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-body);
+  color: var(--color-primary);
+}
+
+/* Testimonials container */
+.testimonials-container {
+  padding: 80px 20px;
+  text-align: center;
+  background-color: #f5f5f5;
+}
+
+.testimonials-container h2 {
+  font-size: 2.5rem;
+  color: #033043;
+  margin-bottom: 40px;
+}
+
+/* Testimonial cards */
+.testimonials-cards {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.testimonial-card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.testimonial-card p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.testimonial-card h4 {
+  font-size: 1.2rem;
+  color: #FDA521;
+}
+
+.testimonial-card:hover {
+  transform: scale(1.05);
+}
