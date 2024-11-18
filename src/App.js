@@ -2,6 +2,7 @@ import React, { useState, Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer'; 
+import IntroJourney from './components/IntroJourney';
 import './App.css';
 
 // Lazy-loaded components
@@ -25,7 +26,11 @@ const App = () => {
       <NavBar />
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-          <Route path="/" element={<Home />} />
+          {/* Intro Journey */}
+          <Route path="/" element={<IntroJourney />} />
+
+          {/* Other Routes */}
+          <Route path="/home" element={<Home />} />
           <Route path="/login" element={<Login onLogin={login} />} />
           <Route
             path="/dashboard"
@@ -35,6 +40,7 @@ const App = () => {
               </PrivateRoute>
             }
           />
+          
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/services" element={<Services />} />
           <Route path="/works" element={<Works />} />
