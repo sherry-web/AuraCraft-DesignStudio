@@ -1,15 +1,80 @@
+/* Footer container styles */
+.footer-container {
+  background-color: var(--color-primary); /* Primary color for background */
+  color: var(--color-light); /* Light text color for readability */
+  padding: var(--spacing-medium) 0; /* Padding for top and bottom */
+  text-align: center; /* Center the content */
+  display: flex; /* Use flexbox for alignment */
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+}
+
+/* Footer content styling */
+.footer-content {
+  font-family: var(--font-secondary); /* Secondary font family */
+  font-size: var(--font-size-small); /* Small font size for footer text */
+  margin-bottom: var(--spacing-small); /* Space below the content */
+  line-height: 1.5; /* Improve readability */
+}
+
+/* Footer links styling */
+.footer-links {
+  display: flex; /* Align links horizontally */
+  justify-content: center; /* Center the links */
+  margin-top: var(--spacing-medium); /* Space above the links */
+}
+
+.footer-links a {
+  color: var(--color-secondary); /* Secondary color for links */
+  margin: 0 var(--spacing-small); /* Horizontal spacing between links */
+  text-decoration: none; /* Remove underline by default */
+  font-size: var(--font-size-small); /* Small font size for links */
+}
+
+.footer-links a:hover {
+  text-decoration: underline; /* Underline on hover */
+  color: var(--color-light); /* Change color on hover for contrast */
+}
+
+/* Footer responsiveness */
+@media (max-width: 768px) {
+  .footer-container {
+    padding: var(--spacing-small) 0; /* Less padding on smaller screens */
+  }
+
+  .footer-content {
+    font-size: var(--font-size-xsmall); /* Slightly smaller text on smaller screens */
+  }
+
+  .footer-links {
+    flex-direction: column; /* Stack links vertically on small screens */
+    align-items: center; /* Center links */
+  }
+
+  .footer-links a {
+    margin: var(--spacing-small) 0; /* Vertical spacing for stacked links */
+  }
+}
+
+/* Footer Container */
 .footer-container {
   background-color: var(--color-primary);
   color: var(--color-light);
   padding: var(--spacing-medium) 0;
   text-align: center;
+  position: relative; /* Ensure it’s placed correctly */
+  width: 100%; /* Make sure it takes up full width */
+  margin-top: 40px; /* Add margin to push the footer slightly down */
+  clear: both; /* Ensures it doesn't get overlapped by floated elements */
 }
 
+/* Footer Content */
 .footer-content {
   font-family: var(--font-secondary);
   font-size: var(--font-size-small);
 }
 
+/* Footer Links */
 .footer-links a {
   color: var(--color-secondary);
   margin: 0 var(--spacing-small);

@@ -5,6 +5,7 @@ import './components/styles/global.css'; // Global styles for the app
 
 const root = createRoot(document.getElementById('root'));
 
+// Render the App component inside React.StrictMode for development mode (helps identify potential issues)
 root.render(
   <React.StrictMode>
     <App />

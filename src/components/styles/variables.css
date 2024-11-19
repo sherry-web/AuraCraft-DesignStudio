@@ -1,0 +1,30 @@
+/* Color Palette */
+:root {
+    --primary-color: #033043;
+    --secondary-color: #FDA521;
+    --accent-color: #0A7273;
+    --light-background: #F4F4F4;
+    --card-bg-color: #E9E3D5;
+    --white: #FFFFFF;
+    --light-gray: #666666;
+  }
+  
+  /* Font Family */
+  :root {
+    --font-family: 'Roboto', sans-serif;
+    --font-size-h1: 3rem;
+    --font-size-h2: 2.5rem;
+    --font-size-h3: 1.75rem;
+    --font-size-p: 1.125rem;
+    --font-size-small: 1rem;
+  }
+  
+  /* Spacing */
+  :root {
+    --padding-small: 1.5rem;
+    --padding-medium: 2rem;
+    --padding-large: 4rem;
+    --margin-small: 1rem;
+    --margin-large: 2rem;
+  }
+  

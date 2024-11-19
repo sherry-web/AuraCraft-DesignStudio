@@ -1,3 +1,4 @@
+
 /* Importing Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&family=Poppins:wght@300;400;600&display=swap');
 
@@ -172,4 +173,22 @@ h3 {
   .footer {
     padding: var(--spacing-small) 0;
   }
+}
+
+/* Add a global margin or padding */
+.main-content {
+  margin-top: 30px; /* Creates a gap between the navbar and content */
+}
+
+/* Ensure navbar styling is consistent */
+.NavBar {
+  position: fixed; /* Optional: Makes the navbar sticky */
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: white; /* Or any desired background color */
+}
+
+body:has(.NavBar) .main-content {
+  margin-top: 30px;
 }

@@ -1,56 +1,171 @@
-.journey-image {
-  width: 100%;
-  max-width: 300px;
-  margin: 20px auto;
-  display: block;
-  border-radius: 10px;
-}
-
-.journey-navigation {
+/* General Container Styles */
+.intro-journey-wrapper .main-content {
+  margin-top: 80px;
+  padding: 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  min-height: 100vh;
+  background-color: #f8f9fa; /* Light neutral background for contrast */
 }
 
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+/* Intro Container */
+.intro-journey-wrapper .intro-container {
+  width: 90%;
+  max-width: 750px; /* Adjust for larger screens */
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+  padding: 20px;
 }
 
-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
+/* Intro Card */
+.intro-journey-wrapper .intro-card {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.skip-button {
-  background-color: #fda521;
-  color: #fff;
+.intro-journey-wrapper .intro-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 20px rgba(0, 174, 156, 0.2); /* Softer glow effect */
+}
+
+/* Image Wrapper for better scaling */
+.intro-journey-wrapper .image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.intro-journey-wrapper .step-image {
+  width: 100%;
+  max-width: 350px; /* Adjusted for larger images */
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Titles */
+.intro-journey-wrapper .step-title {
+  font-size: 26px;
+  color: #033043; /* Use primary color for consistency */
+  margin: 10px 0;
   font-weight: bold;
-  border-radius: 5px;
 }
 
-.skip-button:hover {
-  background-color: #e58f1e;
+/* Content */
+.intro-journey-wrapper .step-content {
+  font-size: 18px;
+  color: #4a4a4a;
+  margin-bottom: 20px;
+  line-height: 1.6;
 }
 
-.progress-indicator {
+/* Button Group for Alignment */
+.intro-journey-wrapper .button-group {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* Buttons */
+.intro-journey-wrapper .next-button,
+.intro-journey-wrapper .skip-button,
+.intro-journey-wrapper .start-button {
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.intro-journey-wrapper .next-button {
+  background-color: #fda521;
+  color: white;
+}
+
+.intro-journey-wrapper .start-button {
+  background-color: #033043;
+  color: white;
+}
+
+.intro-journey-wrapper .skip-button {
+  background-color: #e9e3d5;
+  color: #033043;
+}
+
+.intro-journey-wrapper .next-button:hover,
+.intro-journey-wrapper .start-button:hover,
+.intro-journey-wrapper .skip-button:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+/* Progress Indicator */
+.intro-journey-wrapper .progress-indicator {
   display: flex;
   justify-content: center;
   margin-top: 20px;
 }
 
-.dot {
-  width: 10px;
-  height: 10px;
-  margin: 0 5px;
+.intro-journey-wrapper .dot {
+  width: 12px;
+  height: 12px;
+  margin: 0 6px;
   border-radius: 50%;
   background-color: #ddd;
+  transition: background-color 0.3s ease;
 }
 
-.dot.active {
+.intro-journey-wrapper .dot.active {
   background-color: #fda521;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .intro-journey-wrapper .intro-container {
+    max-width: 90%;
+    padding: 15px;
+  }
+
+  .intro-journey-wrapper .step-title {
+    font-size: 22px;
+  }
+
+  .intro-journey-wrapper .step-content {
+    font-size: 16px;
+  }
+
+  .intro-journey-wrapper .button-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .intro-journey-wrapper .next-button,
+  .intro-journey-wrapper .skip-button,
+  .intro-journey-wrapper .start-button {
+    width: 100%;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .intro-journey-wrapper .step-image {
+    max-width: 250px;
+  }
+
+  .intro-journey-wrapper .step-title {
+    font-size: 20px;
+  }
+
+  .intro-journey-wrapper .step-content {
+    font-size: 14px;
+  }
 }

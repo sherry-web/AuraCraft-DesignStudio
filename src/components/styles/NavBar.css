@@ -4,7 +4,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 20px 40px;
-  background-color: #033043;
+  background-color:#E9E3D5;
   color: #fff;
   position: fixed;
   width: 100%;
@@ -15,7 +15,7 @@
 
 /* Logo */
 .navbar-logo {
-  width: 120px;  /* Adjust size to fit your logo */
+  width: 50px;  /* Adjust size to fit your logo */
   height: auto;
 }
 
@@ -28,13 +28,14 @@
 
 .navbar-links a {
   text-decoration: none;
-  color: #fff;
+  color: #033043;
   font-size: 1rem;
   transition: color 0.3s ease;
 }
 
 .navbar-links a:hover {
   color: #FDA521;
+
 }
 
 /* CTA button */
@@ -50,4 +51,26 @@
 
 .navbar-cta:hover {
   background-color: #E9E3D5;
+}
+
+.navbar-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.navbar-login {
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  background-color: transparent;
+  color: #FDA521;
+  border: 2px solid #FDA521;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.navbar-login:hover {
+  background-color: #FDA521;
+  color: #033043;
 }

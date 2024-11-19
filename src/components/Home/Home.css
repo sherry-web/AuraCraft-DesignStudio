@@ -1,9 +1,26 @@
-/* General Layout and Body Styling */
-.home {
-  font-family: 'Roboto', sans-serif;
+/* Base styles */
+* {
   margin: 0;
   padding: 0;
-  background-color: #F4F4F4;
+  box-sizing: border-box;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+/* Home container */
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #E9E3D5; /* Light background */
+  padding: 20px;
+  min-height: 100vh; /* Ensures it fills at least the full viewport height */
+  justify-content: space-between; /* Distributes sections and pushes footer to the bottom */
+}
+
+/* Section styling */
+section {
+  width: 100%;
+  padding: 50px 0;
 }
 
 /* Hero Section */
@@ -11,209 +28,262 @@
   background-image: url('../../assets/hero.png');
   background-size: cover;
   background-position: center;
-  height: 70vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
   color: white;
+  text-align: center;
+  padding: 80px 20px;
 }
 
 .hero-section h1 {
   font-size: 3rem;
-  margin: 0;
+  margin-bottom: 20px;
 }
 
 .hero-section p {
-  font-size: 1.25rem;
-  margin-top: 0.5rem;
+  font-size: 1.2rem;
 }
 
-/* Service Cards Section */
+/* Service Cards */
 .service-cards-section {
-  padding: 4rem 2rem;
-  text-align: center;
-  background-color: #ffffff;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 60px;
 }
 
 .service-cards-section h2 {
+  width: 100%;
+  text-align: center;
   font-size: 2.5rem;
-  margin-bottom: 2rem;
-  color: #033043;
+  margin-bottom: 30px;
 }
 
-/* Style for Service Cards */
 .service-cards-section .service-card {
-  display: inline-block;
-  width: 100%;
-  max-width: 300px;
-  margin: 1rem;
-  padding: 1.5rem;
-  background-color: #E9E3D5;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  text-align: left;
-  transition: transform 0.3s ease;
+  width: 250px;
+  background-color: #033043;
+  color: #E9E3D5;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 
 .service-cards-section .service-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-5px);
 }
 
 .service-cards-section .service-card h3 {
-  font-size: 1.75rem;
-  color: #033043;
-}
-
-.service-cards-section .service-card p {
-  font-size: 1rem;
-  color: #666666;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
 }
 
 /* Our Peeps (Clients/Testimonial Section) */
 .our-peeps-section {
-  background-color: #0A7273;
+  background-color: #FDA521;
   color: white;
-  padding: 4rem 2rem;
+  padding: 40px 20px;
   text-align: center;
 }
 
 .our-peeps-section h2 {
   font-size: 2.5rem;
-  margin-bottom: 2rem;
-}
-
-.our-peeps-section .testimonial {
-  max-width: 700px;
-  margin: 0 auto;
-  font-style: italic;
+  margin-bottom: 30px;
 }
 
 /* Our Story Section */
 .our-story-section {
-  padding: 4rem 2rem;
+  padding: 60px 20px;
   text-align: center;
-  background-color: #F4F4F4;
 }
 
 .our-story-section h2 {
   font-size: 2.5rem;
-  margin-bottom: 2rem;
-  color: #033043;
+  margin-bottom: 20px;
 }
 
 .our-story-section p {
-  font-size: 1.125rem;
-  line-height: 1.6;
-  color: #333333;
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 /* What is UX/UI Design Section */
 .what-is-ux-ui-section {
-  background-color: #FDA521;
-  padding: 4rem 2rem;
+  background-color: #0A7273;
   color: white;
-  text-align: center;
+  padding: 60px 20px;
 }
 
 .what-is-ux-ui-section h2 {
   font-size: 2.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 20px;
 }
 
 .what-is-ux-ui-section p {
-  font-size: 1.125rem;
-  line-height: 1.6;
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 /* Meeting Google Standards Section */
 .meeting-google-standards-section {
-  background-color: #0A7273;
-  color: white;
-  padding: 4rem 2rem;
+  padding: 60px 20px;
   text-align: center;
 }
 
 .meeting-google-standards-section h2 {
   font-size: 2.5rem;
-  margin-bottom: 2rem;
-}
-
-.meeting-google-standards-section p {
-  font-size: 1.125rem;
-  line-height: 1.6;
+  margin-bottom: 20px;
 }
 
 /* What is Front-End Development Section */
 .what-is-front-end-section {
-  padding: 4rem 2rem;
-  background-color: #F4F4F4;
-  text-align: center;
+  background-color: #033043;
+  color: white;
+  padding: 60px 20px;
 }
 
 .what-is-front-end-section h2 {
   font-size: 2.5rem;
-  margin-bottom: 2rem;
-  color: #033043;
+  margin-bottom: 20px;
 }
 
 .what-is-front-end-section p {
-  font-size: 1.125rem;
-  line-height: 1.6;
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 /* Projects Section */
 .projects-section {
-  background-color: #E9E3D5;
-  padding: 4rem 2rem;
+  padding: 60px 20px;
   text-align: center;
 }
 
 .projects-section h2 {
   font-size: 2.5rem;
-  margin-bottom: 2rem;
-}
-
-.projects-section .project-card {
-  display: inline-block;
-  width: 100%;
-  max-width: 300px;
-  margin: 1rem;
-  padding: 1.5rem;
-  background-color: #FFFFFF;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  transition: transform 0.3s ease;
-}
-
-.projects-section .project-card:hover {
-  transform: translateY(-10px);
-}
-
-.projects-section .project-card h3 {
-  font-size: 1.75rem;
-  color: #033043;
-}
-
-.projects-section .project-card p {
-  font-size: 1rem;
-  color: #666666;
+  margin-bottom: 30px;
 }
 
 /* Connect Section */
 .connect-section {
-  background-color: #033043;
+  background-color: #FDA521;
   color: white;
-  padding: 4rem 2rem;
+  padding: 40px 20px;
   text-align: center;
 }
 
-.connect-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
+/* Footer */
+footer {
+  background-color: #033043;
+  color: white;
+  padding: 30px 20px;
+  text-align: center;
+  width: 100%;
 }
 
-.connect-section p {
-  font-size: 1.125rem;
-  line-height: 1.6;
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .service-cards-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .service-cards-section .service-card {
+    width: 90%;
+    margin: 10px 0;
+  }
+
+  .hero-section {
+    padding: 40px 20px;
+  }
+
+  .what-is-ux-ui-section,
+  .what-is-front-end-section,
+  .meeting-google-standards-section,
+  .our-story-section {
+    padding: 40px 20px;
+  }
+}
+
+/* Home.css */
+.home-container {
+  display: block;  /* Ensures the container is block-level */
+  width: 100%;      /* Take full width of the container */
+}
+
+.home-header,
+.home-content,
+.home-footer {
+  display: block;   /* Ensures each section is stacked vertically */
+  margin: 20px 0;    /* Add spacing between elements */
+}
+
+/* Reset any inherited flex or grid layout styles if needed */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* General Styles for the HomePage */
+.main-content {
+  margin-top: 80px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* Added gap between sections */
+  justify-content: flex-start;
+}
+
+/* Hero Section */
+.hero-section {
+  margin-bottom: 30px;
+}
+
+/* Service Cards Section */
+.service-cards-section {
+  margin-bottom: 30px;
+}
+
+/* Our Peeps Section */
+.our-peeps-section {
+  margin-bottom: 30px;
+}
+
+/* Our Story Section */
+.our-story-section {
+  margin-bottom: 30px;
+}
+
+/* UX/UI Design Section */
+.what-is-ux-ui-section {
+  margin-bottom: 30px;
+}
+
+/* Meeting Google Standards Section */
+.meeting-google-standards-section {
+  margin-bottom: 30px;
+}
+
+/* Front-End Development Section */
+.what-is-front-end-section {
+  margin-bottom: 30px;
+}
+
+/* Projects Section */
+.projects-section {
+  margin-bottom: 30px;
+}
+
+/* Connect Section */
+.connect-section {
+  margin-bottom: 30px;
+}
+
+/* Footer Styles */
+footer {
+  margin-top: 40px;
+  padding: 20px;
+  text-align: center;
 }
