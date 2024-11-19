@@ -1,16 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
+
+// Components
 import HeroSection from '../HeroSection/HeroSection';
 import ServiceCards from '../ServiceCards/ServiceCards';
 import Testimonials from '../Testimonials/Testimonials';
 import Projects from '../Projects/Projects';
 import Footer from '../Footer';
 import Header from '../Header';
-import heroImage from '../../assets/hero.png';
-import logo from '../../assets/logo.png';
-import './Home.css';
-
-// Importing individual components
 import OurPeeps from './OurPeeps';
 import OurStory from './OurStory';
 import WhatIsUXUIDesign from './WhatIsUXUIDesign';
@@ -18,88 +15,136 @@ import MeetingGoogleStandards from './MeetingGoogleStandards';
 import WhatIsFrontEndDevelopment from './WhatIsFrontEndDevelopment';
 import ConnectSection from './ConnectSection';
 
-function HomePage() {
+// Assets
+
+import logo from '../../assets/logo.png';
+import icon1 from '../../assets/icon1.png';
+import icon2 from '../../assets/icon2.png';
+import icon3 from '../../assets/icon3.png';
+import icon4 from '../../assets/icon4.png';
+import icon5 from '../../assets/icon5.png';
+import icon6 from '../../assets/icon6.png';
+import peepsLogo1 from '../../assets/peepslogo.png';
+import peepsLogo2 from '../../assets/peepslogo2.png';
+import peepsLogo3 from '../../assets/peepslogo3.png';
+import ourStoryImage from '../../assets/ourstory.png';
+import uxUIDifferencesImage from "../../assets/UI-UX differences-amico.png";
+
+import { 
+  Brush, 
+  LaptopMac, 
+  Code, 
+  ShoppingCart, 
+  Business, 
+  ShowChart 
+} from '@mui/icons-material';
+
+// Styles
+import './Home.css';
+
+const HomePage = () => {
+  const serviceCards = [
+    { title: "UX Design", icon: icon1 },
+    { title: "UI Design", icon: icon2 },
+    { title: "Front-End Development", icon: icon3 },
+    { title: "E-Commerce Solution", icon: icon4 },
+    { title: "Brand Identity", icon: icon5 },
+    { title: "Digital Strategy", icon: icon6 },
+  ];
+
+  const clientLogos = [peepsLogo1, peepsLogo2, peepsLogo3];
+
   return (
-    <div>
-      {/* Navbar */}
-      <nav className="navbar">
-        <div className="logo">
-          <Link to="/">
-            <img src={logo} alt="AuraCraft Logo" className="navbar-logo" />
-          </Link>
-        </div>
-        <ul className="navbar-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div className="navbar-buttons">
-          <button className="navbar-cta">Get Started</button>
-          <button className="navbar-login">Login</button>
-        </div>
-      </nav>
+    <div className="home">
+ <section className="hero-section">
+  <div className="hero-content">
+    <h1 className="hero-title">
+      <span style={{ color: "#0A7273" }}>AuraCraft Design Studio</span>{" "}
+      <span style={{ color: "#4D4D4D" }}>
+        Transform your digital presence
+      </span>
+    </h1>
+    <p className="hero-subtitle">
+      Elevate your brand with exceptional designs and strategies.
+    </p>
+    <div className="cta-container">
+      <button className="primary-cta" aria-label="Get Started">
+        Get Started
+      </button>
+    </div>
+  </div>
 
-      {/* Main Content */}
-      <div className="main-content">
-        {/* Hero Section */}
-        <section className="hero-section">
-          <HeroSection />
-        </section>
+  <div className="hero-images">
+    <img
+      src={require("../../assets/center hero.png")}
+      alt="Center Hero"
+      className="hero-image-center"
+    />
+    <img
+      src={require("../../assets/right hero.png")}
+      alt="Right Hero"
+      className="hero-image-right"
+    />
+  </div>
+</section>
 
-        {/* Design Your Digital Presence Section (Service Cards) */}
-        <section className="service-cards-section">
-          <h2>Design Your Digital Presence</h2>
-          <ServiceCards />
-        </section>
 
-        {/* Our Peeps (Clients/Testimonial Section) */}
-        <section className="our-peeps-section">
-          <h2>Our Peeps</h2>
-          <OurPeeps />
-        </section>
+      {/* Service Cards Section */}
+      <section className="design-section">
+  <h2 className="section-title">Design Your Digital Presence</h2>
+  <div className="card-container">
+    <div className="card card-1">
+      <h3 className="card-title">UX Design</h3>
+      <Brush className="card-icon" />
+    </div>
+    <div className="card card-2">
+      <h3 className="card-title">UI Design</h3>
+      <LaptopMac className="card-icon" />
+    </div>
+    <div className="card card-3">
+      <h3 className="card-title">Front-End Development</h3>
+      <Code className="card-icon" />
+    </div>
+    <div className="card card-4">
+      <h3 className="card-title">E-Commerce Solutions</h3>
+      <ShoppingCart className="card-icon" />
+    </div>
+    <div className="card card-5">
+      <h3 className="card-title">Brand Identity Design</h3>
+      <Business className="card-icon" />
+    </div>
+    <div className="card card-6">
+      <h3 className="card-title">Digital Strategy</h3>
+      <ShowChart className="card-icon" />
+    </div>
+  </div>
+</section>
 
-        {/* Our Story Section */}
-        <section className="our-story-section">
-          <h2>Our Story</h2>
-          <OurStory />
-        </section>
+      {/* Our Peeps Section */}
+      <OurPeeps clientLogos={clientLogos} />
 
-        {/* What is UX/UI Design Section */}
-        <section className="what-is-ux-ui-section">
-          <h2>What is UX/UI Design?</h2>
-          <WhatIsUXUIDesign />
-        </section>
+      {/* Our Story Section */}
+      <OurStory image={ourStoryImage} />
 
-        {/* Meeting Google Standards Section */}
-        <section className="meeting-google-standards-section">
-          <h2>Meeting Google Standards</h2>
-          <MeetingGoogleStandards />
-        </section>
+      {/* What is UX/UI Design Section */}
+      <WhatIsUXUIDesign image={uxUIDifferencesImage} />
 
-        {/* What is Front-End Development Section */}
-        <section className="what-is-front-end-section">
-          <h2>What is Front-End Development?</h2>
-          <WhatIsFrontEndDevelopment />
-        </section>
+      {/* Meeting Google Standards Section */}
+      <MeetingGoogleStandards />
 
-        {/* Projects Section */}
-        <section className="projects-section">
-          <h2>Our Projects</h2>
-          <Projects />
-        </section>
+      {/* What is Front-End Development Section */}
+      <WhatIsFrontEndDevelopment />
 
-        {/* Connect Section */}
-        <section className="connect-section">
-          <ConnectSection />
-        </section>
-      </div>
+      {/* Projects Section */}
+      <Projects />
+
+      {/* Connect Section */}
+      <ConnectSection />
 
       {/* Footer Section */}
       <Footer />
     </div>
   );
-}
+};
 
 export default HomePage;
