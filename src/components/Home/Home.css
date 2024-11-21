@@ -546,119 +546,288 @@ footer {
 
 /* Our Story Section */
 .our-story-section {
-  position: relative; /* Ensures child elements are positioned relative to this container */
-  padding: 50px 20px;
-  background-color: #f9f9f9;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden; /* Prevents elements from overflowing outside */
+  padding: 40px 20px; /* Reduced padding */
+  background-color: #f9f9f9; /* Keeps the existing background color */
 }
 
 .about-us {
   position: relative;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  gap: 30px;
-  max-width: 1200px;
-  margin: 0 auto;
+  align-items: center;
+  gap: 20px; /* Reduced gap between image and text */
 }
 
 .overlap-2 {
-  position: relative; /* Container for the image and overlay */
-  width: 902px;
-  height: 669px; /* Matches image dimensions */
+  position: relative;
+  display: flex;
+  justify-content: flex-end; /* Keeps alignment to the right */
+  align-items: center;
+  gap: 10px; /* Reduced gap for modern layout */
 }
 
 .mock-up {
-  width: 100%; /* Full width of parent container */
-  height: 100%; /* Full height of parent container */
-  object-fit: cover; /* Ensures the image scales properly */
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  z-index: 1;
+  width: 902px; /* Set exact width */
+  height: 669px; /* Set exact height */
+  object-fit: cover; /* Ensures the image fits nicely */
 }
 
-/* Overlay Frame */
 .frame-2 {
   position: absolute;
-  width: 488px;
-  height: 523px;
+  top: 73px;
+  left: 726px;
   background-color: #033043;
   border-radius: 4px;
+  width: 488px;
+  height: 523px;
+  padding: 20px; /* Padding inside the frame */
   box-shadow: var(--shadow-1);
   overflow: hidden;
-  top: 73px; /* Adjusts vertical alignment */
-  left: 726.5px; /* Positioning relative to the image container */
-  padding: 20px;
-  z-index: 2;
-  color: #fff; /* Ensures text is visible */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers content vertically */
+  gap: 20px; /* Increased gap between frame content */
 }
 
-.frame-2 h2 {
+.text-wrapper-15 {
   font-size: 2rem;
   font-weight: bold;
-  color: #FDA521; /* Accent color for heading */
-  margin-bottom: 20px;
+  color: #FDA521; /* Primary color */
+  margin-bottom: 10px; /* Reduced margin for modern spacing */
 }
 
-.frame-2 p {
+.for-more-than {
   font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 20px;
+  color: #f8f9fa; /* Updated color for readability */
+  line-height: 1.5; /* Adjusted line height for better readability */
+  margin-bottom: 20px; /* Adjusted spacing below paragraph */
 }
 
-.frame-2 .button-instance {
-  margin-top: 20px;
-  display: inline-block;
+.button-instance {
+  margin-top: 0px; /* Removed extra spacing */
+  background-color: #FDA521; /* Updated button background color */
+  color: #033043; /* Updated button font color */
   padding: 10px 20px;
-  background-color: #FDA521;
-  color: #033043;
-  border-radius: 5px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
+  border: none;
+  border-radius: 4px; /* Added rounded corners for modern design */
+  font-size: 1rem;
   font-weight: bold;
-  transition: background-color 0.3s;
+  cursor: pointer;
+  text-transform: uppercase; /* Optional: make the text stand out */
 }
 
-.frame-2 .button-instance:hover {
-  background-color: #fff;
+.button-instance {
+  background-color: #FDA521 !important; /* Ensures your color is applied */
+}
+
+.button-instance:hover {
+  background-color: #0A7273;
   color: #033043;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 1024px) {
-  .overlap-2 {
-    width: 100%; /* Make container responsive */
-    height: auto; /* Maintain aspect ratio */
+
+@media (max-width: 768px) {
+  .about-us {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* Adjusted for responsiveness */
   }
 
   .mock-up {
-    width: 100%;
-    height: auto;
+    width: 100%; /* Responsive full-width image */
+    height: auto; /* Maintain aspect ratio */
   }
 
   .frame-2 {
-    width: 90%;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: auto;
-    position: static; /* Remove absolute positioning for smaller screens */
-    margin-top: 20px;
+    box-shadow: none;
+    padding: 15px;
   }
 }
 
+
+/* What is UX/UI Design Section Styles */
+.ux-ui-section .unlock-wrapper {
+  display: flex;
+  justify-content: center; /* Center align the wrapper */
+  align-items: flex-start;
+  overflow-x: hidden; /* Disable horizontal scrolling */
+  padding: 20px;
+}
+
+.ux-ui-section .unlock {
+  display: flex;
+  justify-content: flex-start; /* Align content and image horizontally */
+  align-items: center; /* Vertically center align items */
+  width: 100%; /* Responsive width */
+  max-width: 1440px;
+}
+
+.ux-ui-section .img-2 {
+  width: 500px; /* Adjusted width */
+  height: 500px; /* Adjusted height */
+  margin-right: 20px; /* Distance from the center to the right */
+  transform: translateX(-20px); /* Shift 20px away from the center */
+}
+
+.ux-ui-section .frame-3 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px; /* Space between text and button */
+  max-width: 635px;
+  transform: translateX(20px); /* Shift content 20px away from the center to the right */
+}
+
+.ux-ui-section .frame-4 {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.ux-ui-section .text-wrapper-16 {
+  color: #0a7273; /* Primary text color */
+  font-family: Nunito, Helvetica, sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 44px;
+}
+
+.ux-ui-section .text-wrapper-17 {
+  color: #6c757d; /* Neutral grey color */
+  font-family: "Nunito", sans-serif;
+  font-size: 16px; /* Default body font size */
+  line-height: 1.5; /* Spacing for readability */
+}
+
+
+/* What is UX/UI Design Section Button Styles */
+.ux-ui-section .button-3 {
+  background-color: #fda521; /* Main button color */
+  color: #033043; /* Button text color */
+  font-family: 'Nunito', Helvetica, sans-serif; /* Use consistent font */
+  font-size: 18px; /* Adjusted for readability */
+  font-weight: bold; /* Bold for emphasis */
+  text-transform: uppercase; /* Makes the button text more assertive */
+  border-radius: 6px; /* Rounded corners for a modern feel */
+  padding: 16px 32px; /* Increased height for readability */
+  cursor: pointer;
+  display: inline-block;
+  transition: background-color 0.3s, transform 0.3s ease-in-out; /* Subtle hover effects */
+  width: auto; /* Let the content dictate width */
+  min-width: 200px; /* Ensures the button is never too small */
+  text-align: center; /* Centers the text */
+  border: none; /* Removes default border */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Adds slight shadow for depth */
+}
+
+/* Hover effect for the button */
+.ux-ui-section .button-3:hover {
+  background-color: #0a7273; /* Darker shade on hover */
+  color: #ffffff; /* Changes text to white for contrast */
+  transform: translateY(-2px); /* Slight lift for interactivity */
+}
+
+/* Focused state (for accessibility) */
+.ux-ui-section .button-3:focus {
+  outline: 3px solid #fda521; /* Highlight focus for better accessibility */
+  outline-offset: 2px;
+}
+
+/* Small screen adjustments for the button */
 @media (max-width: 768px) {
-  .frame-2 h2 {
-    font-size: 1.8rem;
+  .ux-ui-section .button-3 {
+    font-size: 16px; /* Slightly smaller text on smaller screens */
+    padding: 14px 24px; /* Adjust padding for smaller screens */
+    min-width: 180px; /* Ensure the button stays large enough on mobile */
   }
+}
 
-  .frame-2 p {
-    font-size: 0.9rem;
-  }
 
-  .frame-2 .button-instance {
-    font-size: 0.9rem;
-    padding: 8px 16px;
-  }
+/* Meeting Google Standards Styles */
+.meeting-google-standards {
+  background-color: var(--wwwmakingsconzwhite);
+  border-bottom: 1px solid var(--wwwmakingsconzmercury);
+  padding: 130px 20px 40px;
+  text-align: center;
+}
+
+.meeting-google-standards .text-wrapper-16 {
+  font-family: Nunito, Helvetica;
+  font-size: 36px;
+  font-weight: 600;
+  color: #0a7273;
+}
+
+.meeting-google-standards .this-isn-t-rigged-it {
+  font-family: Nunito, Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--wwwmakingsconzblack);
+  margin: 20px auto;
+  width: 519px;
+}
+
+.meeting-google-standards .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.meeting-google-standards .background-border {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #0a7273;
+  border-radius: 10px;
+  background-color: var(--wwwmakingsconzwhite);
+  max-width: 770px;
+  width: 100%;
+  padding: 10px;
+  gap: 10px; /* Adds spacing between input and button */
+}
+
+.meeting-google-standards .url-input {
+  flex: 1; /* Allows the input to fill the space */
+  padding: 12px 16px;
+  border: 1px solid #0a7273;
+  border-radius: 5px;
+  font-family: Plus Jakarta Sans, Helvetica;
+  font-size: 16px;
+  color: #0a7273;
+  outline: none;
+}
+
+.meeting-google-standards .url-input::placeholder {
+  color: #8a8a8a;
+}
+
+.meeting-google-standards .url-input:focus {
+  border-color: #fda521;
+  box-shadow: 0 0 4px rgba(253, 165, 33, 0.5);
+}
+
+.meeting-google-standards .analyse-button {
+  background-color: #fda521;
+  color: var(--wwwmakingsconzwhite);
+  border: none;
+  border-radius: 5px;
+  padding: 12px 20px;
+  font-family: Nunito, Helvetica;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.meeting-google-standards .analyse-button:hover {
+  background-color: #e6901c;
 }

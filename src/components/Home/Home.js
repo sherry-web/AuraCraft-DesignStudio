@@ -16,7 +16,7 @@ import MeetingGoogleStandards from "./MeetingGoogleStandards";
 import WhatIsFrontEndDevelopment from "./WhatIsFrontEndDevelopment";
 import Projects from "../Projects/Projects";
 import ConnectSection from "./ConnectSection";
-import Button from "@mui/material/Button";
+import MyButton from "../Button";  // Import MyButton here
 import Footer from "../Footer";
 
 // Assets
@@ -26,7 +26,7 @@ import peepsLogo3 from "../../assets/peepslogo3.png";
 import centerHero from "../../assets/center hero.png";
 import rightHero from "../../assets/right hero.png";
 import ourStoryImage from "../../assets/ourstory.png";
-import uxUIDifferencesImage from "../../assets/UI-UX differences-amico.png";
+import uxImage from '../../assets/UI-UX differences-amico.png';
 
 // Styles
 import "./Home.css";
@@ -45,9 +45,7 @@ const HomePage = () => {
             Elevate your brand with exceptional designs and strategies.
           </p>
           <div className="cta-container">
-            <button className="primary-cta" aria-label="Get Started">
-              Get Started
-            </button>
+            <MyButton text="Get Started" onClick={() => alert('Started!')} />
           </div>
         </div>
         <div className="hero-images">
@@ -102,42 +100,81 @@ const HomePage = () => {
         </div>
       </section>
 
-     {/* Our Story Section */}
-     <section className="our-story-section">
-  <div className="about-us">
-    <div className="overlap-2">
-      <img src={ourStoryImage} alt="Our Story" className="mock-up" />
-      <div className="frame-2">
-        <h2 className="text-wrapper-15">About Us</h2>
-        <p className="for-more-than">
-          For more than 30 years, we have been delivering world-class construction and
-          building lasting relationships along the way. <br />
-          <br />
-          We’ve grown into an industry leader and a trusted resource for those seeking
-          quality, innovation, and reliability when building in the U.S.
-        </p>
-        <Button
-          className="button-instance"
-          size="medium"
-          variant="contained"
-          color="primary"
-        >
-          More on History
-        </Button>
-      </div>
-    </div>
-  </div>
-</section>
-
+      {/* Our Story Section */}
+      <section className="our-story-section">
+        <div className="about-us">
+          <div className="overlap-2">
+            <img src={ourStoryImage} alt="Our Story" className="mock-up" />
+            <div className="frame-2">
+              <h2 className="text-wrapper-15">About Us</h2>
+              <p className="for-more-than">
+                For more than 30 years, we have been delivering world-class construction and
+                building lasting relationships along the way. <br />
+                <br />
+                We’ve grown into an industry leader and a trusted resource for those seeking
+                quality, innovation, and reliability when building in the U.S.
+              </p>
+              <MyButton text="More on History" onClick={() => alert('History More Info')} />
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* What is UX/UI Design Section */}
       <section className="ux-ui-section">
-        <img src={uxUIDifferencesImage} alt="UX/UI Design" />
-        <WhatIsUXUIDesign />
+        <div className="unlock-wrapper">
+          <div className="unlock">
+            <img 
+              className="img-2" 
+              src={uxImage} 
+              alt="UI/UX Differences Illustration" 
+            />
+            <div className="frame-3">
+              <div className="frame-4">
+                <p className="text-wrapper-16">
+                  What is User&nbsp;Experience / User Interface Design?
+                </p>
+                <p className="text-wrapper-17">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet justo ipsum. 
+                  Sed accumsan quam vitae est varius fringilla. Pellentesque placerat vestibulum 
+                  lorem sed porta. Nullam mattis tristique iaculis. Nullam pulvinar sit amet risus 
+                  pretium auctor. Etiam quis massa pulvinar, aliquam quam vitae, tempus sem. 
+                  Donec elementum pulvinar odio.
+                </p>
+              </div>
+              <MyButton text="Learn More" onClick={() => alert('Learn More about UX/UI')} />
+            </div>
+          </div>
+        </div>
       </section>
 
-      {/* Meeting Google Standards Section */}
-      <MeetingGoogleStandards />
+    {/* Meeting Google Standards Section */}
+<div className="meeting-google-standards">
+  <div className="background">
+    <h2 className="heading-margin text-wrapper-16">
+      Meeting Google’s Standards
+    </h2>
+    <p className="this-isn-t-rigged-it">
+      This isn’t rigged—It&#39;s a clear-cut check to boost your visitor
+      <br />
+      experience. Enter your URL and discover what Google thinks!
+    </p>
+    <div className="container">
+      <div className="form">
+        <div className="background-border">
+          <input 
+            type="url" 
+            className="url-input" 
+            placeholder="Enter your website URL" 
+            aria-label="Website URL" 
+            required 
+          />
+          <button className="analyse-button">Analyse</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
       {/* What is Front-End Development Section */}
       <WhatIsFrontEndDevelopment />
