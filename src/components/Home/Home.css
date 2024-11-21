@@ -397,9 +397,29 @@ footer {
 
 .section-title {
   font-size: 2rem;
-  color: #033043;
+  color: #033043; /* Primary dark color */
   margin-bottom: 30px;
   font-weight: bold;
+}
+
+/* Special styling for the word "Design" */
+.section-title span.highlight {
+  font-family: 'AuraCraftFont', sans-serif; /* Custom font for "AuraCraft Design Studio" */
+  font-size: 2.5rem; /* Slightly larger to make it stand out */
+  color: #FDA521; /* Accent color */
+  font-weight: bold; /* Make it bold for emphasis */
+}
+
+.digital-presence {
+  color: #4D4D4D; /* Matches the font color of "Transform your digital presence" */
+}
+
+/* Styling for "Transform your digital presence" */
+.section-subtitle {
+  font-size: 1.25rem;
+  color: #0A7273; /* Matching brand color */
+  margin-top: 10px;
+  font-style: italic; /* Optional for a softer feel */
 }
 
 /* Card container with flexbox for responsive layout */
@@ -477,5 +497,168 @@ footer {
   }
   .section-title {
     font-size: 1.5rem; /* Smaller title on small screens */
+  }
+}
+
+/* Our Peeps Section */
+.ourPeeps-section {
+  padding: 50px 20px;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #4D4D4D;
+  margin-bottom: 10px;
+}
+
+.section-title .highlight {
+  color: #0A7273; /* Highlight color */
+}
+
+.section-description {
+  font-size: 1.2rem;
+  color: #6D6D6D;
+  margin-bottom: 30px;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: space-around; /* Distribute logos evenly */
+  align-items: center;
+  gap: 20px; /* Space between logos */
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+.peeps-logo {
+  max-width: 150px; /* Adjust size as needed */
+  height: auto;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.peeps-logo:hover {
+  transform: scale(1.1); /* Slight hover effect */
+}
+
+
+/* Our Story Section */
+.our-story-section {
+  position: relative; /* Ensures child elements are positioned relative to this container */
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Prevents elements from overflowing outside */
+}
+
+.about-us {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.overlap-2 {
+  position: relative; /* Container for the image and overlay */
+  width: 902px;
+  height: 669px; /* Matches image dimensions */
+}
+
+.mock-up {
+  width: 100%; /* Full width of parent container */
+  height: 100%; /* Full height of parent container */
+  object-fit: cover; /* Ensures the image scales properly */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+/* Overlay Frame */
+.frame-2 {
+  position: absolute;
+  width: 488px;
+  height: 523px;
+  background-color: #033043;
+  border-radius: 4px;
+  box-shadow: var(--shadow-1);
+  overflow: hidden;
+  top: 73px; /* Adjusts vertical alignment */
+  left: 726.5px; /* Positioning relative to the image container */
+  padding: 20px;
+  z-index: 2;
+  color: #fff; /* Ensures text is visible */
+}
+
+.frame-2 h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #FDA521; /* Accent color for heading */
+  margin-bottom: 20px;
+}
+
+.frame-2 p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.frame-2 .button-instance {
+  margin-top: 20px;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #FDA521;
+  color: #033043;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.frame-2 .button-instance:hover {
+  background-color: #fff;
+  color: #033043;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .overlap-2 {
+    width: 100%; /* Make container responsive */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  .mock-up {
+    width: 100%;
+    height: auto;
+  }
+
+  .frame-2 {
+    width: 90%;
+    height: auto;
+    position: static; /* Remove absolute positioning for smaller screens */
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .frame-2 h2 {
+    font-size: 1.8rem;
+  }
+
+  .frame-2 p {
+    font-size: 0.9rem;
+  }
+
+  .frame-2 .button-instance {
+    font-size: 0.9rem;
+    padding: 8px 16px;
   }
 }
