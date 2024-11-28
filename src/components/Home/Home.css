@@ -1075,9 +1075,141 @@ footer {
   }
 }
 
-/* Highlight text styling */
-.highlight {
-  color: #0a7273; /* Desired text color */
-  font-weight: bold; /* Optional: Add bold emphasis */
-  transition: color 0.3s ease; /* Smooth transition for UX enhancements */
+/* Connect Section Styles */
+.connect-section {
+  /* Optional: Background or layout styles for the entire section */
+  background-color:#0a7273; /* Light background for contrast */
+  padding: 2rem 1rem; /* Add spacing around the section */
+  text-align: center; /* Center-align text */
+}
+
+.connect-section .section-title {
+  font-size: 2rem; /* Larger font size for the title */
+  color: #033043; /* Default text color */
+  margin-bottom: 1rem; /* Spacing below the title */
+}
+
+.connect-section .highlight:hover {
+  color: #FDA521; /* Add hover effect for interactivity */
+}
+
+/* Optional: Style the ConnectForm component if needed */
+.connect-section form {
+  margin-top: 1.5rem;
+}
+
+/* Footer Section */
+.landing-page .company-info {
+  flex-direction: column;
+  flex: none;
+  align-items: flex-start;
+  gap: 40px;
+  display: inline-flex;
+  position: relative;
+}
+
+.landing-page .logo-2 {
+  object-fit: cover;
+  width: 44px;
+  height: 44.8px;
+  position: relative;
+}
+
+.landing-page .copyright {
+  flex-direction: column;
+  flex: none;
+  align-items: center;
+  gap: 8px;
+  display: inline-flex;
+  position: relative;
+}
+
+.landing-page .text-wrapper-31,
+.landing-page .text-wrapper-32 {
+  color: var(--neutralsilver);
+  font-family: var(--body-regular-body-3-font-family);
+  font-size: var(--body-regular-body-3-font-size);
+  font-style: var(--body-regular-body-3-font-style);
+  font-weight: var(--body-regular-body-3-font-weight);
+  letter-spacing: var(--body-regular-body-3-letter-spacing);
+  line-height: var(--body-regular-body-3-line-height);
+  width: 350px;
+  position: relative;
+}
+
+.landing-page .social-links {
+  flex: none;
+  align-items: flex-start;
+  gap: 16px;
+  display: inline-flex;
+  position: relative;
+}
+
+.landing-page .social-icons {
+  width: 32px !important;
+  height: 32px !important;
+  position: relative !important;
+}
+
+.landing-page .links {
+  flex: none;
+  align-items: flex-start;
+  gap: 30px;
+  display: inline-flex;
+  position: relative;
+}
+
+.landing-page .footer {
+  background-color: #0000;
+  flex-direction: column;
+  flex: none;
+  align-items: flex-start;
+  display: inline-flex;
+  position: relative;
+}
+
+.landing-page .footer-big {
+  background-color: var(--accent-color-1);
+  flex: none;
+  align-items: flex-start;
+  gap: 125px;
+  padding: 64px 165px;
+  display: inline-flex;
+  position: relative;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.hero-section, .design-section, .ourPeeps-section, .projects-section, .connect-section {
+  padding: 20px;
+  width: 100%;
+}
+
+.footer {
+  position: relative;
+  margin-top: auto;
+  padding: 10px;
+  background-color: #0A7273;
+  color: white;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer img {
+  width: 20px;
+  height: 20px;
 }

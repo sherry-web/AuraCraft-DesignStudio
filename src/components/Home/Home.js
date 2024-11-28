@@ -29,6 +29,12 @@ import project1 from "../../assets/projec1.png";
 import project2 from "../../assets/projec2.png";
 import project3 from "../../assets/projec3.png";
 import project4 from "../../assets/projec4.png";
+import FooterLogo from "../../assets/FooterLogo.svg";
+import SocialIconsBe from "../../assets/SocialIconsBe.png"; 
+import SocialIconsIG from "../../assets/SocialIconsIG.png"; 
+import SocialIconsX from "../../assets/SocialIconsX.png";   
+import SendIcon from "../../assets/send.png";            
+
 
 // Styles
 import "./Home.css";
@@ -162,7 +168,7 @@ const HomePage = () => {
         </div>
       </section>
 
-     {/* Connect Section */}
+  {/* Connect Section */}
 <section className="connect-section">
   <h2 className="section-title">
     <span className="highlight">Connect</span> With Us
@@ -170,8 +176,100 @@ const HomePage = () => {
   <ConnectForm />
 </section>
 
-      {/* Footer Section */}
-      <Footer />
+        {/* Footer Section */}
+        <footer className="footer">
+        <div className="footer-big">
+          {/* Company Info Section */}
+          <div className="company-info">
+            <img className="logo-2" alt="Logo" src={FooterLogo} />
+            <div className="copyright">
+              <p className="text-wrapper-31">
+                Copyright © 2024 Aura-Craft Design Studio.
+              </p>
+              <div className="text-wrapper-32">All rights reserved</div>
+            </div>
+            <div className="social-links">
+              <img
+                className="social-icons"
+                alt="Social Be"
+                src={SocialIconsBe}
+              />
+              <img
+                className="social-icons"
+                alt="Social IG"
+                src={SocialIconsIG}
+              />
+              <img
+                className="social-icons"
+                alt="Social X"
+                src={SocialIconsX}
+              />
+            </div>
+          </div>
+
+          {/* Links Section */}
+          <div className="links">
+            {/* Company Links */}
+            <div className="col">
+              <div className="text-wrapper-33">Company</div>
+              <div className="list-items">
+                <a href="/about-us" className="text-wrapper-34">
+                  About us
+                </a>
+                <a href="/blog" className="text-wrapper-35">
+                  Blog
+                </a>
+                <a href="/contact-us" className="text-wrapper-35">
+                  Contact us
+                </a>
+                <a href="/pricing" className="text-wrapper-35">
+                  Pricing
+                </a>
+                <a href="/testimonials" className="text-wrapper-35">
+                  Testimonials
+                </a>
+              </div>
+            </div>
+
+            {/* Support Links */}
+            <div className="col">
+              <div className="text-wrapper-33">Support</div>
+              <div className="list-items">
+                <a href="/help-center" className="text-wrapper-34">
+                  Help center
+                </a>
+                <a href="/terms-of-service" className="text-wrapper-35">
+                  Terms of service
+                </a>
+                <a href="/legal" className="text-wrapper-35">
+                  Legal
+                </a>
+                <a href="/privacy-policy" className="text-wrapper-35">
+                  Privacy policy
+                </a>
+              </div>
+            </div>
+
+            {/* Subscribe Section */}
+            <div className="col-2">
+              <div className="text-wrapper-33">Stay up to date</div>
+              <div className="email-input-field">
+                <div className="overlap-group-3">
+                  <input
+                    type="email"
+                    className="input-field"
+                    placeholder="Your email address"
+                  />
+                  <button className="essential-icons-send">
+                    <img src={SendIcon} alt="Send" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
     </div>
   );
 };
