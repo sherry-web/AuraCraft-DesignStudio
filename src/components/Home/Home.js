@@ -10,16 +10,17 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 // Components
-import OurStory from "./OurStory";
+
 import WhatIsUXUIDesign from "./WhatIsUXUIDesign";
 import MeetingGoogleStandards from "./MeetingGoogleStandards";
-import WhatIsFrontEndDevelopment from "./WhatIsFrontEndDevelopment";
+import WhatIsFrontEndDevelopment from "./WhatIsFrontEndDevelopment"; 
 import Projects from "../Projects/Projects";
 import ConnectForm from "../ConnectForm";
 import MyButton from "../Button";
 import Footer from "../Footer";
-
+""
 // Assets
+import ourStory from '../../assets/ourstory.png';
 import peepsLogo1 from "../../assets/peepslogo.png";
 import peepsLogo2 from "../../assets/peepslogo2.png";
 import peepsLogo3 from "../../assets/peepslogo3.png";
@@ -33,8 +34,9 @@ import FooterLogo from "../../assets/FooterLogo.svg";
 import SocialIconsBe from "../../assets/SocialIconsBe.png"; 
 import SocialIconsIG from "../../assets/SocialIconsIG.png"; 
 import SocialIconsX from "../../assets/SocialIconsX.png";   
-import SendIcon from "../../assets/send.png";            
-
+import SendIcon from "../../assets/send.png";         
+import uxImage from '../../assets/UI-UX-differences-amico.png';
+import HandCodingBro from '../../assets/HandCodingBro.png';
 
 // Styles
 import "./Home.css";
@@ -121,6 +123,78 @@ const HomePage = () => {
         </div>
       </section>
 
+       {/* Our Story Section */}
+      <section className="our-story-section">
+        <div className="about-us">
+          <div className="overlap-2">
+            <img src={ourStory} alt="Our Story" className="mock-up" />
+            <div className="frame-2">
+              <h2 className="text-wrapper-15">About Us</h2>
+              <p className="for-more-than">
+                For more than 30 years, we have been delivering world-class construction and building lasting relationships. <br />
+                We’ve grown into an industry leader, trusted for quality and innovation.
+              </p>
+              <MyButton text="More on History" onClick={() => alert('History More Info')} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What is UX/UI Design Section */}
+      <section className="ux-ui-section">
+        <div className="unlock-wrapper">
+          <div className="unlock">
+            <img className="img-2" src={uxImage} alt="UI/UX Differences Illustration" />
+            <div className="frame-3">
+              <div className="frame-4">
+                <p className="text-wrapper-16">What is UX/UI Design?</p>
+                <p className="text-wrapper-17">
+                  UX/UI Design helps create user-friendly and visually appealing digital experiences, making apps and websites easier to navigate.
+                </p>
+              </div>
+              <MyButton text="Learn More" onClick={() => alert('Learn More about UX/UI')} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Meeting Google Standards Section */}
+      <section className="meeting-google-standards">
+        <h2 className="heading-margin text-wrapper-16">Meeting Google’s Standards</h2>
+        <p className="this-isn-t-rigged-it">
+          Enter your URL to see how well your website meets Google's standards.
+        </p>
+        <div className="container">
+          <div className="form">
+            <div className="background-border">
+              <input type="url" className="url-input" placeholder="Enter your website URL" required />
+              <button className="analyse-button">
+                <img src={SendIcon} alt="Send icon" />
+                Analyze
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+     {/* What is Front-End Development Section */}
+<section className="frontend-section">
+  <div className="unlock-wrapper">
+    <div className="unlock">
+      <img className="img-2" src={HandCodingBro} alt="Hand coding illustration" />
+      <div className="frame-3">
+        <div className="frame-4">
+          <p className="text-wrapper-16">What is Front-End Development?</p>
+          <p className="text-wrapper-17">
+            Front-end development refers to the client-side development of websites and applications. It focuses on building the interface users interact with.
+          </p>
+        </div>
+        <MyButton text="Read More" onClick={() => alert('Read More about Front-End')} />
+      </div>
+    </div>
+  </div>
+</section>
+        
       {/* Projects Section */}
       <section className="projects-section">
         <div className="projects-menu-wrapper">

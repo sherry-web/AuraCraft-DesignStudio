@@ -116,8 +116,3 @@
   text-align: center;
 }
 
-/* Ensure this rule is included */
-.highlight {
-  color: #0a7273; /* Change the color to the desired hex code */
-  font-weight: bold; /* Optional: make the text bold if needed */
-}

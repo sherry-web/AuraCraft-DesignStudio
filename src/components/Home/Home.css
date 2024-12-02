@@ -832,7 +832,7 @@ footer {
   background-color: #e6901c;
 }
 
-/* Front-End Development Section */
+/* What is Front-End Development Section */
 .frontend-section .unlock-wrapper {
   display: flex;
   justify-content: center; /* Center align the wrapper */
@@ -891,7 +891,7 @@ footer {
 .frontend-section .button-3 {
   background-color: #fda521; /* Main button color */
   color: #033043; /* Button text color */
-  font-family: 'Nunito', Helvetica, sans-serif; /* Use consistent font */
+  font-family: 'Nunito', Helvetica, sans-serif; /* Consistent font */
   font-size: 18px; /* Adjusted for readability */
   font-weight: bold; /* Bold for emphasis */
   text-transform: uppercase; /* Makes the button text more assertive */
@@ -910,7 +910,7 @@ footer {
 /* Hover effect for the button */
 .frontend-section .button-3:hover {
   background-color: #0a7273; /* Darker shade on hover */
-  color:#f8f9fa; /* Changes text to white for contrast */
+  color: #f8f9fa; /* Changes text to white for contrast */
   transform: translateY(-2px); /* Slight lift for interactivity */
 }
 
