@@ -13,6 +13,13 @@ section {
   /* Ensure sections flow seamlessly */
 }
 
+
+
+.design-section, .projects-section, .connect-section {
+  padding: 30px 20px;
+  margin-bottom: 20px; /* Add small spacing between sections */
+}
+
 /* Reset box-shadow and border-radius */
 section, .section {
   box-shadow: none; /* Removes all shadow effects */

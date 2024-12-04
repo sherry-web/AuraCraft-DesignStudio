@@ -1,0 +1,75 @@
+
+/* Title styling */
+.meeting-google-standards h2 {
+    color: #033043; /* Primary color */
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+/* Form styling */
+.meeting-google-standards form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+/* Input field styling */
+.meeting-google-standards input[type="text"] {
+    border: 1px solid #0A7273; /* Secondary color */
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.meeting-google-standards input[type="text"]:focus {
+    border-color: #FDA521; /* Accent color */
+}
+
+/* Button styling */
+.meeting-google-standards button {
+    background-color: #FDA521; /* Accent color */
+    color: #E9E3D5; /* Light text for contrast */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.meeting-google-standards button:hover {
+    background-color: #033043; /* Primary color */
+    color: #E9E3D5; /* Light text for hover */
+}
+
+/* Error message styling */
+.meeting-google-standards .error {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Results section styling */
+.meeting-google-standards .results {
+    background-color: #0A7273; /* Secondary color */
+    color: #E9E3D5; /* Light text */
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-align: left;
+}
+
+/* Suggestions list */
+.meeting-google-standards .results ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.meeting-google-standards .results li {
+    margin-bottom: 5px;
+}
+    
