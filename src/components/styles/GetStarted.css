@@ -1,0 +1,18 @@
+.get-started {
+    padding: 2rem;
+    text-align: center;
+    background-color: #f8f9fa;
+  }
+  .get-started h1 {
+    color: #033043;
+  }
+  .get-started button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #FDA521;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+      

@@ -13,5 +13,19 @@ const AboutUs = () => {
     </section>
   );
 };
+const [showMore, setShowMore] = useState(false);
+
+return (
+  <div>
+    <p>
+      {showMore 
+        ? "Detailed history of AuraCraft..."
+        : "A brief introduction..."}
+    </p>
+    <button onClick={() => setShowMore(!showMore)}>
+      {showMore ? "Show Less" : "More on History"}
+    </button>
+  </div>
+);
 
 export default AboutUs;
