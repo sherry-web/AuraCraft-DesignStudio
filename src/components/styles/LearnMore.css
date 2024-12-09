@@ -1,0 +1,17 @@
+.learn-more {
+    padding: 2rem;
+    background-color: #E9E3D5;
+  }
+  .learn-more h2 {
+    color: #0A7273;
+  }
+  .learn-more button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #033043;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  

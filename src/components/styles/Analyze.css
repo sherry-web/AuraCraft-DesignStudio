@@ -1,0 +1,25 @@
+.analyze {
+    padding: 2rem;
+    text-align: center;
+    background-color: #FDA521;
+  }
+  .analyze h2 {
+    color: #033043;
+  }
+  .analyze input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 1rem;
+    border: 1px solid #0A7273;
+    border-radius: 5px;
+  }
+  .analyze button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #033043;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  

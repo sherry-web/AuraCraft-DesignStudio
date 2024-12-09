@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import '../styles/Login.css';
 
 const Login = ({ onLogin }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const history = useHistory();
+  const navigate = useNavigate(); // Replace useHistory with useNavigate
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Here you would typically send a request to your backend to verify the credentials
+    // Simulated authentication
     if (username === 'user' && password === 'password') {
-      onLogin();  // Update login status in parent or context
-      history.push('/dashboard');  // Redirect to dashboard
+      onLogin(); // Update login status in parent or context
+      navigate('/dashboard'); // Navigate to the dashboard
     } else {
       alert('Invalid login credentials!');
     }
@@ -21,6 +21,10 @@ const Login = ({ onLogin }) => {
 
   return (
     <div className="login-container">
+      <div>
+        <h1>Login Page</h1>
+        <p>Welcome back! Please log in to your account.</p>
+      </div>
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <div>

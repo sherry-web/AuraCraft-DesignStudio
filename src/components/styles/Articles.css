@@ -1,0 +1,16 @@
+.articles {
+    padding: 2rem;
+    background-color: #E9E3D5;
+    text-align: center;
+  }
+  .articles h2 {
+    color: #033043;
+  }
+  .articles ul {
+    list-style: none;
+    padding: 0;
+  }
+  .articles li {
+    margin: 1rem 0;
+  }
+      

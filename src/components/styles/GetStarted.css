@@ -1,18 +1,23 @@
-.get-started {
-    padding: 2rem;
-    text-align: center;
-    background-color: #f8f9fa;
-  }
-  .get-started h1 {
-    color: #033043;
-  }
-  .get-started button {
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    background-color: #FDA521;
-    border: none;
-    color: white;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-      
+.get-started-button {
+  display: inline-block;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #fda521;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.get-started-button:hover {
+  background-color: #e38e1e;
+  transform: translateY(-2px);
+}
+
+.get-started-button:focus {
+  outline: 2px solid #033043;
+}
