@@ -37,6 +37,7 @@ import SocialIconsX from "../../assets/SocialIconsX.png";
 import SendIcon from "../../assets/send.png";         
 import uxImage from '../../assets/UI-UX-differences-amico.png';
 import HandCodingBro from '../../assets/HandCodingBro.png';
+import GoalsImage from '../../assets/goals.svg';
 
 // Styles
 import "./Home.css";
@@ -74,19 +75,25 @@ const HomePage = () => {
   };
 
   return (
-    <div className="home">
-      {/* Hero Section */}
-      <section className="hero-section">
+    const Home = () => {
+      const [heroContent, setHeroContent] = useState({
+        title: "AuraCraft Design Studio",
+        subtitle: "Transform Your Digital Presence",
+      });
+    
+      return (
+        <div>
+          {/* Hero Section */}
+          <section className="hero-section">
         <div className="hero-content">
           <h1 className="hero-title">
-            <span style={{ color: "#0A7273" }}>AuraCraft Design Studio</span>
-            <span style={{ color: "#4D4D4D" }}>Transform Your Digital Presence</span>
+            <span style={{ color: "#0A7273" }}>{heroContent.title}</span>
           </h1>
           <p className="hero-subtitle">
-            Elevate your brand with exceptional designs and strategies.
+            {heroContent.subtitle}
           </p>
           <div className="cta-container">
-            <MyButton text="Get Started" onClick={() => alert("Started!")} />
+            <button onClick={() => alert("Started!")}>Get Started</button>
           </div>
         </div>
         <div className="hero-images">
@@ -94,6 +101,16 @@ const HomePage = () => {
           <img src={rightHero} alt="Right Hero" className="hero-image-right" />
         </div>
       </section>
+
+      {/* Intro Journey */}
+      <IntroJourney setHeroContent={(responses) => {
+        setHeroContent({
+          title: `Welcome, ${responses[0] || "User"}`,
+          subtitle: `Your goal: "${responses[1]}" — Let's make it happen!`,
+        });
+      }} />
+    </div>
+    
 
       {/* Design Section */}
       <section className="design-section">

@@ -4,81 +4,87 @@ import './styles/IntroJourney.css';
 // Import images
 import WelcomeImage from '../assets/welcome.svg';
 import ServicesImage from '../assets/services.svg';
-import StartImage from '../assets/start.svg';
+import GoalsImage from '../../assets/goals.svg'; 
 
-// Steps for the journey
-const steps = [
+const prompts = [
   {
     id: 1,
-    title: 'Welcome to AuraCraft',
-    content: 'Dive into our journey of creativity and craftsmanship.',
-    image: WelcomeImage,
+    question: "What brings you to AuraCraft today?",
+    options: [
+      "I need a website designed",
+      "I’m looking for design inspiration",
+      "I want to learn about UX/UI design",
+    ],
   },
   {
     id: 2,
-    title: 'Our Services',
-    content: 'Discover how we transform ideas into reality through design and development.',
-    image: ServicesImage,
+    question: "What’s your primary goal?",
+    options: [
+      "Build my online presence",
+      "Improve an existing design",
+      "Collaborate on a creative project",
+    ],
   },
   {
     id: 3,
-    title: 'Start Your Journey',
-    content: 'Let’s work together to bring your vision to life.',
-    image: StartImage,
+    question: "How soon do you want to get started?",
+    options: ["Immediately", "In the next month", "Just exploring for now"],
   },
 ];
 
-const IntroJourney = () => {
-  const [currentStep, setCurrentStep] = useState(0);
+const IntroJourney = ({ setHeroContent }) => {
+  const [currentPrompt, setCurrentPrompt] = useState(0);
+  const [userResponses, setUserResponses] = useState([]);
 
-  const handleNext = () => {
-    if (currentStep < steps.length - 1) {
-      setCurrentStep(currentStep + 1);
+  const handleResponse = (response) => {
+    const newResponses = [...userResponses, response];
+    setUserResponses(newResponses);
+
+    if (currentPrompt < prompts.length - 1) {
+      setCurrentPrompt(currentPrompt + 1);
+    } else {
+      // All prompts answered
+      setHeroContent(newResponses); // Pass responses to dynamically update hero
     }
-  };
-
-  const handleSkip = () => {
-    setCurrentStep(steps.length - 1);
   };
 
   return (
     <div className="intro-journey-wrapper">
-      <div className="main-content">
-        <div className="intro-container">
-          <div className="intro-card">
-            <div className="image-wrapper">
-              <img
-                src={steps[currentStep].image}
-                alt={steps[currentStep].title}
-                className="step-image"
-              />
-            </div>
-            <h3 className="step-title">{steps[currentStep].title}</h3>
-            <p className="step-content">{steps[currentStep].content}</p>
-
-            <div className="button-group">
-              {currentStep < steps.length - 1 && (
-                <button className="next-button" onClick={handleNext}>
-                  Next
-                </button>
-              )}
-
-              {currentStep === steps.length - 1 && (
-                <button
-                  className="start-button"
-                  onClick={() => (window.location.href = '/home')}
-                >
-                  Start Your Journey
-                </button>
-              )}
-
-              <button className="skip-button" onClick={handleSkip}>
-                Skip
+      {currentPrompt < prompts.length ? (
+        <div className="prompt-container">
+          <h3 className="prompt-question">{prompts[currentPrompt].question}</h3>
+          <div className="options-wrapper">
+            {prompts[currentPrompt].options.map((option, index) => (
+              <button
+                key={index}
+                className="option-button"
+                onClick={() => handleResponse(option)}
+              >
+                {option}
               </button>
-            </div>
+            ))}
           </div>
         </div>
-      </div>
+      ) : (
+        <div className="final-message">
+          <h3>Thank you for your responses!</h3>
+          <p>Your journey with AuraCraft starts here. You can log in or create an account to get started.</p>
+          <div className="button-group">
+            <button
+              className="login-button"
+              onClick={() => (window.location.href = '/login')}
+            >
+              Log In
+            </button>
+            <button
+              className="create-account-button"
+              onClick={() => (window.location.href = '/signup')}
+            >
+              Create Account
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
