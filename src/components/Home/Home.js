@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext, createContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faDesktop,
@@ -10,41 +10,43 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 // Components
-
 import WhatIsUXUIDesign from "./WhatIsUXUIDesign";
 import MeetingGoogleStandards from "./MeetingGoogleStandards";
-import WhatIsFrontEndDevelopment from "./WhatIsFrontEndDevelopment"; 
+import WhatIsFrontEndDevelopment from "./WhatIsFrontEndDevelopment";
 import Projects from "../Projects/Projects";
 import ConnectForm from "../ConnectForm";
 import MyButton from "../Button";
 import Footer from "../Footer";
-""
+
+
 // Assets
-import ourStory from '../../assets/ourstory.png';
+import ourStory from "../../assets/ourstory.png";
 import peepsLogo1 from "../../assets/peepslogo.png";
 import peepsLogo2 from "../../assets/peepslogo2.png";
 import peepsLogo3 from "../../assets/peepslogo3.png";
-import centerHero from "../../assets/center-hero.png";
-import rightHero from "../../assets/right-hero.png";
 import project1 from "../../assets/projec1.png";
 import project2 from "../../assets/projec2.png";
 import project3 from "../../assets/projec3.png";
 import project4 from "../../assets/projec4.png";
-import FooterLogo from "../../assets/FooterLogo.svg";
-import SocialIconsBe from "../../assets/SocialIconsBe.png"; 
-import SocialIconsIG from "../../assets/SocialIconsIG.png"; 
-import SocialIconsX from "../../assets/SocialIconsX.png";   
-import SendIcon from "../../assets/send.png";         
-import uxImage from '../../assets/UI-UX-differences-amico.png';
-import HandCodingBro from '../../assets/HandCodingBro.png';
-import GoalsImage from '../../assets/goals.svg';
+import uxImage from "../../assets/UI-UX-differences-amico.png";
+import prompt01 from "../../assets/prompt01.svg";
+import prompt02 from "../../assets/prompt02.svg";
+import prompt03 from "../../assets/prompt03.svg";
 
 // Styles
 import "./Home.css";
 
+// Context for managing hero content
+const HeroContext = createContext();
+
 const HomePage = () => {
   const [activeMenu, setActiveMenu] = useState("All Projects");
   const [activeDot, setActiveDot] = useState(0);
+  const [heroContent, setHeroContent] = useState({
+    title: "Welcome to AuraCraft",
+    subtitle: "Design your digital presence with us.",
+    image: prompt01, // Initial hero image
+  });
 
   const designServices = [
     { title: "UX Design", icon: faDesktop },
@@ -62,10 +64,6 @@ const HomePage = () => {
     { img: project4, title: "Project 4", description: "Short description of project 4." },
   ];
 
-  const handleMenuClick = (menu) => {
-    setActiveMenu(menu);
-  };
-
   const handlePrevClick = () => {
     setActiveDot((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
   };
@@ -74,91 +72,84 @@ const HomePage = () => {
     setActiveDot((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
   };
 
+  const handleJourneySelection = (imageSource, title, subtitle) => {
+    setHeroContent({
+      title,
+      subtitle,
+      image: imageSource,
+    });
+  };
+
   return (
-    const Home = () => {
-      const [heroContent, setHeroContent] = useState({
-        title: "AuraCraft Design Studio",
-        subtitle: "Transform Your Digital Presence",
-      });
-    
-      return (
-        <div>
-          {/* Hero Section */}
-          <section className="hero-section">
-        <div className="hero-content">
-          <h1 className="hero-title">
-            <span style={{ color: "#0A7273" }}>{heroContent.title}</span>
-          </h1>
-          <p className="hero-subtitle">
-            {heroContent.subtitle}
-          </p>
-          <div className="cta-container">
+    <HeroContext.Provider value={{ heroContent, setHeroContent }}>
+      <div>
+        {/* Hero Section */}
+        <section className="hero-section">
+          <div className="hero-content">
+            <h1 className="hero-title">
+              <span style={{ color: "#0A7273" }}>{heroContent.title}</span>
+            </h1>
+            <p className="hero-subtitle">{heroContent.subtitle}</p>
             <button onClick={() => alert("Started!")}>Get Started</button>
           </div>
-        </div>
-        <div className="hero-images">
-          <img src={centerHero} alt="Center Hero" className="hero-image-center" />
-          <img src={rightHero} alt="Right Hero" className="hero-image-right" />
-        </div>
-      </section>
+          <img src={heroContent.image} alt="Hero" className="hero-image" />
+        </section>
 
-      {/* Intro Journey */}
-      <IntroJourney setHeroContent={(responses) => {
-        setHeroContent({
-          title: `Welcome, ${responses[0] || "User"}`,
-          subtitle: `Your goal: "${responses[1]}" — Let's make it happen!`,
-        });
-      }} />
-    </div>
-    
+        {/* Intro Journey Section */}
+        <section className="intro-journey-section">
+          <h2>Your Journey Starts Here</h2>
+          <div>
+            <button onClick={() => handleJourneySelection(prompt01, "Start Your Project", "Let's begin your project journey.")}>Start</button>
+            <button onClick={() => handleJourneySelection(prompt02, "Learn More", "Explore our services and get more details.")}>Learn More</button>
+            <button onClick={() => handleJourneySelection(prompt03, "Innovate with Us", "Let’s bring your ideas to life!")}>Innovate</button>
+          </div>
+        </section>
 
-      {/* Design Section */}
-      <section className="design-section">
-        <h2 className="section-title">
-          <span className="highlight">Design</span> Your Digital Presence
-        </h2>
-        <div className="card-container">
-          {designServices.map(({ title, icon }, index) => (
-            <div key={index} className="card">
-              <h3 className="card-title">{title}</h3>
-              <FontAwesomeIcon icon={icon} className="card-icon" />
-            </div>
-          ))}
-        </div>
-      </section>
+        {/* Design Section */}
+        <section className="design-section">
+          <h2 className="section-title">
+            <span className="highlight">Design</span> Your Digital Presence
+          </h2>
+          <div className="card-container">
+            {designServices.map(({ title, icon }, index) => (
+              <div key={index} className="card">
+                <h3 className="card-title">{title}</h3>
+                <FontAwesomeIcon icon={icon} className="card-icon" />
+              </div>
+            ))}
+          </div>
+        </section>
 
-      {/* Our Peeps Section */}
-      <section className="ourPeeps-section">
-        <h2 className="section-title">
-          Our <span className="highlight">Peeps</span>
-        </h2>
-        <p className="section-description">We have worked with some amazing peeps.</p>
-        <div className="logo-container">
-          {[peepsLogo1, peepsLogo2, peepsLogo3].map((logo, index) => (
-            <img key={index} src={logo} alt={`Client Logo ${index + 1}`} className="peeps-logo" />
-          ))}
-        </div>
-      </section>
+        {/* Our Peeps Section */}
+        <section className="ourPeeps-section">
+          <h2 className="section-title">
+            Our <span className="highlight">Peeps</span>
+          </h2>
+          <p className="section-description">We have worked with some amazing peeps.</p>
+          <div className="logo-container">
+            {[peepsLogo1, peepsLogo2, peepsLogo3].map((logo, index) => (
+              <img key={index} src={logo} alt={`Client Logo ${index + 1}`} className="peeps-logo" />
+            ))}
+          </div>
+        </section>
 
-       {/* Our Story Section */}
-      <section className="our-story-section">
-        <div className="about-us">
-          <div className="overlap-2">
+        {/* Our Story Section */}
+        <section className="our-story-section">
+          <div className="about-us">
             <img src={ourStory} alt="Our Story" className="mock-up" />
             <div className="frame-2">
               <h2 className="text-wrapper-15">About Us</h2>
               <p className="for-more-than">
-                For more than 30 years, we have been delivering world-class construction and building lasting relationships. <br />
+                For more than 30 years, we have been delivering world-class construction and building lasting relationships.
                 We’ve grown into an industry leader, trusted for quality and innovation.
               </p>
-              <MyButton text="More on History" onClick={() => alert('History More Info')} />
+              <MyButton text="More on History" onClick={() => alert("History More Info")} />
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* What is UX/UI Design Section */}
-      <section className="ux-ui-section">
+        {/* UX/UI Section */}
+        <section className="ux-ui-section">
         <div className="unlock-wrapper">
           <div className="unlock">
             <img className="img-2" src={uxImage} alt="UI/UX Differences Illustration" />
@@ -194,7 +185,7 @@ const HomePage = () => {
         </div>
       </section>
 
-     {/* What is Front-End Development Section */}
+      {/* What is Front-End Development Section */}
 <section className="frontend-section">
   <div className="unlock-wrapper">
     <div className="unlock">
@@ -211,7 +202,7 @@ const HomePage = () => {
     </div>
   </div>
 </section>
-        
+
       {/* Projects Section */}
       <section className="projects-section">
         <div className="projects-menu-wrapper">
@@ -267,8 +258,8 @@ const HomePage = () => {
   <ConnectForm />
 </section>
 
-   {/* Footer Section */}
-<footer className="footer">
+        {/* Footer */}
+        <footer className="footer">
   <div className="footer-big">
     {/* Company Info Section */}
     <div className="footer-column">
@@ -333,8 +324,8 @@ const HomePage = () => {
     </div>
   </div>
 </footer>
-
-    </div>
+      </div>
+    </HeroContext.Provider>
   );
 };
 

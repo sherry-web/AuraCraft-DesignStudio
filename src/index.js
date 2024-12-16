@@ -1,14 +1,17 @@
 import React from 'react';
-import { createRoot } from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+import ReactDOM from 'react-dom/client'; // Use ReactDOM from 'react-dom/client'
+import { BrowserRouter as Router } from 'react-router-dom'; // Wrap your app here
 import App from './App';
-import './components/styles/global.css'; // Global styles for the app
+import './index.css'; // Assuming you have a global CSS file
 
-const root = createRoot(document.getElementById('root'));
 
-// Render the App component inside React.StrictMode for development mode (helps identify potential issues)
+
+// Create the root using ReactDOM.createRoot
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <App />
+    </Router>
   </React.StrictMode>
 );

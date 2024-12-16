@@ -1,5 +1,5 @@
 import React, { useState, Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom'; // Import only Routes and Route
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import IntroJourney from './components/IntroJourney';
@@ -23,7 +23,7 @@ const App = () => {
   const logout = () => setIsAuthenticated(false);
 
   return (
-    <Router>
+    <div className="App">
       <NavBar />
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
@@ -49,7 +49,7 @@ const App = () => {
         </Routes>
       </Suspense>
       <Footer />
-    </Router>
+    </div>
   );
 };
 

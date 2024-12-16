@@ -4,7 +4,7 @@ import './styles/IntroJourney.css';
 // Import images
 import WelcomeImage from '../assets/welcome.svg';
 import ServicesImage from '../assets/services.svg';
-import GoalsImage from '../../assets/goals.svg'; 
+import GoalsIcon from '../assets/goals.svg'; 
 
 const prompts = [
   {

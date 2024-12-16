@@ -143,6 +143,17 @@ section {
   background: none; 
 }
 
+.hero-section {
+  text-align: center;
+  margin: 20px;
+}
+
+.hero-form input {
+  margin: 10px;
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
 .hero-content {
   text-align: left;
   color: #4D4D4D; /* Default text color */

@@ -1,16 +1,16 @@
 import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
-import lighthouse from "lighthouse";
 import puppeteer from "puppeteer";
+import lighthouse from "lighthouse";
 
 const app = express();
-const PORT = 5000; // Port declaration
+const PORT = 5000;
 
 app.use(cors());
 app.use(bodyParser.json());
 
-// Endpoint to perform Lighthouse audits
+// Lighthouse Audit Endpoint
 app.post("/api/audit", async (req, res) => {
   const { url } = req.body;
 
@@ -26,7 +26,6 @@ app.post("/api/audit", async (req, res) => {
     });
     await browser.close();
 
-    // Extract meaningful results
     const results = {
       performance: lhr.categories.performance.score * 100,
       accessibility: lhr.categories.accessibility.score * 100,
@@ -42,7 +41,7 @@ app.post("/api/audit", async (req, res) => {
   }
 });
 
-// Endpoint for evaluating website UX/UI
+// Website Evaluation Endpoint
 app.post("/api/evaluate-website", (req, res) => {
   const { websiteURL } = req.body;
 
@@ -50,7 +49,6 @@ app.post("/api/evaluate-website", (req, res) => {
     return res.status(400).json({ error: "Website URL is required." });
   }
 
-  // Simulated evaluation logic (replace with real API calls or algorithms)
   const suggestions = [
     "Improve mobile responsiveness",
     "Enhance color contrast for accessibility",
@@ -59,7 +57,19 @@ app.post("/api/evaluate-website", (req, res) => {
   res.json({ status: "success", suggestions });
 });
 
-// Single app.listen call to start the server
+// Save Hero Content Endpoint
+app.post("/api/save-hero-content", (req, res) => {
+  const { title, subtitle } = req.body;
+
+  if (!title || !subtitle) {
+    return res.status(400).json({ error: "Both title and subtitle are required." });
+  }
+
+  console.log("Received content to save:", { title, subtitle });
+  res.json({ message: "Hero content saved successfully!", data: { title, subtitle } });
+});
+
+// Start Server
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
