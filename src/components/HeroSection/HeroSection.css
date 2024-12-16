@@ -8,7 +8,6 @@
   z-index: 1; /* Keeps text above any background image */
 }
 
-/* Remove any background-related styles for the ::before pseudo-element */
 .hero-container::before {
   content: ''; 
   position: absolute;
@@ -20,7 +19,6 @@
   background: none; /* Make sure there's no background */
 }
 
-/* The content of the hero section */
 .hero-content {
   text-align: left;
   color: #4D4D4D;
@@ -28,7 +26,6 @@
   z-index: 1;
 }
 
-/* Heading styles */
 .hero-title {
   font-size: 3.5rem;
   font-weight: bold;
@@ -44,7 +41,6 @@
   color: #0A7273;
 }
 
-/* Subtitle styles */
 .hero-subtitle {
   font-size: 1.2rem;
   margin-bottom: 2rem;

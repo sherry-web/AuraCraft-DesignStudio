@@ -4,6 +4,8 @@ import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import IntroJourney from './components/IntroJourney';
 import PrivateRoute from './routes/PrivateRoute';
+import { HeroProvider } from './components/context/HeroContext'; // Import HeroProvider
+import HeroSection from './components/HeroSection/HeroSection'; // Import HeroSection
 import './App.css';
 
 // Lazy-loaded components
@@ -25,29 +27,33 @@ const App = () => {
   return (
     <div className="App">
       <NavBar />
-      <Suspense fallback={<div>Loading...</div>}>
-        <Routes>
-          {/* Intro Journey */}
-          <Route path="/" element={<IntroJourney />} />
+      {/* Wrap the main content with HeroProvider to make the HeroSection accessible */}
+      <HeroProvider>
+        <HeroSection /> {/* Display HeroSection here */}
+        <Suspense fallback={<div>Loading...</div>}>
+          <Routes>
+            {/* Intro Journey */}
+            <Route path="/" element={<IntroJourney />} />
 
-          {/* Other Routes */}
-          <Route path="/home" element={<Home />} />
-          <Route path="/login" element={<Login onLogin={login} />} />
-          <Route
-            path="/dashboard"
-            element={
-              <PrivateRoute isAuthenticated={isAuthenticated}>
-                <Dashboard onLogout={logout} />
-              </PrivateRoute>
-            }
-          />
-          <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/works" element={<Works />} />
-          <Route path="/contact" element={<ContactForm />} />
-          <Route path="/get-started" element={<GetStarted />} />
-        </Routes>
-      </Suspense>
+            {/* Other Routes */}
+            <Route path="/home" element={<Home />} />
+            <Route path="/login" element={<Login onLogin={login} />} />
+            <Route
+              path="/dashboard"
+              element={
+                <PrivateRoute isAuthenticated={isAuthenticated}>
+                  <Dashboard onLogout={logout} />
+                </PrivateRoute>
+              }
+            />
+            <Route path="/about-us" element={<AboutUs />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/works" element={<Works />} />
+            <Route path="/contact" element={<ContactForm />} />
+            <Route path="/get-started" element={<GetStarted />} />
+          </Routes>
+        </Suspense>
+      </HeroProvider>
       <Footer />
     </div>
   );
