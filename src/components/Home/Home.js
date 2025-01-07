@@ -13,11 +13,10 @@ import {
 import WhatIsUXUIDesign from "./WhatIsUXUIDesign";
 import MeetingGoogleStandards from "./MeetingGoogleStandards";
 import WhatIsFrontEndDevelopment from "./WhatIsFrontEndDevelopment";
-import Projects from "../Projects/Projects";
-import ConnectForm from "../ConnectForm";
-import MyButton from "../Button";
-import Footer from "../Footer";
-
+import Projects from "../Projects/Projects"; // Check path correctness
+import ConnectForm from "../pages/ContactForm"; // Updated path
+import MyButton from "../ServiceCards/ServiceCards"; // Updated path
+import Footer from "../Footer"; // Check path correctness
 
 // Assets
 import ourStory from "../../assets/ourstory.png";
@@ -32,6 +31,12 @@ import uxImage from "../../assets/UI-UX-differences-amico.png";
 import prompt01 from "../../assets/prompt01.svg";
 import prompt02 from "../../assets/prompt02.svg";
 import prompt03 from "../../assets/prompt03.svg";
+import FooterLogo from "../../assets/FooterLogo.svg";
+import SocialIconsBe from "../../assets/SocialIconsBe.png";
+import SocialIconsIG from "../../assets/SocialIconsIG.png";
+import SocialIconsX from "../../assets/SocialIconsX.png";
+import SendIcon from "../../assets/send.png";
+import HandCodingBro from "../../assets/HandCodingBro.png";
 
 // Styles
 import "./Home.css";
@@ -45,7 +50,7 @@ const HomePage = () => {
   const [heroContent, setHeroContent] = useState({
     title: "Welcome to AuraCraft",
     subtitle: "Design your digital presence with us.",
-    image: prompt01, // Initial hero image
+    image: prompt01,
   });
 
   const designServices = [
@@ -90,7 +95,7 @@ const HomePage = () => {
               <span style={{ color: "#0A7273" }}>{heroContent.title}</span>
             </h1>
             <p className="hero-subtitle">{heroContent.subtitle}</p>
-            <button onClick={() => alert("Started!")}>Get Started</button>
+            <MyButton text="Get Started" onClick={() => alert("Started!")} />
           </div>
           <img src={heroContent.image} alt="Hero" className="hero-image" />
         </section>
@@ -99,9 +104,27 @@ const HomePage = () => {
         <section className="intro-journey-section">
           <h2>Your Journey Starts Here</h2>
           <div>
-            <button onClick={() => handleJourneySelection(prompt01, "Start Your Project", "Let's begin your project journey.")}>Start</button>
-            <button onClick={() => handleJourneySelection(prompt02, "Learn More", "Explore our services and get more details.")}>Learn More</button>
-            <button onClick={() => handleJourneySelection(prompt03, "Innovate with Us", "Let’s bring your ideas to life!")}>Innovate</button>
+            <button
+              onClick={() =>
+                handleJourneySelection(prompt01, "Start Your Project", "Let's begin your project journey.")
+              }
+            >
+              Start
+            </button>
+            <button
+              onClick={() =>
+                handleJourneySelection(prompt02, "Learn More", "Explore our services and get more details.")
+              }
+            >
+              Learn More
+            </button>
+            <button
+              onClick={() =>
+                handleJourneySelection(prompt03, "Innovate with Us", "Let’s bring your ideas to life!")
+              }
+            >
+              Innovate
+            </button>
           </div>
         </section>
 

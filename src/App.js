@@ -1,11 +1,9 @@
 import React, { useState, Suspense, lazy } from 'react';
-import { Routes, Route } from 'react-router-dom'; // Import only Routes and Route
+import { Routes, Route } from 'react-router-dom'; // No need for BrowserRouter here
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
-import IntroJourney from './components/IntroJourney';
+import { HeroProvider } from './components/context/HeroContext';
 import PrivateRoute from './routes/PrivateRoute';
-import { HeroProvider } from './components/context/HeroContext'; // Import HeroProvider
-import HeroSection from './components/HeroSection/HeroSection'; // Import HeroSection
 import './App.css';
 
 // Lazy-loaded components
@@ -17,26 +15,30 @@ const Services = lazy(() => import('./components/Services'));
 const Works = lazy(() => import('./components/Works'));
 const ContactForm = lazy(() => import('./components/pages/ContactForm'));
 const GetStarted = lazy(() => import('./components/pages/GetStarted'));
+const IntroJourney = lazy(() => import('./components/IntroJourney'));
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  const login = () => setIsAuthenticated(true);
-  const logout = () => setIsAuthenticated(false);
+  const login = () => {
+    setIsAuthenticated(true);
+    localStorage.setItem('auth', 'true');
+  };
+
+  const logout = () => {
+    setIsAuthenticated(false);
+    localStorage.setItem('auth', 'false');
+  };
 
   return (
     <div className="App">
       <NavBar />
-      {/* Wrap the main content with HeroProvider to make the HeroSection accessible */}
       <HeroProvider>
-        <HeroSection /> {/* Display HeroSection here */}
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>
-            {/* Intro Journey */}
-            <Route path="/" element={<IntroJourney />} />
-
-            {/* Other Routes */}
+            <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
+            <Route path="/intro-journey" element={<IntroJourney />} />
             <Route path="/login" element={<Login onLogin={login} />} />
             <Route
               path="/dashboard"

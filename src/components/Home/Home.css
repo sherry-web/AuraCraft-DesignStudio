@@ -1,127 +1,18 @@
-/* General reset and layout adjustments */
-body {
+/* Base styles */
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Arial', sans-serif; /* Use a web-safe font */
+  font-family: 'Helvetica Neue', sans-serif;
 }
 
-section {
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  /* Ensure sections flow seamlessly */
-}
-
-
-
-.design-section, .projects-section, .connect-section {
-  padding: 30px 20px;
-  margin-bottom: 20px; /* Add small spacing between sections */
-}
-
-/* Reset box-shadow and border-radius */
-section, .section {
-  box-shadow: none; /* Removes all shadow effects */
-  border-radius: 0; /* Removes rounded corners */
-}
-
-/* Ensure sections have a consistent background and look unified */
-section, .section {
-  background-color: #ffffff; /* Change to your preferred background color */
-  margin: 0; /* Ensure there is no margin between sections */
-  padding: 20px; /* Add padding for spacing */
-  border: none; /* Removes any border */
-}
-
-/* Ensure no visual separation between sections */
-section + section, .section + .section {
-  border-top: none; /* Remove top border */
-  margin-top: 0; /* Remove top margin */
-}
-
-/* Adjust for responsive design */
-@media (max-width: 768px) {
-  section, .section {
-    padding: 15px; /* Adjust padding for smaller screens */
-  }
-}
-
-/* Hero Section */
-.hero {
-  height: 10vh; /* Adjusted hero height for less dominance */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #033043; /* Hero background */
-  color: #ffffff;
-  text-align: center;
-  padding: 20px;
-}
-
-/* Content Sections */
-.content-section {
-  padding: 40px 20px; /* Standard padding for sections */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #f0f4f8; /* Light background */
-  color: #033043;
-  box-shadow: none; /* Ensure no shadow between sections */
-  border: none; /* No borders to maintain flow */
-}
-
-/* Remove any hover or focus shadows if applied */
-.content-section:hover,
-.content-section:focus {
-  box-shadow: none; /* No additional shadow on hover */
-}
-
-/* Adjust text styling */
-.content-section h2,
-.content-section p {
-  margin: 10px 0;
-}
-
-/* Remove the divider between sections */
-.content-section + .content-section {
-  border-top: none; /* No divider line */
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .hero {
-    height: 50vh; /* Adjust hero height for smaller screens */
-  }
-  .content-section {
-    padding: 20px 10px; /* Reduce padding for smaller screens */
-  }
-}
-/* Adjust text styling for content */
-.content-section h2, .content-section p {
-  margin: 10px 0;
-}
-
-/* Reduce the visual separation between sections */
-.content-section + .content-section {
-  border-top: 1px solid #e0e0e0; /* Optional subtle divider */
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .hero {
-    height: 50vh; /* Adjust hero height for smaller screens */
-  }
-  .content-section {
-    padding: 20px 10px; /* Reduce padding on smaller screens */
-  }
-}
 /* Home container */
 .home {
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #f8f9fa; /* Light background */
+  padding: 20px;
   min-height: 100vh; /* Ensures it fills at least the full viewport height */
   justify-content: space-between; /* Distributes sections and pushes footer to the bottom */
 }
@@ -141,17 +32,6 @@ section {
   height: 100vh;
   padding: 0 20px;
   background: none; 
-}
-
-.hero-section {
-  text-align: center;
-  margin: 20px;
-}
-
-.hero-form input {
-  margin: 10px;
-  padding: 8px;
-  border: 1px solid #ddd;
 }
 
 .hero-content {
