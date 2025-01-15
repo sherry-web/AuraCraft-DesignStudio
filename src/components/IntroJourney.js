@@ -1,31 +1,32 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './styles/IntroJourney.css';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./styles/IntroJourney.css";
 
-// Import images
-import WelcomeImage from '../assets/welcome.svg';
-import ServicesImage from '../assets/services.svg';
-import StartImage from '../assets/start.svg';
+import WelcomeImage from "../assets/welcome.svg";
+import ServicesImage from "../assets/services.svg";
+import StartImage from "../assets/start.svg";
 
-// Steps for the journey
 const steps = [
   {
     id: 1,
-    title: 'Welcome to AuraCraft',
-    content: 'Dive into our journey of creativity and craftsmanship.',
+    title: "Welcome to AuraCraft",
+    content: "Dive into our journey of creativity and craftsmanship.",
     image: WelcomeImage,
+    journey: "design",
   },
   {
     id: 2,
-    title: 'Our Services',
-    content: 'Discover how we transform ideas into reality through design and development.',
+    title: "Our Services",
+    content: "Discover how we transform ideas into reality through design and development.",
     image: ServicesImage,
+    journey: "development",
   },
   {
     id: 3,
-    title: 'Start Your Journey',
-    content: 'Let’s work together to bring your vision to life.',
+    title: "Start Your Journey",
+    content: "Let’s work together to bring your vision to life.",
     image: StartImage,
+    journey: "marketing",
   },
 ];
 
@@ -39,18 +40,10 @@ const IntroJourney = () => {
     }
   };
 
-  const handleSkip = () => {
-    setCurrentStep(steps.length - 1);
-  };
-
   const handleStartJourney = () => {
-    const selectedJourney = steps[currentStep].title.toLowerCase().includes('services')
-      ? 'development'
-      : steps[currentStep].title.toLowerCase().includes('start')
-      ? 'marketing'
-      : 'design';
-    localStorage.setItem('selectedJourney', selectedJourney);
-    navigate('/home');
+    const selectedJourney = steps[currentStep].journey;
+    localStorage.setItem("selectedJourney", selectedJourney);
+    navigate("/home"); // Navigate to Home
   };
 
   return (
@@ -74,19 +67,11 @@ const IntroJourney = () => {
                   Next
                 </button>
               )}
-
               {currentStep === steps.length - 1 && (
-                <button
-                  className="start-button"
-                  onClick={handleStartJourney}
-                >
+                <button className="start-button" onClick={handleStartJourney}>
                   Start Your Journey
                 </button>
               )}
-
-              <button className="skip-button" onClick={handleSkip}>
-                Skip
-              </button>
             </div>
           </div>
         </div>
