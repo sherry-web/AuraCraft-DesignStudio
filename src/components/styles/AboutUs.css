@@ -1,59 +1,112 @@
-.about-container {
-  padding: 60px 20px;
-  background-color: #E9E3D5;
-  text-align: center;
+.about-page {
+  font-family: 'Helvetica Neue', sans-serif;
 }
 
+/* Hero Section */
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 20px;
+  background-color: #f8f9fa;
+}
 
-.about-container h2 {
-  font-size: 2.5rem;
+.hero-content {
+  max-width: 50%;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
   color: #033043;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
   margin-bottom: 20px;
 }
 
-.about-container p {
-  font-size: 1.2rem;
-  color: #666;
-  margin-bottom: 30px;
+.hero-image img {
+  max-width: 100%;
+  height: auto;
 }
 
-.read-more-button {
-  background-color: #FDA521;
-  color: #033043;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.read-more-button:hover {
-  background-color: #033043;
-  color: #fff;
-}
-.about-us-content {
-  font-size: 1.125rem;
-  line-height: 1.6;
-  margin-top: 20px;
-  color: #333;
-}
-
-.about-us-title {
-  font-size: 2rem;
-  color: #033043; /* Dark color from the palette */
-  font-weight: bold;
+/* Who We Are Section */
+.who-we-are-section {
+  padding: 40px 20px;
+  background-color: #ffffff;
   text-align: center;
 }
 
-/* Responsive adjustments for About Us */
-@media (max-width: 768px) {
-  .about-us-container {
-    padding: 20px;
-    margin-bottom: 40px;
-  }
+.who-we-are-section h2 {
+  font-size: 2.5rem;
+  color: #033043;
+}
 
-  .about-us-title {
-    font-size: 1.5rem;
-  }
+.who-we-are-section p {
+  font-size: 1.2rem;
+  margin-top: 20px;
+}
+
+/* Our Values Section */
+.our-values-section {
+  padding: 40px 20px;
+  background-color: #f8f9fa;
+  text-align: center;
+}
+
+.our-values-section h2 {
+  font-size: 2.5rem;
+  color: #033043;
+}
+
+.our-values-section p {
+  font-size: 1.2rem;
+  margin-top: 20px;
+}
+
+/* Our Journey Section */
+.our-journey-section {
+  padding: 40px 20px;
+  background-color: #ffffff;
+}
+
+.our-journey-section h2 {
+  font-size: 2.5rem;
+  color: #033043;
+  text-align: center;
+}
+
+.journey-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.journey-content p {
+  max-width: 50%;
+  font-size: 1.2rem;
+}
+
+.journey-image img {
+  max-width: 50%;
+  height: auto;
+}
+
+/* Let's Create Something Section */
+.create-something-section {
+  padding: 40px 20px;
+  background-color: #f8f9fa;
+  text-align: center;
+}
+
+.create-something-section h2 {
+  font-size: 2.5rem;
+  color: #033043;
+}
+
+.create-something-section p {
+  font-size: 1.2rem;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from '@mui/material';
+import PropTypes from 'prop-types';
 
 const NextButton = ({ onClick }) => {
   return (
@@ -19,6 +20,10 @@ const NextButton = ({ onClick }) => {
       Next
     </Button>
   );
+};
+
+NextButton.propTypes = {
+  onClick: PropTypes.func.isRequired,
 };
 
 export default NextButton;

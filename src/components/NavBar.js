@@ -1,10 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import './styles/NavBar.css';
 import GetStartedButton from './GetStartedButton';
 import logo from '../assets/logo.png'; // Adjust this path relative to NavBar.js
 
 const NavBar = () => {
+  const location = useLocation();
+
   return (
     <nav className="navbar">
       <div className="logo">
@@ -13,7 +15,7 @@ const NavBar = () => {
         </Link>
       </div>
       <ul className="navbar-links">
-      {["/", "/about", "/services", "/projects", "/contact"].map((path) => (
+        {["/", "/about", "/services", "/projects", "/contact"].map((path) => (
           <li key={path}>
             <Link
               to={path}
@@ -23,8 +25,8 @@ const NavBar = () => {
             </Link>
           </li>
         ))}
-    </ul>
-    <div className="navbar-buttons">
+      </ul>
+      <div className="navbar-buttons">
         <button className="navbar-login">Login</button>
       </div>
     </nav>

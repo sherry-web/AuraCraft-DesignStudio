@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from '@mui/material';
+import PropTypes from 'prop-types';
 
 const BackButton = ({ onClick }) => {
   return (
@@ -20,6 +21,10 @@ const BackButton = ({ onClick }) => {
       Back
     </Button>
   );
+};
+
+BackButton.propTypes = {
+  onClick: PropTypes.func.isRequired,
 };
 
 export default BackButton;

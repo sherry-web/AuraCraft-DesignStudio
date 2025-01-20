@@ -1,4 +1,4 @@
-import React, { useState, Suspense, lazy } from "react";
+import React, { useState, Suspense } from "react";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import { HeroProvider } from "./components/context/HeroContext";
