@@ -1,17 +1,16 @@
-
 /* Importing Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&family=Poppins:wght@300;400;600&display=swap');
 
 /* Global Font Styles */
 :root {
-  --font-primary: 'Poppins', sans-serif; /* For titles, headings, and buttons */
-  --font-secondary: 'Nunito', sans-serif; /* For body text and paragraphs */
+  --font-primary: 'Nunito', sans-serif; /* For titles, headings, and buttons */
+  --font-secondary: 'Poppins', sans-serif; /* For body text and paragraphs */
 
   /* Color Palette */
   --color-primary: #033043; /* Primary Dark Blue */
   --color-secondary: #FDA521; /* Vibrant Yellow */
   --color-accent: #0A7273; /* Teal Green */
-  --color-light: #E9E3D5; /* Light Beige */
+  --color-light: #ffffff; /* Changed to white for consistency */
   --color-white: #ffffff;
   --color-black: #000000;
 
@@ -43,7 +42,7 @@
 body {
   font-family: var(--font-secondary);
   color: var(--color-primary);
-  background-color: var(--color-light);
+  background-color: var(--color-light); /* Changed to var(--color-light) which is now white */
   font-size: var(--font-size-base);
   margin: 0;
   padding: 0;

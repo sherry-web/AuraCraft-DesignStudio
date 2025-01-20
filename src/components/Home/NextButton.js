@@ -12,6 +12,7 @@ const NextButton = ({ onClick }) => {
         padding: '6px 16px',
         borderRadius: '24px',
         fontWeight: 600,
+        fontFamily: 'var(--font-primary)',
         '&:hover': {
           backgroundColor: 'primary.dark',
         },

@@ -1,63 +1,90 @@
 import React from 'react';
-import MyButton from './Button';
-import heroImage from '../assets/hero.png'; // Adjust the path as needed
-import journeyImage from '../assets/ourstory.png'; // Adjust the path as needed
+import { Container, Typography, Box, Button } from '@mui/material';
+import aboutHeroImage from '../assets/abouthero.svg'; // Updated import
+import journeyImage from '../assets/ourstory.png';
 import './styles/AboutUs.css';
 
 const AboutUs = () => {
   return (
-    <div className="about-page">
+    <Container className="about-page">
       {/* Hero Section */}
-      <section className="hero-section">
-        <div className="hero-content">
-          <h1>About Us</h1>
-          <p>Learn more about our journey and what drives us.</p>
-          <MyButton text="About Sherry" onClick={() => alert('About Sherry')} />
-        </div>
-        <div className="hero-image">
-          <img src={heroImage} alt="Hero" />
-        </div>
-      </section>
+      <Box className="hero-section">
+        <Box className="hero-content">
+          <Typography variant="h1" className="hero-title">Our Story</Typography>
+          <Typography variant="h2" className="hero-subtitle">MEET THE FOUNDER</Typography>
+          <Box className="foreword-container">
+            <Typography variant="body1" className="foreword-title">A Foreword from Sherry</Typography>
+            <Typography variant="body1" className="foreword-text">“We know the challenges of bringing digital dreams to life - we built AuraCraft to be your trusted partner in design and development.”</Typography>
+          </Box>
+          <Typography variant="body1" className="hero-description">Hello! We’re AuraCraft Design Studio, a place where creativity meets technology. We’re passionate about helping individuals and businesses carve out their unique space in the digital world.</Typography>
+          <Box className="cta-container">
+            <Button variant="contained" color="primary" onClick={() => alert('About Sherry')}>About Sherry</Button>
+          </Box>
+        </Box>
+        <Box className="hero-image">
+          <img src={aboutHeroImage} alt="Hero" /> {/* Updated image */}
+        </Box>
+      </Box>
 
       {/* Who We Are Section */}
-      <section className="who-we-are-section">
-        <h2>Who We Are</h2>
-        <p>
-          AuraCraft Design Studio is dedicated to creating exceptional digital experiences. Our team specializes in 
-          UX/UI design and front-end development, helping businesses craft user-friendly, visually stunning platforms.
-        </p>
-      </section>
+      <Box className="who-we-are-section">
+        <Typography variant="h2" className="section-title">Who We Are</Typography>
+        <Typography variant="h3" className="section-subtitle">Your Vision, Our Mission</Typography>
+        <Typography variant="body1" className="section-description">We’re driven by the belief that everyone deserves a stunning, user-friendly digital presence. Whether you’re a startup or an established business, we’re here to help you make a lasting impression online.</Typography>
+      </Box>
+
+      {/* What We Offer Section */}
+      <Box className="what-we-offer-section">
+        <Typography variant="h2" className="section-title">What We Offer</Typography>
+        <Typography variant="h3" className="section-subtitle">Innovation at Its Best</Typography>
+        <Typography variant="body1" className="section-description">We specialize in:</Typography>
+        <ul className="offer-list">
+          <li className="offer-item">UX/UI Design: Crafting intuitive and engaging user experiences.</li>
+          <li className="offer-item">Front-End Development: Building responsive and dynamic websites.</li>
+        </ul>
+      </Box>
 
       {/* Our Values Section */}
-      <section className="our-values-section">
-        <h2>Our Values</h2>
-        <p>
-          We believe in innovation, creativity, and delivering high-quality solutions that exceed our clients' expectations.
-        </p>
-      </section>
+      <Box className="our-values-section">
+        <Typography variant="h2" className="section-title">Our Values</Typography>
+        <Box className="values-container">
+          <Box className="value-item">
+            <Typography variant="h3" className="value-title">Creativity</Typography>
+            <Typography variant="body1" className="value-description">Pushing the boundaries of design to create unique solutions.</Typography>
+          </Box>
+          <Box className="value-item">
+            <Typography variant="h3" className="value-title">Quality</Typography>
+            <Typography variant="body1" className="value-description">Ensuring excellence in every project.</Typography>
+          </Box>
+          <Box className="value-item">
+            <Typography variant="h3" className="value-title">Community</Typography>
+            <Typography variant="body1" className="value-description">Building strong relationships and supporting your growth.</Typography>
+          </Box>
+        </Box>
+      </Box>
 
       {/* Our Journey Section */}
-      <section className="our-journey-section">
-        <h2>Our Journey</h2>
-        <div className="journey-content">
-          <p>
-            AuraCraft has a long history of delivering cutting-edge solutions for businesses of all sizes. From startups to established enterprises, our mission is to create designs that captivate and perform.
-          </p>
-          <div className="journey-image">
+      <Box className="our-journey-section">
+        <Typography variant="h2" className="section-title">Our Journey</Typography>
+        <Typography variant="h3" className="section-subtitle">A Path of Passion and Innovation</Typography>
+        <Box className="journey-content">
+          <Typography variant="body1" className="journey-description">2020: AuraCraft was born from a desire to innovate.</Typography>
+          <Typography variant="body1" className="journey-description">2021: Expanded to offer comprehensive development services.</Typography>
+          <Box className="journey-image">
             <img src={journeyImage} alt="Our Journey" />
-          </div>
-        </div>
-      </section>
+          </Box>
+        </Box>
+      </Box>
 
       {/* Let's Create Something Section */}
-      <section className="create-something-section">
-        <h2>Let's Create Something</h2>
-        <p>
-          Ready to start your project with us? Get in touch and let's create something amazing together.
-        </p>
-        <MyButton text="Get Started" onClick={() => alert('Get Started')} />
-      </section>
-    </div>
+      <Box className="create-something-section">
+        <Typography variant="h2" className="section-title">Let’s Create Something Amazing</Typography>
+        <Typography variant="body1" className="section-description">Ready to start your project with us? Get in touch and let's create something amazing together.</Typography>
+        <Box className="cta-container">
+          <Button variant="contained" color="primary" onClick={() => alert('Get Started')}>Get Started</Button>
+        </Box>
+      </Box>
+    </Container>
   );
 };
 

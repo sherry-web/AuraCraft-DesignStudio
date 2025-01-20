@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './styles/NavBar.css';
 import GetStartedButton from './GetStartedButton';
-import logo from '../assets/logo.png'; // Adjust this path relative to NavBar.js
+import logo from '../assets/logo.png'; 
 
 const NavBar = () => {
   const location = useLocation();

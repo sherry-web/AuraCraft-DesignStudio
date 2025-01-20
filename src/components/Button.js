@@ -11,11 +11,11 @@ const MyButton = ({ text, onClick = () => {}, variant = 'contained', sx = {} }) 
         padding: '12px 24px',
         borderRadius: '4px',
         fontWeight: '600',
-        fontFamily: 'Poppins, sans-serif',
+        fontFamily: 'var(--font-primary)',
         textTransform: 'none', // Avoid uppercase if not needed
-        backgroundColor: variant === 'contained' ? '#FDA521' : 'transparent', // Default button color
+        backgroundColor: variant === 'contained' ? 'var(--color-secondary)' : 'transparent', // Default button color
         '&:hover': {
-          backgroundColor: variant === 'contained' ? '#0A7273' : 'rgba(0, 0, 0, 0.08)', // Teal Green on hover
+          backgroundColor: variant === 'contained' ? 'var(--color-accent)' : 'rgba(0, 0, 0, 0.08)', // Teal Green on hover
         },
         ...sx, // Allow additional styles via props
       }}

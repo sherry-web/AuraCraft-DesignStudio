@@ -1,6 +1,6 @@
 /* Global Typography */
 body {
-  font-family: var(--font-secondary); /* Default to Nunito for body text */
+  font-family: var(--font-secondary); /* Default to Poppins for body text */
   font-size: var(--font-size-base);
   line-height: 1.5;
   color: var(--color-black);
@@ -8,7 +8,7 @@ body {
 
 /* Headings and Titles */
 h1, h2, h3 {
-  font-family: var(--font-primary); /* Poppins for headings */
+  font-family: var(--font-primary); /* Nunito for headings */
   color: var(--color-primary);
 }
 
@@ -26,7 +26,7 @@ h3 {
 
 /* Body Text */
 p {
-  font-family: var(--font-secondary); /* Nunito for body text */
+  font-family: var(--font-secondary); /* Poppins for body text */
   font-size: var(--font-size-body);
   color: var(--color-black);
 }
@@ -34,8 +34,6 @@ p {
 small {
   font-size: var(--font-size-small);
 }
-
-
 
 /* Global Styles */
 body {
@@ -71,57 +69,12 @@ button:hover {
   color: var(--color-primary);
 }
 
-
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-header {
-  background: #333;
-  color: #fff;
-  padding: 1rem;
-}
-
-nav ul {
-  list-style: none;
-  padding: 0;
-}
-
-nav ul li {
-  display: inline;
-  margin-right: 1rem;
-}
-
-nav ul li a {
-  color: #fff;
-  text-decoration: none;
-}
-
-footer {
-  background: #333;
-  color: #fff;
-  text-align: center;
-  padding: 1rem;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-}
-
-.container {
-  padding: 2rem;
-}
-
 /* Hero Section */
 .hero-section {
-  background-image: url('./assets/hero.png'); 
   background-size: cover;
   background-position: center;
   height: 100vh; /* Adjust as needed */
 }
-
 
 .hero-section h1 {
   font-size: 3rem;
@@ -137,7 +90,7 @@ footer {
 .hero-section .cta-button {
   margin-top: 30px;
   padding: 15px 30px;
-  background-color: var(--secondary-color);
+  background-color: var(--color-secondary);
   color: white;
   font-size: 1rem;
   text-decoration: none;
@@ -146,12 +99,12 @@ footer {
 }
 
 .hero-section .cta-button:hover {
-  background-color: var(--accent-color);
+  background-color: var(--color-accent);
 }
 
 /* Section Styles */
 section {
-  background-color: var(--light-color);
+  background-color: var(--color-light);
   padding: 50px 20px;
   margin: 50px 0;
   border-radius: 8px;
@@ -161,13 +114,13 @@ section {
 section h2 {
   text-align: center;
   margin-bottom: 30px;
-  color: var(--primary-color);
+  color: var(--color-primary);
 }
 
 /* Footer */
 footer {
   padding: 20px;
-  background-color: var(--primary-color);
+  background-color: var(--color-primary);
   text-align: center;
   color: white;
 }
@@ -181,5 +134,5 @@ footer a {
 }
 
 footer a:hover {
-  color: var(--secondary-color);
+  color: var(--color-secondary);
 }
