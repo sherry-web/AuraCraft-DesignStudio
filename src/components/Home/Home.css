@@ -1,3 +1,5 @@
+@import url('../styles/global.css');
+
 /* Base styles */
 * {
   margin: 0;
@@ -24,120 +26,142 @@ section {
 }
 
 /* Hero Section */
+
+@import url('../styles/global.css');
+
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+/* Home container */
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f8f9fa; /* Light background */
+  padding: 20px;
+  min-height: 100vh; /* Ensures it fills at least the full viewport height */
+  justify-content: space-between; /* Distributes sections and pushes footer to the bottom */
+}
+
+/* Section styling */
+section {
+  width: 100%;
+  padding: 50px 0;
+}
+
+/* Hero Section */
+
+/* Hero Section */
 .hero-section {
   display: flex;
-  align-items: center; /* Vertically centers content */
-  justify-content: center; /* Horizontally centers content */
+  align-items: center; /* Vertically center content */
+  justify-content: space-between; /* Space between text and image */
+  height: 100vh; /* Full viewport height */
+  padding: 0 40px;
+  background-color: var(--color-light); /* White background */
   position: relative;
-  height: 100vh;
-  padding: 0 20px;
-
+  overflow: hidden;
 }
 
-.hero-content {
+.hero-section .hero-content {
   text-align: left;
-  color: #4D4D4D; /* Default text color */
-  max-width: 800px; /* Restrict the text container width */
-  z-index: 1; /* Ensures text is above images */
+  color: var(--color-black); /* Default text color */
+  max-width: 50%; /* Restrict text container width */
+  z-index: 1; /* Keep content above the background */
+  font-family: var(--font-primary); /* Use Nunito for titles */
+  margin-left: 144px; /* Start 144px from the left edge */
 }
 
-.hero-title {
-  font-size: 3.5rem; /* Adjust font size for emphasis */
+.hero-section .hero-title {
+  font-size: 4rem; /* Adjusted font size for title */
   font-weight: bold;
   line-height: 1.2;
   margin-bottom: 1rem;
+  font-family: var(--font-primary); /* Nunito for the title */
+  color: var(--color-primary); /* Primary dark blue */
 }
 
-.hero-title span {
-  display: block; /* Split for better styling */
+.hero-section .hero-title span:first-child {
+  color: var(--color-accent); /* Accent color for AuraCraft */
 }
 
-.hero-title span:first-child {
-  color: #0A7273; /* Accent color for AuraCraft Design Studio */
-}
-
-.hero-subtitle {
-  font-size: 1.2rem;
+.hero-section .hero-subtitle {
+  font-size: 1.5rem; /* Adjusted font size for subtitle */
   margin-bottom: 2rem;
-  line-height: 1.5;
+  line-height: 1.6;
+  font-family: var(--font-secondary); /* Use Poppins for body text */
 }
 
-.cta-container .primary-cta {
-  background-color: #FDA521; /* Button color matches primary2 */
-  color: #ffffff;
-  font-size: 1rem;
-  padding: 0.75rem 1.5rem;
+.hero-section .cta-container .primary-cta {
+  background-color: var(--color-secondary); /* Vibrant yellow */
+  color: var(--color-primary); /* Dark blue text */
+  font-size: 1.2rem; /* Adjusted font size for button */
+  font-weight: bold;
+  padding: 12px 24px;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
+  text-transform: uppercase;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
 }
 
-.cta-container .primary-cta:hover {
-  background-color: #e68f1d; /* Slightly darker hover effect */
+.hero-section .cta-container .primary-cta:hover {
+  background-color: var(--color-accent); /* Teal Green */
+  color: var(--color-white); /* White text */
+  transform: translateY(-2px); /* Subtle lift */
 }
 
-/* Image Styling */
-.hero-images {
+.hero-section .hero-image {
+  flex: 1; /* Take equal space with text */
   display: flex;
-  justify-content: center;
+  justify-content: flex-end; /* Align image to the right */
   align-items: center;
-  margin-left: 20px;
+  max-width: 50%; /* Restrict image width to half of the section */
+  height: auto; /* Maintain aspect ratio */
+  z-index: 1;
 }
 
-.hero-images img {
-  max-height: 80vh; /* Keep the images within viewport height */
-  margin-left: 10px; /* Space between images */
-}
-
-.hero-section .hero-image-center {
-  max-width: 50%; /* Image width to fit half of the section */
+.hero-section .hero-image img {
+  max-width: 100%; /* Ensure image stays responsive */
+  height: auto;
   object-fit: contain;
 }
 
-.hero-section .hero-image-right {
-  max-width: 30%; /* Image width for the second image */
-  object-fit: contain;
-}
-
-/* Responsive Styles for Hero Section */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
-  .hero-title {
-    font-size: 2.5rem;
-  }
-
-  .hero-subtitle {
-    font-size: 1rem;
-  }
-
-  .hero-content {
-    padding: 0;
-  }
-
-  .hero-images img {
-    max-width: 80%;
-  }
-
   .hero-section {
-    flex-direction: column;
-    text-align: center;
-    justify-content: center;
+    flex-direction: column; /* Stack content vertically */
     padding: 40px 20px;
   }
 
-  .hero-content {
-    max-width: 100%; /* Text container becomes full width */
-    margin-bottom: 20px; /* Space between content and image */
+  .hero-section .hero-content {
+    max-width: 100%; /* Full width for smaller screens */
+    text-align: center; /* Center-align text */
+    margin-bottom: 20px;
+    margin-left: 0; /* Remove left margin */
   }
 
-  .hero-images {
-    flex-direction: column;
-    align-items: center;
+  .hero-section .hero-image {
+    max-width: 80%; /* Reduce image size on smaller screens */
   }
 
-  .hero-images img {
-    margin-left: 0;
-    margin-top: 10px;
+  .hero-section .hero-title {
+    font-size: 2.5rem; /* Adjust title size */
+  }
+
+  .hero-section .hero-subtitle {
+    font-size: 1rem; /* Smaller subtitle */
+  }
+
+  .hero-section .primary-cta {
+    padding: 10px 20px;
+    font-size: var(--font-size-small); /* Smaller button size */
   }
 }
 
@@ -216,80 +240,234 @@ section {
 
 /* Hero Section */
 .hero-landing-page {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  background: none; /* Removed background image */
   display: flex;
   align-items: center;
-  justify-content: center;
-  color: white;
-}
-
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Dark overlay */
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-between; /* Space between text and image */
+  padding: 100px 40px;
+  background-color: #f8f9fa; /* Matches light background */
 }
 
 .hero-content {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  max-width: 800px;
-  padding: 20px;
+  flex: 1; /* Take up available space */
+  max-width: 50%; /* Restrict the text container width */
+  text-align: left;
+  color: #4D4D4D; /* Default text color */
+  margin-left: 144px; /* Start 144px from the left edge */
 }
 
 .hero-title {
   font-size: 3rem;
   font-weight: bold;
-  margin-bottom: 20px;
+  line-height: 1.2;
+  margin-bottom: 1rem;
 }
 
 .hero-subtitle {
-  font-size: 1.5rem;
-  margin-bottom: 40px;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  line-height: 1.5;
 }
 
-.primary-cta {
-  padding: 12px 24px;
-  background-color: #FDA521;
-  color: #033043;
-  border: none;
-  border-radius: 4px;
+.cta-container .primary-cta {
+  background-color: #FDA521; /* Button color matches primary2 */
+  color: #ffffff;
   font-size: 1rem;
-  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  text-transform: uppercase;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease-in-out;
 }
 
-.primary-cta:hover {
-  background-color: #0A7273;
+.cta-container .primary-cta:hover {
+  background-color: #e68f1d; /* Slightly darker hover effect */
+}
+
+/* Image Styling */
+.hero-images {
+  flex: 1; /* Take up available space */
+  display: flex;
+  justify-content: flex-end; /* Align image to the right */
+  align-items: center;
+}
+
+.hero-images img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Design Section */
+.design-section {
+  padding: 80px 40px;
+  text-align: center;
+  background-color: #ffffff;
+}
+
+.design-section h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
   color: #033043;
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  background-color: #FDA521;
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  width: 250px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+/* What is UX/UI Section */
+.what-is-ux-ui-section {
+  padding: 80px 40px;
+  background-color: #f8f9fa;
+}
+
+.what-is-ux-ui-section h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #033043;
+  text-align: center;
+}
+
+.ux-ui-content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  justify-content: center;
+}
+
+.ux-ui-content p {
+  font-size: 1rem;
+  color: #4D4D4D;
+  line-height: 1.6;
+  max-width: 50%;
+}
+
+.img-2 {
+  max-width: 40%;
+  height: auto;
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .hero-image {
+    max-width: 100%;
+  }
+
+  .hero-image img {
+    max-width: 80%;
+  }
+
   .hero-title {
     font-size: 2.5rem;
   }
 
   .hero-subtitle {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
   .primary-cta {
     padding: 10px 20px;
     font-size: 0.9rem;
   }
+
+  .ux-ui-content {
+    flex-direction: column;
+  }
+
+  .ux-ui-content p {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .img-2 {
+    max-width: 80%;
+  }
 }
+
+
+/* What is UX/UI Design Section */
+.what-is-ux-ui-section {
+  background-color: #0A7273;
+  color: white;
+  padding: 60px 20px;
+}
+
+.what-is-ux-ui-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.what-is-ux-ui-section p {
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.img-2 {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* What is UX/UI Design Section */
+.what-is-ux-ui-section {
+  background-color: #0A7273;
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.ux-ui-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ux-ui-content p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.img-2 {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
 /* What is UX/UI Design Section */
 .what-is-ux-ui-section {
   background-color: #0A7273;

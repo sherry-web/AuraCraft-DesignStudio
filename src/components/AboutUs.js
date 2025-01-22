@@ -4,11 +4,12 @@ import aboutHeroImage from '../assets/abouthero.svg'; // Updated import
 import journeyImage from '../assets/ourstory.png';
 import './styles/AboutUs.css';
 
+
 const AboutUs = () => {
   return (
     <Container className="about-page">
       {/* Hero Section */}
-      <Box className="hero-section">
+      <Box className="about-hero-section">
         <Box className="hero-content">
           <Typography variant="h1" className="hero-title">Our Story</Typography>
           <Typography variant="h2" className="hero-subtitle">MEET THE FOUNDER</Typography>

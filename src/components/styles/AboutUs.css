@@ -7,117 +7,109 @@
 }
 
 /* Hero Section */
-.hero-section {
+.about-hero-section {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  padding: 40px;
+  align-items: center; /* Vertically center content */
+  justify-content: space-between; /* Space between text and image */
+  height: 100vh; /* Full viewport height */
+  padding: 0 40px;
   background-color: var(--color-white); /* Ensure the background is white */
-  margin-bottom: 0;
-  height: 100vh;
-  padding-top: 100px; /* Bring the hero section down */
+  position: relative;
+  overflow: hidden;
 }
 
-.hero-content {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  width: 661px;
-  height: 350px;
-}
-
-.hero-title {
-  font-family: var(--font-primary);
-  font-size: var(--font-size-h1);
-  font-weight: 700;
-  color: var(--color-primary);
-  margin-bottom: 10px;
-  line-height: 46px;
+.about-hero-section .hero-content {
   text-align: left;
+  color: var(--color-primary); /* Default text color */
+  max-width: 50%; /* Restrict text container width */
+  z-index: 1; /* Keep content above the background */
+  font-family: var(--font-primary); /* Use Nunito for titles */
+  margin-left: 144px; /* Start 144px from the left edge */
 }
 
-.hero-subtitle {
-  font-family: var(--font-primary);
-  font-size: 8px; /* Reduced font size */
-  font-weight: 400;
-  color: var(--color-primary);
-  margin-bottom: 10px;
-  line-height: 22px;
-  text-align: left;
-  white-space: nowrap;
+.about-hero-section .hero-title {
+  font-size: 4rem; /* Adjusted font size for title */
+  font-weight: bold;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  font-family: var(--font-primary); /* Nunito for the title */
+  color: var(--color-primary); /* Primary dark blue */
 }
 
-.foreword-container {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 20px;
-  width: 513px; /* Set width for the container */
+.about-hero-section .hero-subtitle {
+  font-size: 1.5rem; /* Adjusted font size for subtitle */
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  font-family: var(--font-secondary); /* Use Poppins for body text */
 }
 
-.foreword-title {
-  font-family: var(--font-secondary);
-  font-size: 12px;
-  font-weight: 400;
-  color: var(--color-primary);
-  line-height: 22px;
-  text-align: left;
-  text-decoration: underline;
-  flex: 1; /* Allow the title to take available space */
-}
-
-.foreword-text {
-  font-family: var(--font-secondary);
-  font-size: var(--font-size-body);
-  font-weight: 400;
-  line-height: 22px;
-  color: var(--color-primary);
-  text-align: left;
-  flex: 3; /* Allow the text to take available space */
-}
-
-.hero-description {
-  font-family: var(--font-secondary);
-  font-size: var(--font-size-body);
-  font-weight: 400;
-  line-height: 22px;
-  color: var(--color-primary);
-  margin-bottom: 20px;
-  text-align: left;
-  max-width: 400px;
-}
-
-.cta-container {
-  display: inline-flex;
-  justify-content: center;
-  background-color: var(--color-secondary);
-  border-radius: 4px;
-  padding: 14px 32px;
-  gap: 10px;
-  cursor: pointer;
+.about-hero-section .cta-container .primary-cta {
+  background-color: var(--color-secondary); /* Vibrant yellow */
+  color: var(--color-primary); /* Dark blue text */
+  font-size: 1.2rem; /* Adjusted font size for button */
+  font-weight: bold;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
   text-transform: uppercase;
-  transition: background-color 0.3s ease;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
 }
 
-.cta-container:hover {
-  background-color: var(--color-accent);
+.about-hero-section .cta-container .primary-cta:hover {
+  background-color: var(--color-accent); /* Teal Green */
+  color: var(--color-white); /* White text */
+  transform: translateY(-2px); /* Subtle lift */
 }
 
-.hero-image {
-  position: absolute;
-  top: 126.5px; /* Adjusted to bring the image down */
-  left: 947px;
-  width: 349px;
-  height: 297px;
+.about-hero-section .hero-image {
+  flex: 1; /* Take equal space with text */
+  display: flex;
+  justify-content: flex-end; /* Align image to the right */
+  align-items: center;
+  max-width: 50%; /* Restrict image width to half of the section */
+  height: auto; /* Maintain aspect ratio */
+  z-index: 1;
 }
 
-.hero-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 8px;
+.about-hero-section .hero-image img {
+  max-width: 100%; /* Ensure image stays responsive */
+  height: auto;
+  object-fit: contain;
 }
 
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .about-hero-section {
+    flex-direction: column; /* Stack content vertically */
+    padding: 40px 20px;
+  }
+
+  .about-hero-section .hero-content {
+    max-width: 100%; /* Full width for smaller screens */
+    text-align: center; /* Center-align text */
+    margin-bottom: 20px;
+    margin-left: 0; /* Remove left margin */
+  }
+
+  .about-hero-section .hero-image {
+    max-width: 80%; /* Reduce image size on smaller screens */
+  }
+
+  .about-hero-section .hero-title {
+    font-size: 2.5rem; /* Adjust title size */
+  }
+
+  .about-hero-section .hero-subtitle {
+    font-size: 1rem; /* Smaller subtitle */
+  }
+
+  .about-hero-section .primary-cta {
+    padding: 10px 20px;
+    font-size: var(--font-size-small); /* Smaller button size */
+  }
+}
 /* Who We Are Section */
 .who-we-are-section {
   padding: 80px 40px;

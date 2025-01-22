@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createContext } from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faDesktop,
@@ -30,11 +30,10 @@ import SocialIconsBe from "../../assets/SocialIconsBe.png";
 import SocialIconsIG from "../../assets/SocialIconsIG.png";
 import SocialIconsX from "../../assets/SocialIconsX.png";
 import SendIcon from "../../assets/send.png"; // Ensure this import is correct
+import herobg1 from "../../assets/herobg1.svg"; // Import the correct hero image
 
 // Styles
 import "./Home.css";
-
-const HeroContext = createContext();
 
 const designServices = [
   { title: "Web Design", icon: faDesktop },
@@ -46,35 +45,11 @@ const designServices = [
 ];
 
 const HomePage = () => {
-  const [heroContent, setHeroContent] = useState({
-    title: "Welcome to AuraCraft",
-    subtitle: "Design your digital presence with us.",
-    image: uxImage,
-  });
-
   const [activeMenu, setActiveMenu] = useState("All Projects");
   const [projects, setProjects] = useState([]);
   const [activeDot, setActiveDot] = useState(0);
 
   useEffect(() => {
-    const selectedJourney = localStorage.getItem("selectedJourney");
-
-    switch (selectedJourney) {
-      case "design":
-        setHeroContent({
-          title: "AuraCraft Design Studio",
-          subtitle: "Transform your digital presence with our innovative designs.",
-          image: uxImage,
-        });
-        break;
-      default:
-        setHeroContent({
-          title: "Welcome to AuraCraft",
-          subtitle: "Design your digital presence with us.",
-          image: uxImage,
-        });
-    }
-
     setProjects([
       { img: project1, title: "Project 1", description: "Description for Project 1" },
       { img: project2, title: "Project 2", description: "Description for Project 2" },
@@ -114,27 +89,25 @@ const HomePage = () => {
   };
 
   return (
-    <HeroContext.Provider value={{ heroContent, setHeroContent }}>
-      <div className="landing-page">
-        <div className="overlap-wrapper">
-          <div className="overlap">
-            <div className="home">
-              <div className="frame">
-                <div className="hero-landing-page">
-                  <div className="overlap-group">
-                    <div className="hero-content">
-                      <h1 className="hero-title">
-                        <span>{heroContent.title}</span>
-                      </h1>
-                      <p className="hero-subtitle">{heroContent.subtitle}</p>
-                      <div className="cta-container">
-                        <button className="primary-cta">Start Your Project</button>
-                      </div>
-                    </div>
-                    <div className="hero-images">
-                      <img src={heroContent.image} alt="Hero" className="hero-image-center" />
-                    </div>
+    <div className="landing-page">
+      <div className="overlap-wrapper">
+        <div className="overlap">
+          <div className="home">
+            <div className="frame">
+
+              {/* Hero Section */}
+              <div className="hero-section">
+                <div className="hero-content">
+                  <h1 className="hero-title">
+                    <span>Welcome to AuraCraft</span>
+                  </h1>
+                  <p className="hero-subtitle">Design your digital presence with us.</p>
+                  <div className="cta-container">
+                    <button className="primary-cta">Start Your Project</button>
                   </div>
+                </div>
+                <div className="hero-image">
+                  <img src={require("../../assets/herobg1.svg").default} alt="Hero Background" />
                 </div>
               </div>
 
@@ -361,7 +334,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-    </HeroContext.Provider>
+    </div>
   );
 };
 
