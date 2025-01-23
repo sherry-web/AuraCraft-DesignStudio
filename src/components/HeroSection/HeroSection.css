@@ -1,44 +1,28 @@
-/* Hero Section Styles */
 .hero-section {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 2rem 5%;
-  background: #f9f9f9;
+  background-size: cover;
+  background-position: center;
+  height: 100vh; /* Adjust as needed */
 }
 
-.hero-content {
-  max-width: 50%;
-}
-
-.hero-title {
+.hero-section h1 {
   font-size: 3rem;
-  font-weight: bold;
   margin: 0;
+  letter-spacing: 2px;
 }
 
-.hero-subtitle {
-  font-size: 1.25rem;
-  color: #555;
-  margin: 1rem 0;
+.hero-section p {
+  font-size: 1.2rem;
+  margin-top: 15px;
 }
 
-.hero-image {
-  width: 45%;
-  max-height: 400px;
-  object-fit: contain;
+.hero-section .hero-images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20px;
 }
 
-.hero-content button {
-  margin-top: 1rem;
-  padding: 0.75rem 1.5rem;
-  background-color: #0a7273;
-  color: white;
-  border: none;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.hero-content button:hover {
-  background-color: #055b5b;
+.hero-section .hero-images img {
+  max-height: 80vh; /* Keep the images within viewport height */
+  margin-left: 10px; /* Space between images */
 }

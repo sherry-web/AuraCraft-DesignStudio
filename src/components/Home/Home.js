@@ -95,11 +95,11 @@ const HomePage = () => {
           <div className="home">
             <div className="frame">
 
-              {/* Hero Section */}
-              <div className="hero-section">
+          {/* Hero Section */}
+          <div className="hero-section">
                 <div className="hero-content">
-                  <h1 className="hero-title">
-                    <span>Welcome to AuraCraft</span>
+                  <h1 className="hero-title">Welcome to
+                    <span> AuraCraft Design Studio</span>
                   </h1>
                   <p className="hero-subtitle">Design your digital presence with us.</p>
                   <div className="cta-container">
@@ -107,7 +107,7 @@ const HomePage = () => {
                   </div>
                 </div>
                 <div className="hero-image">
-                  <img src={require("../../assets/herobg1.svg").default} alt="Hero Background" />
+                  <img src={herobg1} alt="Hero Background" />
                 </div>
               </div>
 
@@ -210,51 +210,65 @@ const HomePage = () => {
               </section>
 
               {/* Projects Section */}
-              <section className="projects-section">
-                <div className="projects-menu-wrapper">
-                  <h2>All Projects</h2>
-                  <nav>
-                    {["All Projects", "UX/UI Design", "Front-End Development", "Other"].map((menu, index) => (
-                      <div
-                        key={index}
-                        className={`menu-item ${activeMenu === menu ? "active" : ""}`}
-                        onClick={() => handleMenuClick(menu)}
-                      >
-                        {menu}
-                      </div>
-                    ))}
-                  </nav>
-                </div>
+                <section className="projects-section">
+                        <div className="projects-menu-wrapper">
+                          <h2>All Projects</h2>
+                          <nav>
+                            {["All Projects", "UX/UI Design", "Front-End Development", "Other"].map((menu, index) => (
+                              <div
+                                key={index}
+                                className={`menu-item ${activeMenu === menu ? "active" : ""}`}
+                                onClick={() => handleMenuClick(menu)}
+                              >
+                                {menu}
+                              </div>
+                            ))}
+                          </nav>
+                        </div>
+                        <div className="projects-grid-navigation">
+                          <div className="projects-grid">
+                            {projects.map((project, index) => (
+                              <div key={index} className={`project-card ${index === activeDot ? "active" : ""}`}>
+                                <div className="img-wrapper">
+                                  <img src={project.img} alt={project.title} />
+                                </div>
+                                <div className="info">
+                                  <h3 className="PJ-name">{project.title}</h3>
+                                  <p className="address">{project.description}</p>
+                                  <button className="view-more-btn">View More</button> {/* New button */}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
 
-                <div className="projects-grid-navigation">
-                  <div className="projects-grid">
-                    {projects.map((project, index) => (
-                      <div key={index} className={`project-card ${index === activeDot ? "active" : ""}`}>
-                        <div className="img-wrapper">
-                          <img src={project.img} alt={project.title} className="project-image" />
+                          <div className="projects-navigation">
+                            <button
+                              className="primary-nav-btn"
+                              onClick={handlePrevClick}
+                              disabled={activeDot === 0}
+                            >
+                              Back
+                            </button>
+                            <div className="dots">
+                              {projects.map((_, index) => (
+                                <div
+                                  key={index}
+                                  className={`dot ${index === activeDot ? "active" : ""}`}
+                                  onClick={() => setActiveDot(index)}
+                                ></div>
+                              ))}
+                            </div>
+                            <button
+                              className="primary-nav-btn"
+                              onClick={handleNextClick}
+                              disabled={activeDot === projects.length - 1}
+                            >
+                              Next
+                            </button>
+                          </div>
                         </div>
-                        <div className="info">
-                          <h3 className="PJ-name">{project.title}</h3>
-                          <p className="address">{project.description}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="projects-navigation">
-                    <MyButton text="Back" onClick={handlePrevClick} />
-                    <div className="dots">
-                      {projects.map((_, index) => (
-                        <div
-                          key={index}
-                          className={`dot ${index === activeDot ? "active" : ""}`}
-                          onClick={() => setActiveDot(index)}
-                        ></div>
-                      ))}
-                    </div>
-                    <MyButton text="Next" onClick={handleNextClick} />
-                  </div>
-                </div>
-              </section>
+                      </section>
+
 
               {/* Connect Section */}
               <section className="connect-section">

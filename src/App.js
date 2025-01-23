@@ -1,7 +1,6 @@
 import React, { useState, Suspense } from "react";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
-import { HeroProvider } from "./components/context/HeroContext";
 import AppRoutes from "./routes/Routes";
 import "./App.css";
 
@@ -21,11 +20,9 @@ const App = () => {
   return (
     <div className="App">
       <NavBar />
-      <HeroProvider>
-        <Suspense fallback={<div>Loading...</div>}>
-          <AppRoutes />
-        </Suspense>
-      </HeroProvider>
+      <Suspense fallback={<div>Loading...</div>}>
+        <AppRoutes />
+      </Suspense>
       <Footer />
     </div>
   );

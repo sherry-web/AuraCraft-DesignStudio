@@ -26,59 +26,29 @@ section {
 }
 
 /* Hero Section */
-
-@import url('../styles/global.css');
-
-/* Base styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Helvetica Neue', sans-serif;
-}
-
-/* Home container */
-.home {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #f8f9fa; /* Light background */
-  padding: 20px;
-  min-height: 100vh; /* Ensures it fills at least the full viewport height */
-  justify-content: space-between; /* Distributes sections and pushes footer to the bottom */
-}
-
-/* Section styling */
-section {
-  width: 100%;
-  padding: 50px 0;
-}
-
-/* Hero Section */
-
-/* Hero Section */
 .hero-section {
   display: flex;
   align-items: center; /* Vertically center content */
-  justify-content: space-between; /* Space between text and image */
+  justify-content: center; /* Center content horizontally */
   height: 100vh; /* Full viewport height */
-  padding: 0 40px;
+  padding: 0 20px;
   background-color: var(--color-light); /* White background */
   position: relative;
   overflow: hidden;
 }
 
 .hero-section .hero-content {
-  text-align: left;
+  text-align: center; /* Center-align text */
   color: var(--color-black); /* Default text color */
-  max-width: 50%; /* Restrict text container width */
+  width: 100%; /* Full width */
+  max-width: 1200px; /* Maximum width */
   z-index: 1; /* Keep content above the background */
   font-family: var(--font-primary); /* Use Nunito for titles */
-  margin-left: 144px; /* Start 144px from the left edge */
+  padding: 0 20px; /* Padding for smaller screens */
 }
 
 .hero-section .hero-title {
-  font-size: 4rem; /* Adjusted font size for title */
+  font-size: 3.5rem; /* Responsive font size for title */
   font-weight: bold;
   line-height: 1.2;
   margin-bottom: 1rem;
@@ -91,18 +61,19 @@ section {
 }
 
 .hero-section .hero-subtitle {
-  font-size: 1.5rem; /* Adjusted font size for subtitle */
+  font-size: 1.75rem; /* Responsive font size for subtitle */
   margin-bottom: 2rem;
   line-height: 1.6;
   font-family: var(--font-secondary); /* Use Poppins for body text */
+  color: #4D4D4D; /* Color for subtitle */
 }
 
 .hero-section .cta-container .primary-cta {
   background-color: var(--color-secondary); /* Vibrant yellow */
   color: var(--color-primary); /* Dark blue text */
-  font-size: 1.2rem; /* Adjusted font size for button */
+  font-size: 1rem; /* Responsive font size for button */
   font-weight: bold;
-  padding: 12px 24px;
+  padding: 1vw 2vw; /* Responsive padding for button */
   border: none;
   border-radius: 6px;
   text-transform: uppercase;
@@ -118,19 +89,18 @@ section {
 }
 
 .hero-section .hero-image {
-  flex: 1; /* Take equal space with text */
-  display: flex;
-  justify-content: flex-end; /* Align image to the right */
-  align-items: center;
-  max-width: 50%; /* Restrict image width to half of the section */
-  height: auto; /* Maintain aspect ratio */
-  z-index: 1;
+  position: absolute;
+  right: 0; /* Align image to the right */
+  top: 0;
+  width: 50%; /* Restrict image width to half of the section */
+  height: 100%; /* Full height */
+  z-index: 0;
 }
 
 .hero-section .hero-image img {
-  max-width: 100%; /* Ensure image stays responsive */
-  height: auto;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* Responsive Adjustments */
@@ -138,32 +108,35 @@ section {
   .hero-section {
     flex-direction: column; /* Stack content vertically */
     padding: 40px 20px;
+    justify-content: center; /* Center content horizontally */
   }
 
   .hero-section .hero-content {
     max-width: 100%; /* Full width for smaller screens */
     text-align: center; /* Center-align text */
-    margin-bottom: 20px;
-    margin-left: 0; /* Remove left margin */
+    margin-right: 0; /* Remove right margin */
   }
 
   .hero-section .hero-image {
-    max-width: 80%; /* Reduce image size on smaller screens */
+    width: 100%; /* Full width for smaller screens */
+    height: 50%; /* Half height */
+    position: relative; /* Change position to relative */
   }
 
   .hero-section .hero-title {
-    font-size: 2.5rem; /* Adjust title size */
+    font-size: 8vw; /* Adjust title size for smaller screens */
   }
 
   .hero-section .hero-subtitle {
-    font-size: 1rem; /* Smaller subtitle */
+    font-size: 4vw; /* Adjust subtitle size for smaller screens */
   }
 
   .hero-section .primary-cta {
-    padding: 10px 20px;
-    font-size: var(--font-size-small); /* Smaller button size */
+    padding: 2vw 4vw;
+    font-size: 4vw; /* Adjust button size for smaller screens */
   }
 }
+
 
 /* Service Cards */
 .service-cards-section {
@@ -515,15 +488,272 @@ section {
   margin: 0 auto;
 }
 
+
 /* Projects Section */
 .projects-section {
   padding: 60px 20px;
   text-align: center;
+  background-color: #fff;
 }
 
 .projects-section h2 {
   font-size: 2.5rem;
   margin-bottom: 30px;
+  color: var(--color-primary); /* Same color as "What is Front-End Development?" */
+}
+
+.projects-menu-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.projects-menu-wrapper nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.menu-item {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--color-primary);
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+
+.menu-item.active {
+  background-color: var(--color-accent); /* Highlight active menu item */
+  color: var(--color-white);
+}
+
+
+/* Projects Grid Navigation */
+.projects-grid-navigation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px; /* Increased spacing for better structure */
+  width: 100%;
+}
+
+/* Projects Grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid layout */
+  gap: 30px; /* Space between cards */
+  padding: 20px; /* Inner padding for the grid */
+  width: 100%;
+  max-width: 1200px; /* Limit grid width for better focus */
+  margin: 0 auto;
+  animation: fadeIn 0.8s ease-in-out; /* Subtle fade-in animation */
+}
+
+/* Project Card */
+.project-card {
+  background: linear-gradient(145deg, var(--color-light), #f8f9fa); /* Subtle gradient */
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  cursor: pointer;
+}
+
+.project-card:hover {
+  transform: translateY(-8px); /* Lift effect */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Enhance shadow */
+  background: linear-gradient(145deg, var(--color-light), #e9eef5); /* Lighter gradient on hover */
+}
+
+/* Image Wrapper */
+.img-wrapper {
+  width: 100%;
+  height: 180px; /* Consistent height for images */
+  overflow: hidden;
+  position: relative;
+  border-bottom: 2px solid var(--color-primary); /* Subtle separator */
+}
+
+.img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cover ensures image scaling */
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .img-wrapper img {
+  transform: scale(1.1); /* Slight zoom on hover */
+}
+
+/* Info Section */
+.info {
+  padding: 20px;
+  text-align: left;
+}
+
+.PJ-name {
+  font-size: 1.5rem; /* Adjusted for visual hierarchy */
+  color: var(--color-primary); /* Use primary color for headings */
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-family: var(--font-primary); /* Nunito for headings */
+}
+
+.address {
+  font-size: 1rem; /* Standard body size */
+  color: var(--color-black); /* Neutral color for readability */
+  line-height: 1.6;
+  font-family: var(--font-secondary); /* Poppins for body text */
+  margin-bottom: 15px;
+}
+
+.project-card .view-more-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: var(--color-white);
+  background-color: var(--color-secondary); /* Vibrant yellow */
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.project-card .view-more-btn:hover {
+  background-color: var(--color-accent); /* Teal green on hover */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr; /* Single-column layout for mobile */
+  }
+
+  .info {
+    padding: 15px; /* Reduce padding for smaller screens */
+  }
+
+  .PJ-name {
+    font-size: 1.25rem; /* Adjust title size for smaller screens */
+  }
+
+  .address {
+    font-size: 0.9rem; /* Reduce font size for body text */
+  }
+}
+
+/* Navigation Section */
+.projects-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px; /* Space between buttons and dots */
+  width: 100%; /* Full width */
+}
+
+/* Navigation Buttons */
+button.primary-nav-btn {
+  background-color: var(--color-secondary); /* Vibrant yellow */
+  color: var(--color-primary); /* Text color */
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button.primary-nav-btn:hover {
+  background-color: var(--color-accent); /* Teal green on hover */
+  color: var(--color-white); /* White text */
+  transform: translateY(-3px); /* Slight lift */
+}
+
+button.primary-nav-btn:disabled {
+  background-color: #ccc; /* Disabled state */
+  color: #666; /* Muted text */
+  cursor: not-allowed;
+}
+
+/* Dots for Navigation */
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #bbb;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  position: relative;
+}
+
+.dot.active {
+  background-color: var(--color-primary); /* AuraCraft dark blue */
+  transform: scale(1.2); /* Enlarged for active state */
+}
+
+.dot:hover::after {
+  content: "Active"; /* Tooltip for dots */
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--color-primary);
+  color: var(--color-light);
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  border-radius: 4px;
+}
+
+/* Animation for Entry */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr; /* Single-column layout for mobile */
+  }
+
+  .info {
+    padding: 15px; /* Reduce padding for smaller screens */
+  }
+
+  button.primary-nav-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem; /* Adjust font size */
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr; /* Stack projects in a single column */
+  }
+
+  .projects-menu-wrapper {
+    flex: 0 0 100%; /* Take full width */
+    margin-bottom: 40px; /* Space below the menu on smaller screens */
+  }
 }
 
 /* Connect Section */
