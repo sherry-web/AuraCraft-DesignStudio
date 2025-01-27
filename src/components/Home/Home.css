@@ -1779,10 +1779,9 @@ footer {
     font-size: 0.9rem; /* Adjust size for smaller screens */
   }
 }
-
 /* Add a small gap between sections */
 section {
-  margin: 10px 0; /* Add a 5px vertical margin */
+  margin: 10px 0; /* Add a 10px vertical margin */
   padding: 0; /* Remove padding */
 }
 
@@ -1795,9 +1794,10 @@ section {
 .frontend-section,
 .projects-section,
 .connect-section {
-  margin: 10px 0; /* Add a 5px vertical margin */
-  padding: 10px; /* Remove padding */
+  margin: 10px 0; /* Add a 10px vertical margin */
+  padding: 10px; /* Add 10px padding */
   box-shadow: none; /* Remove any shadows */
+  border-radius: 0; /* Remove rounded corners */
 }
 
 /* Additional styles to ensure seamless connection */
@@ -1806,38 +1806,38 @@ section {
 }
 
 .design-section {
-  padding-top: 0; /* Remove top padding */
+  padding-top: 0; 
 }
 
 .ourPeeps-section {
-  padding-top: 0; /* Remove top padding */
+  padding-top: 0; 
 }
 
 .our-story-section {
-  padding-top: 0; /* Remove top padding */
+  padding-top: 0; 
 }
 
 .ux-ui-section {
-  padding-top: 0; /* Remove top padding */
+  padding-top: 0; 
 }
 
 .meeting-google-standards {
-  padding-top: 0; /* Remove top padding */
+  padding-top: 0; 
 }
 
 .frontend-section {
-  padding-top: 0; /* Remove top padding */
+  padding-top: 0; 
 }
 
 .projects-section {
-  padding-top: 30px; /* Remove top padding */
+  padding-top: 30px; 
 }
 
 .connect-section {
-  padding-top: 0; /* Remove top padding */
+  padding-top: 0; 
 }
 
 footer {
-  margin-top: 0; /* Remove top margin */
-  padding-top: 0; /* Remove top padding */
+  margin-top: 0; 
+  padding-top: 0; 
 }

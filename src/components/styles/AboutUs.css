@@ -16,15 +16,15 @@
   background-color: var(--color-white); /* Ensure the background is white */
   position: relative;
   overflow: hidden;
+  
 }
 
 .about-hero-section .hero-content {
   text-align: left;
   color: var(--color-primary); /* Default text color */
-  max-width: 50%; /* Restrict text container width */
+  width: 50%; /* Take up half the width */
   z-index: 1; /* Keep content above the background */
   font-family: var(--font-primary); /* Use Nunito for titles */
-  margin-left: 144px; /* Start 144px from the left edge */
 }
 
 .about-hero-section .hero-title {
@@ -37,7 +37,32 @@
 }
 
 .about-hero-section .hero-subtitle {
-  font-size: 1.5rem; /* Adjusted font size for subtitle */
+  font-size: 1.2rem; /* Smaller font size for subtitle */
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  font-family: var(--font-secondary); /* Use Poppins for body text */
+}
+
+.about-hero-section .foreword-container {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Gap between title and text */
+  margin-bottom: 1rem;
+}
+
+.about-hero-section .foreword-title {
+  font-size: 1.1rem;
+  text-decoration: underline; /* Underline the foreword title */
+}
+
+.about-hero-section .foreword-text {
+  font-size: 1rem;
+  line-height: 1.5;
+  max-width: 300px; /* Ensure the text fills the container */
+}
+
+.about-hero-section .hero-description {
+  font-size: 1rem;
   margin-bottom: 2rem;
   line-height: 1.6;
   font-family: var(--font-secondary); /* Use Poppins for body text */
@@ -63,20 +88,17 @@
   transform: translateY(-2px); /* Subtle lift */
 }
 
-.about-hero-section .hero-image {
-  flex: 1; /* Take equal space with text */
-  display: flex;
-  justify-content: flex-end; /* Align image to the right */
-  align-items: center;
-  max-width: 50%; /* Restrict image width to half of the section */
-  height: auto; /* Maintain aspect ratio */
-  z-index: 1;
-}
 
 .about-hero-section .hero-image img {
-  max-width: 100%; /* Ensure image stays responsive */
-  height: auto;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  position:absolute;
+  right: 0; /* Align image to the right */
+  top: 0;
+  width: 50%; /* Restrict image width to half of the section */
+  height: 100%; /* Full height */
+  z-index: 0;
+  
 }
 
 /* Responsive Adjustments */
@@ -84,150 +106,318 @@
   .about-hero-section {
     flex-direction: column; /* Stack content vertically */
     padding: 40px 20px;
+    justify-content: center; /* Center content horizontally */
   }
 
   .about-hero-section .hero-content {
     max-width: 100%; /* Full width for smaller screens */
     text-align: center; /* Center-align text */
-    margin-bottom: 20px;
-    margin-left: 0; /* Remove left margin */
+    margin-right: 0; /* Remove right margin */
   }
 
   .about-hero-section .hero-image {
-    max-width: 80%; /* Reduce image size on smaller screens */
+    width: 100%; /* Full width for smaller screens */
+    height: 50%; /* Half height */
+    position: relative; /* Change position to relative */
   }
 
   .about-hero-section .hero-title {
-    font-size: 2.5rem; /* Adjust title size */
+    font-size: 8vw; /* Adjust title size for smaller screens */
   }
 
   .about-hero-section .hero-subtitle {
-    font-size: 1rem; /* Smaller subtitle */
+    font-size: 4vw; /* Adjust subtitle size for smaller screens */
   }
 
   .about-hero-section .primary-cta {
-    padding: 10px 20px;
-    font-size: var(--font-size-small); /* Smaller button size */
+    padding: 2vw 4vw;
+    font-size: 4vw; /* Adjust button size for smaller screens */
   }
 }
-/* Who We Are Section */
-.who-we-are-section {
-  padding: 80px 40px;
-  background-color: var(--color-white); /* Ensure the background is white */
-  text-align: center;
+
+/* Info Container */
+.info-container {
+  max-width: 90%; /* Ensure responsiveness */
+  display: flex;
+  justify-content: space-between; /* Space out the containers equally */
+  align-items: stretch; /* Ensure equal height for containers */
+  gap: 50px; /* Gap between the two containers */
+  margin: 40px auto; /* Add top and bottom spacing */
+  padding: 40px 0;
+  flex-wrap: wrap; /* Enable wrapping on smaller screens */
 }
 
-.section-title {
-  font-family: var(--font-primary);
-  font-size: var(--font-size-h2);
-  font-weight: 700;
-  color: var(--color-primary);
-  margin-bottom: 20px;
+/* Text Container */
+.text-container {
+  flex: 1; /* Equal width for both containers */
+  min-width: 300px; /* Ensure a minimum width */
+  max-width: 500px; /* Limit the maximum width */
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+  justify-content: space-between; /* Distribute child elements evenly */
+  align-items: flex-start; /* Left-align text */
+  padding: 20px; /* Padding inside each container */
+  gap: 15px; /* Ensure consistent spacing between rows */
+  box-sizing: border-box; /* Include padding in width/height */
+  background-color: var(--color-white); /* White background for consistency */
 }
 
-.section-subtitle {
-  font-family: var(--font-primary);
-  font-size: var(--font-size-h3);
-  font-weight: 400;
-  color: var(--color-primary);
-  margin-bottom: 20px;
+/* Section Title */
+.text-container .section-title {
+  font-family: var(--font-primary); /* Nunito for titles */
+  font-size: 2.5rem; /* Font size for the title */
+  font-weight: bold;
+  line-height: 1.2;
+  color: #0A7273; /* Accent teal color */
+  margin-bottom: 15px; /* Add gap below title */
+  text-align: left; /* Ensure left alignment */
 }
 
-.section-description {
-  font-family: var(--font-secondary);
-  font-size: var(--font-size-body);
-  line-height: 1.6;
-  color: var(--color-primary);
-  margin: 0 auto;
-  max-width: 600px;
+/* Section Subtitle */
+.text-container .section-subtitle {
+  font-family: var(--font-secondary); /* Use Poppins for subtitles */
+  font-size: 1rem; /* Slightly larger for readability */
+  color: var(--color-primary); /* Primary dark blue */
+  text-transform: capitalize; /* Capitalize first letters */
+  margin-bottom: 15px; /* Add gap below subtitle */
+  text-align: left; /* Left-align text */
 }
 
-/* What We Offer Section */
-.what-we-offer-section {
-  padding: 80px 40px;
-  background-color: var(--color-white); /* Ensure the background is white */
-  text-align: center;
+/* Section Description */
+.text-container .section-description {
+  font-family: var(--font-secondary); /* Use Poppins for descriptions */
+  font-size: var(--font-size-body); /* Standard body font size */
+  line-height: 1.6; /* Consistent line height */
+  color: var(--color-primary); /* Primary dark blue */
+  max-width: 100%; /* Ensure the description doesn't overflow */
+  text-align: left; /* Left-align descriptions */
+  margin: 0; /* No additional margins */
 }
 
+/* Offer List */
 .offer-list {
-  list-style-type: none;
+  list-style-type: none; /* Remove default bullet points */
   padding: 0;
-  margin: 20px auto;
-  max-width: 400px;
+  margin-top: 15px; /* Add consistent gap above list */
 }
 
 .offer-item {
-  font-family: var(--font-secondary);
-  font-size: var(--font-size-body);
-  line-height: 1.5;
-  color: var(--color-primary);
-  margin-bottom: 10px;
+  font-family: var(--font-secondary); /* Use Poppins */
+  font-size: var(--font-size-body); /* Standard body size */
+  line-height: 1.5; /* Add space between lines */
+  color: var(--color-primary); /* Primary color for list items */
+  margin-bottom: 10px; /* Add spacing between list items */
+}
+
+.offer-item strong {
+  font-weight: bold; /* Highlight key terms */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .info-container {
+    flex-direction: column; /* Stack containers vertically */
+    align-items: center; /* Center-align containers on mobile */
+    gap: 30px; /* Reduce gap for smaller screens */
+  }
+
+  .text-container {
+    align-items: center; /* Center-align text */
+    text-align: center; /* Center-align content within each container */
+  }
+
+  .text-container .section-title,
+  .text-container .section-subtitle,
+  .text-container .section-description {
+    align-self: center; /* Override alignment to center */
+  }
+
+  .offer-list {
+    margin: 15px auto; /* Center-align the list */
+  }
 }
 
 /* Our Values Section */
+/* Our Values Section */
 .our-values-section {
-  padding: 80px 40px;
-  background-color: var(--color-white); /* Ensure the background is white */
-  text-align: center;
+  padding: 40px 0; /* Reduce padding to decrease overall height */
+  background-color: var(--color-white); /* Background color */
 }
 
+/* Values Container */
 .values-container {
   display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  margin-top: 40px;
+  justify-content: space-between; /* Space out value items equally */
+  align-items: flex-start; /* Align items to the top */
+  gap: 20px; /* Add spacing between value items */
+  max-width: 1080px; /* Limit container width */
+  margin: 0 auto; /* Center-align the container */
+  height: 214px; /* Restrict the height of the section */
 }
 
+/* Value Items */
 .value-item {
-  flex: 1;
-  text-align: left;
+  flex: 1; /* Distribute space equally between items */
+  display: flex;
+  flex-direction: column; /* Stack title and description */
+  justify-content: flex-start; /* Align content to the top */
+  align-items: flex-start; /* Left-align text */
+  text-align: left; /* Ensure left alignment */
+  height: 100%; /* Fill available height */
+  padding: 0; /* Remove padding */
+  background: none; /* Remove background color */
+  box-shadow: none; /* Remove box shadow */
 }
 
-.value-title {
-  font-family: var(--font-primary);
-  font-size: var(--font-size-h3);
-  font-weight: 700;
-  color: var(--color-primary);
-  margin-bottom: 10px;
+/* Value Titles */
+.value-item .value-title {
+  font-family: var(--font-primary); /* Use Nunito font */
+  font-size: 1.5rem; /* Smaller size for reduced height */
+  font-weight: bold;
+  line-height: 1.2;
+  color: #0A7273; /* Accent teal color */
+  margin-bottom: 10px; /* Add small spacing below title */
 }
 
-.value-description {
-  font-family: var(--font-secondary);
-  font-size: var(--font-size-body);
-  line-height: 1.5;
-  color: var(--color-primary);
+/* Value Descriptions */
+.value-item .value-description {
+  font-family: var(--font-secondary); /* Use Poppins for descriptions */
+  font-size: var(--font-size-body); /* Body size */
+  line-height: 1.5; /* Consistent spacing */
+  color: var(--color-primary); /* Use primary color */
+  margin: 0; /* Remove default margin */
+  flex-grow: 1; /* Ensure text takes up available space */
 }
 
-/* Our Journey Section */
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .values-container {
+    gap: 15px; /* Reduce gap for smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .values-container {
+    flex-direction: column; /* Stack value items vertically */
+    align-items: center; /* Center-align value items */
+    gap: 20px; /* Add spacing between rows */
+    height: auto; /* Allow height to adjust */
+  }
+
+  .value-item {
+    align-items: center; /* Center-align text */
+    text-align: center; /* Center-align text content */
+  }
+
+  .value-title,
+  .value-description {
+    text-align: center; /* Center-align title and description */
+  }
+}
+
+/* Our Journey Section *//* Our Journey Section */
 .our-journey-section {
-  padding: 80px 40px;
-  background-color: var(--color-white); /* Ensure the background is white */
+  padding: 40px 0; /* Padding for top and bottom spacing */
+  background-color: var(--color-white); /* White background */
+  text-align: center;
+  height: 377px; /* Fixed height for the section */
 }
 
+/* Section Title and Subtitle */
+.our-journey-section .section-title {
+  font-family: var(--font-primary); /* Nunito for titles */
+  font-size: 2.5rem; /* Adjusted title size */
+  font-weight: bold;
+  line-height: 1.2;
+  color: var(--color-primary); /* Primary dark blue */
+  margin-bottom: 15px; /* Space below the title */
+}
+
+.our-journey-section .section-subtitle {
+  font-family: var(--font-secondary); /* Poppins for subtitles */
+  font-size: 1rem; /* Smaller subtitle size */
+  color: var(--color-primary); /* Primary dark blue */
+  margin-bottom: 20px; /* Space below the subtitle */
+  text-transform: capitalize;
+}
+
+/* Journey Content */
 .journey-content {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 20px;
+  justify-content: space-between; /* Space text and image apart */
+  align-items: center; /* Vertically align content */
+  max-width: 1080px; /* Limit max width */
+  margin: 0 auto; /* Center the content */
+  height: 100%; /* Fill the height of the section */
+}
+
+/* Journey Text (Left Content) */
+.journey-text {
+  flex: 1; /* Take equal space */
+  display: flex;
+  flex-direction: column; /* Stack text vertically */
+  justify-content: center; /* Center-align text vertically */
+  align-items: flex-start; /* Align text to the left */
+  gap: 15px; /* Spacing between description rows */
+  padding-right: 20px; /* Add padding to the right for spacing */
 }
 
 .journey-description {
-  font-family: var(--font-secondary);
-  font-size: var(--font-size-body);
-  line-height: 1.5;
-  color: var(--color-primary);
-  max-width: 500px;
+  font-family: var(--font-secondary); /* Poppins for body text */
+  font-size: var(--font-size-body); /* Standard body size */
+  line-height: 1.6; /* Consistent line height */
+  color: var(--color-primary); /* Primary dark blue */
+  margin: 0; /* No additional margins */
+}
+
+/* Journey Image (Right Content) */
+.journey-image {
+  flex: 1; /* Take equal space */
+  display: flex;
+  justify-content: center; /* Center the image horizontally */
+  align-items: center; /* Center the image vertically */
+  max-height: 100%; /* Restrict image height */
 }
 
 .journey-image img {
-  max-width: 400px;
-  height: auto;
-  border-radius: 8px;
+  width: 100%; /* Ensure image fits within its container */
+  max-width: 500px; /* Restrict image width */
+  height: auto; /* Maintain aspect ratio */
 }
 
-/* Let's Create Something Section */
-.create-something-section {
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .journey-content {
+    flex-direction: column; /* Stack text and image vertically */
+    text-align: center; /* Center-align text and image */
+  }
+
+  .journey-text {
+    align-items: center; /* Center-align text */
+    padding-right: 0; /* Remove right padding */
+  }
+
+  .journey-image img {
+    max-width: 100%; /* Allow full width on smaller screens */
+  }
+}
+
+/* Let's Create Something Section */.create-something-section {
   padding: 80px 40px;
   background-color: var(--color-white); /* Ensure the background is white */
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px; /* Add gap between title, description, and button */
+}
+
+.create-something-section .section-title {
+  font-size: 4rem; /* Match the section title style */
+  font-weight: bold;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  font-family: var(--font-primary); /* Nunito for the title */
+  color: var(--color-primary); /* Primary dark blue */
 }
