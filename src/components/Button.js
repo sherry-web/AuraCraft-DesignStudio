@@ -8,16 +8,18 @@ const MyButton = ({ text, onClick = () => {}, variant = 'contained', sx = {} }) 
       variant={variant}
       onClick={onClick}
       sx={{
-        padding: '12px 24px',
-        borderRadius: '4px',
-        fontWeight: '600',
+        padding: '0.8rem 1.5rem', // Consistent with modern button spacing
+        borderRadius: 'var(--border-radius)', // Uses the global border radius (8px)
+        fontWeight: 600,
         fontFamily: 'var(--font-primary)',
-        textTransform: 'none', // Avoid uppercase if not needed
-        backgroundColor: variant === 'contained' ? 'var(--color-secondary)' : 'transparent', // Default button color
+        textTransform: 'none',
+        backgroundColor: variant === 'contained' ? 'var(--color-secondary)' : 'transparent',
+        transition: 'transform 0.3s ease, background-color 0.3s ease',
         '&:hover': {
-          backgroundColor: variant === 'contained' ? 'var(--color-accent)' : 'rgba(0, 0, 0, 0.08)', // Teal Green on hover
+          transform: 'scale(1.05)',
+          backgroundColor: variant === 'contained' ? 'var(--color-accent)' : 'rgba(0, 0, 0, 0.08)',
         },
-        ...sx, // Allow additional styles via props
+        ...sx,
       }}
     >
       {text}
@@ -25,12 +27,11 @@ const MyButton = ({ text, onClick = () => {}, variant = 'contained', sx = {} }) 
   );
 };
 
-// Define the expected prop types
 MyButton.propTypes = {
-  text: PropTypes.string.isRequired, // Button label text
-  onClick: PropTypes.func, // Optional click handler
-  variant: PropTypes.string, // MUI button variant
-  sx: PropTypes.object, // Custom styles
+  text: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
+  variant: PropTypes.string,
+  sx: PropTypes.object,
 };
 
 export default MyButton;

@@ -2,6 +2,8 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "../components/Home/Home";
 import AboutUs from "../components/AboutUs";
+import Services from "../components/Services";
+import Projects from "../components/Projects/Projects"; // <-- Import Projects
 import ContactForm from "../components/pages/ContactForm";
 import GetStarted from "../components/pages/GetStarted";
 import LearnMore from "../components/pages/LearnMore";
@@ -20,6 +22,8 @@ function AppRoutes() {
       <Route path="/" element={<Home />} />
       <Route path="/home" element={<Home />} />
       <Route path="/about" element={<AboutUs />} />
+      <Route path="/services" element={<Services />} />
+      <Route path="/projects" element={<Projects />} /> {/* Added Projects route */}
       <Route path="/contact" element={<ContactForm />} />
       <Route path="/get-started" element={<GetStarted />} />
       <Route path="/learn-more" element={<LearnMore />} />

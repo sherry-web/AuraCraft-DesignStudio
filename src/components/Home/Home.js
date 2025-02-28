@@ -94,22 +94,21 @@ const HomePage = () => {
         <div className="overlap">
           <div className="home">
             <div className="frame">
+            <div className="hero-section">
+  {/* Hero Content (1st - 7th column) */}
+  <div className="hero-content">
+    <h1 className="hero-title">Welcome to <span>AuraCraft Design Studio</span></h1>
+    <p className="hero-subtitle">Design your digital presence with us.</p>
+    <div className="cta-container">
+      <button className="primary-cta">Start Your Project</button>
+    </div>
+  </div>
 
-          {/* Hero Section */}
-          <div className="hero-section">
-                <div className="hero-content">
-                  <h1 className="hero-title">Welcome to
-                    <span> AuraCraft Design Studio</span>
-                  </h1>
-                  <p className="hero-subtitle">Design your digital presence with us.</p>
-                  <div className="cta-container">
-                    <button className="primary-cta">Start Your Project</button>
-                  </div>
-                </div>
-                <div className="hero-image">
-                  <img src={herobg1} alt="Hero Background" />
-                </div>
-              </div>
+  {/* Hero Image (8th - 12th column) */}
+  <div className="hero-image">
+    <img src={herobg1} alt="Hero Background" />
+  </div>
+</div>
 
               {/* Design Section */}
               <section className="design-section">
@@ -210,140 +209,81 @@ const HomePage = () => {
               </section>
 
               {/* Projects Section */}
-                <section className="projects-section">
-                        <div className="projects-menu-wrapper">
-                          <h2>All Projects</h2>
-                          <nav>
-                            {["All Projects", "UX/UI Design", "Front-End Development", "Other"].map((menu, index) => (
-                              <div
-                                key={index}
-                                className={`menu-item ${activeMenu === menu ? "active" : ""}`}
-                                onClick={() => handleMenuClick(menu)}
-                              >
-                                {menu}
-                              </div>
-                            ))}
-                          </nav>
+              <section className="projects-section">
+                <div className="projects-menu-wrapper">
+                  <h2>All Projects</h2>
+                  <nav>
+                    {["All Projects", "UX/UI Design", "Front-End Development", "Other"].map((menu, index) => (
+                      <div
+                        key={index}
+                        className={`menu-item ${activeMenu === menu ? "active" : ""}`}
+                        onClick={() => handleMenuClick(menu)}
+                      >
+                        {menu}
+                      </div>
+                    ))}
+                  </nav>
+                </div>
+                <div className="projects-grid-navigation">
+                  <div className="projects-grid">
+                    {projects.map((project, index) => (
+                      <div key={index} className={`project-card ${index === activeDot ? "active" : ""}`}>
+                        <div className="img-wrapper">
+                          <img src={project.img} alt={project.title} />
                         </div>
-                        <div className="projects-grid-navigation">
-                          <div className="projects-grid">
-                            {projects.map((project, index) => (
-                              <div key={index} className={`project-card ${index === activeDot ? "active" : ""}`}>
-                                <div className="img-wrapper">
-                                  <img src={project.img} alt={project.title} />
-                                </div>
-                                <div className="info">
-                                  <h3 className="PJ-name">{project.title}</h3>
-                                  <p className="address">{project.description}</p>
-                                  <button className="view-more-btn">View More</button> {/* New button */}
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-
-                          <div className="projects-navigation">
-                            <button
-                              className="primary-nav-btn"
-                              onClick={handlePrevClick}
-                              disabled={activeDot === 0}
-                            >
-                              Back
-                            </button>
-                            <div className="dots">
-                              {projects.map((_, index) => (
-                                <div
-                                  key={index}
-                                  className={`dot ${index === activeDot ? "active" : ""}`}
-                                  onClick={() => setActiveDot(index)}
-                                ></div>
-                              ))}
-                            </div>
-                            <button
-                              className="primary-nav-btn"
-                              onClick={handleNextClick}
-                              disabled={activeDot === projects.length - 1}
-                            >
-                              Next
-                            </button>
-                          </div>
-                        </div>
-                      </section>
-
-
-              {/* Connect Section */}
-              <section className="connect-section">
-                <h2 className="section-title">
-                  <span className="highlight">Connect</span> With Us
-                </h2>
-                <ConnectForm />
-              </section>
-
-              {/* Footer */}
-              <footer className="footer">
-                <div className="footer-big">
-                  {/* Company Info Section */}
-                  <div className="footer-column">
-                    <div className="company-info">
-                      <img className="logo-2" alt="Logo" src={FooterLogo} />
-                      <div className="copyright">
-                        <p>Copyright © 2024 Aura-Craft Design Studio.</p>
-                        <p>All rights reserved</p>
-                      </div>
-                      <div className="social-links">
-                        <img className="social-icons" alt="Social Be" src={SocialIconsBe} />
-                        <img className="social-icons" alt="Social IG" src={SocialIconsIG} />
-                        <img className="social-icons" alt="Social X" src={SocialIconsX} />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Company Links Section */}
-                  <div className="footer-column">
-                    <div className="col">
-                      <div className="text-wrapper-33">Company</div>
-                      <div className="list-items">
-                        <a href="/about-us">About us</a>
-                        <a href="/blog">Blog</a>
-                        <a href="/contact-us">Contact us</a>
-                        <a href="/pricing">Pricing</a>
-                        <a href="/testimonials">Testimonials</a>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Support Links Section */}
-                  <div className="footer-column">
-                    <div className="col">
-                      <div className="text-wrapper-33">Support</div>
-                      <div className="list-items">
-                        <a href="/help-center">Help center</a>
-                        <a href="/terms-of-service">Terms of service</a>
-                        <a href="/legal">Legal</a>
-                        <a href="/privacy-policy">Privacy policy</a>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Subscribe Section */}
-                  <div className="footer-column">
-                    <div className="col-2">
-                      <div className="text-wrapper-33">Stay up to date</div>
-                      <div className="email-input-field">
-                        <div className="overlap-group-3">
-                          <input
-                            type="email"
-                            className="input-field"
-                            placeholder="Your email address"
-                          />
-                          <button className="essential-icons-send">
-                            <img src={SendIcon} alt="Send" />
-                          </button>
+                        <div className="info">
+                          <h3 className="PJ-name">{project.title}</h3>
+                          <p className="address">{project.description}</p>
+                          <button className="view-more-btn">View More</button>
                         </div>
                       </div>
+                    ))}
+                  </div>
+
+                  <div className="projects-navigation">
+                    <button
+                      className="primary-nav-btn"
+                      onClick={handlePrevClick}
+                      disabled={activeDot === 0}
+                    >
+                      Back
+                    </button>
+                    <div className="dots">
+                      {projects.map((_, index) => (
+                        <div
+                          key={index}
+                          className={`dot ${index === activeDot ? "active" : ""}`}
+                          onClick={() => setActiveDot(index)}
+                        ></div>
+                      ))}
                     </div>
+                    <button
+                      className="primary-nav-btn"
+                      onClick={handleNextClick}
+                      disabled={activeDot === projects.length - 1}
+                    >
+                      Next
+                    </button>
                   </div>
                 </div>
-              </footer>
+              </section>
+
+              {/* Connect Section */}
+                  <section className="connect-section">
+                  <div className="connect-header">
+                    <h2 className="section-title">
+                      <span className="highlight">Connect</span> With Us
+                    </h2>
+                    <p className="connect-info">
+                      Our team is here for you Monday – Thursday, 9AM to 5PM. Outside these hours, don't worry—our friendly chatbot is ready to assist!
+                    </p>
+                  </div>
+                  <ConnectForm />
+                  <div className="chatbot-invite">
+                    <p className="chatbot-text">Need immediate help after hours? Chat with our bot!</p>
+                    <button className="chatbot-btn">Chat Now</button>
+                  </div>
+                </section>
             </div>
           </div>
         </div>

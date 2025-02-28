@@ -1,40 +1,161 @@
+/* Contact Form Container */
 .contact-form-container {
-    max-width: 600px;
-    margin: 2rem auto;
-    padding: 1.5rem;
-    background: #E9E3D5;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--color-light);
+  padding: var(--spacing-large);
+}
+
+.contact-form-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns: text and form */
+  gap: var(--spacing-large);
+  max-width: 1200px;
+  width: 100%;
+  background-color: var(--color-white);
+  padding: var(--spacing-large);
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Left Column: Text Content */
+.contact-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-medium);
+}
+
+.contact-header h2 {
+  font-size: var(--font-size-h2);
+  font-weight: bold;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-small);
+}
+
+.contact-header .subtitle {
+  font-size: var(--font-size-body);
+  color: var(--color-secondary);
+  line-height: 1.6;
+}
+
+.contact-details {
+  margin-top: var(--spacing-medium);
+}
+
+.contact-details h3 {
+  font-size: var(--font-size-h3);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-small);
+}
+
+.contact-details ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.contact-details li {
+  font-size: var(--font-size-body);
+  color: var(--color-secondary);
+  margin-bottom: var(--spacing-small);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-small);
+}
+
+.contact-note {
+  font-size: var(--font-size-small);
+  color: var(--color-secondary);
+  margin-top: var(--spacing-medium);
+  line-height: 1.6;
+}
+
+/* Right Column: Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-medium);
+}
+
+.contact-form h3 {
+  font-size: var(--font-size-h3);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-small);
+}
+
+.form-element {
+  width: 100%;
+}
+
+.form-element input,
+.form-element textarea {
+  width: 100%;
+  padding: var(--spacing-small);
+  border: 1px solid var(--color-primary);
+  border-radius: 10px;
+  font-size: var(--font-size-body);
+  color: var(--color-primary);
+  background-color: var(--color-light);
+  transition: border-color 0.3s ease-in-out;
+}
+
+.form-element input::placeholder,
+.form-element textarea::placeholder {
+  color: #888;
+}
+
+.form-element input:focus,
+.form-element textarea:focus {
+  border-color: var(--color-secondary);
+  outline: none;
+}
+
+.form-element textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+/* Error Message */
+.error-message {
+  color: #ff4d4d;
+  font-size: var(--font-size-small);
+  margin-top: var(--spacing-small);
+}
+
+/* Submit Button */
+.submit-button {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  padding: var(--spacing-small) var(--spacing-medium);
+  font-size: var(--font-size-body);
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.submit-button:hover {
+  background-color: var(--color-secondary);
+}
+
+.submit-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .contact-form-content {
+    grid-template-columns: 1fr; /* Stack columns on smaller screens */
+  }
+
+  .contact-text {
     text-align: center;
   }
-  
-  .contact-form-container h2 {
-    color: #033043;
-    margin-bottom: 1rem;
+
+  .contact-details ul {
+    text-align: left;
   }
-  
-  .contact-form input, 
-  .contact-form textarea {
-    width: 100%;
-    padding: 0.8rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
-  }
-  
-  .contact-form button {
-    padding: 0.8rem 2rem;
-    background-color: #FDA521;
-    color: #033043;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  
-  .contact-form button:hover {
-    background-color: #E9E3D5;
-    color: #033043;
-  }
-  
+}

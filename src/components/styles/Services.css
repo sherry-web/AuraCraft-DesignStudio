@@ -1,44 +1,256 @@
+/* Hero Section */
+.hero-section {
+  background-size: cover;
+  background-position: center;
+  padding: 30px 0;
+  color: white;
+  text-align: center;
+}
+
+.hero-section .hero-image img {
+  width: 600px;
+  height: 600px;
+  object-fit: contain;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.cta-button {
+  background-color: #FF7B00; /* Primary button color */
+  padding: 10px 30px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.cta-button:hover {
+  background-color: #033043;
+}
+
+
+
+/* Services Section */
+
 .services-container {
-    padding: 80px 20px;
-    text-align: center;
-    background-color: #f5f5f5;
-  }
-  
-  .services-container h2 {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-    color: #033043;
-  }
-  
-  /* Service cards */
-  .services-cards {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.services-container h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.services-cards {
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+  flex-wrap: wrap; /* Allows cards to wrap on smaller screens */
+}
+
+.service-card {
+  background-color: #E9E3D5; /* Service card background */
+  padding: 30px;
+  border-radius: 8px;
+  width: 30%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 350px; /* Ensures all cards are of equal height */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect */
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Title */
+.card-title {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+/* Icon */
+.card-icon {
+  font-size: 4rem; /* Adjust icon size as needed */
+  margin: 10px auto 16px;
+  color: #FF7B00; /* Icon color, adjust as needed */
+  transition: transform 0.3s ease;
+}
+
+/* Icon Animation on Hover */
+.service-card:hover .card-icon {
+  transform: scale(1.1);
+}
+
+/* Bullet Points */
+.card-bullets {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex-grow: 1; /* Allows bullets to take up equal space */
+}
+
+.bullet-row {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.bullet {
+  font-size: 1rem;
+  list-style-type: disc;
+}
+
+/* Call-to-Action */
+.card-cta {
+  text-align: center;
+  margin-top: auto; /* Pushes CTA to the bottom */
+}
+
+.cta-link {
+  color: #FF7B00;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.cta-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   .service-card {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    text-align: left;
-    transition: transform 0.3s ease;
+    width: 90%;
+    margin-bottom: 20px;
   }
-  
-  .service-card h3 {
-    font-size: 1.5rem;
-    color: #FDA521;
+}
+
+
+/* Dual Section Container */
+.dual-section-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 60px 10%;
+  background-color: #fff;
+}
+
+/* Left Column */
+.left-column {
+  flex: 1;
+  max-width: 50%;
+  padding-right: 40px;
+}
+
+/* Add a 60px gap between the two left sections */
+.why-you-need-this {
+  margin-bottom: 125px;
+}
+
+/* Why You Need This Section */
+.why-you-need-this h2,
+.how-we-achieve-it h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 20px;
+  text-align: left ;
+}
+
+.why-you-need-this h3,
+.how-we-achieve-it h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #0A7273;
+  margin-bottom: 15px;
+}
+
+.why-you-need-this p,
+.how-we-achieve-it p {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.why-you-need-this ul,
+.how-we-achieve-it ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.why-you-need-this li,
+.how-we-achieve-it li {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+/* How We Achieve It Section */
+.achievement-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* (Removed the img rule here since we now use EmojiEventsIcon) */
+
+/* Right Column - Image */
+.right-column {
+  flex: 1;
+  max-width: 50%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.right-column img {
+  width: 100%;
+  height: auto;
+  max-width: 100%; 
+  object-fit: cover;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .dual-section-container {
+    flex-direction: column;
+    padding: 40px 20px;
   }
-  
-  .service-card p {
-    font-size: 1rem;
-    color: #666;
-    margin-top: 10px;
+
+  .left-column,
+  .right-column {
+    max-width: 100%;
+    padding-right: 0;
   }
-  
-  .service-card:hover {
-    transform: scale(1.05);
+
+  .right-column {
+    margin-top: 40px;
   }
+}
+
+
+
+
+/* Footer Section */
+.footer {
+  background-color: #0A7273; /* Footer background */
+  color: white;
+  text-align: center;
+  padding: 20px;
+}

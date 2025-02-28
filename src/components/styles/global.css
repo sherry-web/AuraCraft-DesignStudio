@@ -8,11 +8,13 @@
 
   /* Color Palette */
   --color-primary: #033043; /* Primary Dark Blue */
-  --color-secondary: #FDA521; /* Vibrant Yellow */
+  --color-secondary: #FF7B00; /* Vibrant Yellow */
   --color-accent: #0A7273; /* Teal Green */
   --color-light: #ffffff; /* Changed to white for consistency */
   --color-white: #ffffff;
-  --color-black: #000000;
+  --color-black: #717171;
+  --color-black: #4D4D4D;
+  
 
   /* Typography */
   --font-size-base: 16px;

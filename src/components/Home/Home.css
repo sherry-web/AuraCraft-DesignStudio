@@ -25,250 +25,155 @@ section {
   padding: 50px 0;
 }
 
-/* Hero Section */
+
+/* HERO SECTION */
 .hero-section {
-  display: flex;
-  align-items: center; /* Vertically center content */
-  justify-content: center; /* Center content horizontally */
-  height: 100vh; /* Full viewport height */
-  padding: 0 20px;
-  background-color: var(--color-light); /* White background */
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-section .hero-content {
-  text-align: center; /* Center-align text */
-  color: var(--color-black); /* Default text color */
-  width: 100%; /* Full width */
-  max-width: 1200px; /* Maximum width */
-  z-index: 1; /* Keep content above the background */
-  font-family: var(--font-primary); /* Use Nunito for titles */
-  padding: 0 20px; /* Padding for smaller screens */
-}
-
-.hero-section .hero-title {
-  font-size: 3.5rem; /* Responsive font size for title */
-  font-weight: bold;
-  line-height: 1.2;
-  margin-bottom: 1rem;
-  font-family: var(--font-primary); /* Nunito for the title */
-  color: var(--color-primary); /* Primary dark blue */
-}
-
-.hero-section .hero-title span:first-child {
-  color: var(--color-accent); /* Accent color for AuraCraft */
-}
-
-.hero-section .hero-subtitle {
-  font-size: 1.75rem; /* Responsive font size for subtitle */
-  margin-bottom: 2rem;
-  line-height: 1.6;
-  font-family: var(--font-secondary); /* Use Poppins for body text */
-  color: #4D4D4D; /* Color for subtitle */
-}
-
-.hero-section .cta-container .primary-cta {
-  background-color: var(--color-secondary); /* Vibrant yellow */
-  color: var(--color-primary); /* Dark blue text */
-  font-size: 1rem; /* Responsive font size for button */
-  font-weight: bold;
-  padding: 1vw 2vw; /* Responsive padding for button */
-  border: none;
-  border-radius: 6px;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
-}
-
-.hero-section .cta-container .primary-cta:hover {
-  background-color: var(--color-accent); /* Teal Green */
-  color: var(--color-white); /* White text */
-  transform: translateY(-2px); /* Subtle lift */
-}
-
-.hero-section .hero-image {
-  position: absolute;
-  right: 0; /* Align image to the right */
-  top: 0;
-  width: 50%; /* Restrict image width to half of the section */
-  height: 100%; /* Full height */
-  z-index: 0;
-}
-
-.hero-section .hero-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  .hero-section {
-    flex-direction: column; /* Stack content vertically */
-    padding: 40px 20px;
-    justify-content: center; /* Center content horizontally */
-  }
-
-  .hero-section .hero-content {
-    max-width: 100%; /* Full width for smaller screens */
-    text-align: center; /* Center-align text */
-    margin-right: 0; /* Remove right margin */
-  }
-
-  .hero-section .hero-image {
-    width: 100%; /* Full width for smaller screens */
-    height: 50%; /* Half height */
-    position: relative; /* Change position to relative */
-  }
-
-  .hero-section .hero-title {
-    font-size: 8vw; /* Adjust title size for smaller screens */
-  }
-
-  .hero-section .hero-subtitle {
-    font-size: 4vw; /* Adjust subtitle size for smaller screens */
-  }
-
-  .hero-section .primary-cta {
-    padding: 2vw 4vw;
-    font-size: 4vw; /* Adjust button size for smaller screens */
-  }
+  display: grid;
+  grid-template-columns: repeat(12, 1fr); /* 12-column grid */
+  align-items: center; /* Centers content vertically */
+  justify-content: center;
+  min-height: calc(100vh - 30px); /* Full height minus navbar */
+  padding-top: 30px; /* Keeps 30px space below navbar */
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-left: 150px; /* Matches Figma margin */
+  padding-right: 150px;
+  position: relative; /* Required for absolute positioning of the image */
+  background-color: #ffffff; /* Apply white background specifically to hero section */
 }
 
 
-/* Service Cards */
-.service-cards-section {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  margin-bottom: 60px;
-}
-
-.service-cards-section h2 {
-  width: 100%;
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-}
-
-.service-cards-section .service-card {
-  width: 250px;
-  background-color: #033043;
-  color: #E9E3D5;
-  border-radius: 10px;
-  margin: 20px;
-  padding: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-}
-
-.service-cards-section .service-card:hover {
-  transform: translateY(-5px);
-}
-
-.service-cards-section .service-card h3 {
-  font-size: 1.8rem;
-  margin-bottom: 10px;
-}
-
-/* Our Peeps (Clients/Testimonial Section) */
-.our-peeps-section {
-  background-color: #FDA521;
-  color: white;
-  padding: 40px 20px;
-  text-align: center;
-}
-
-.our-peeps-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-}
-
-/* Base styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Helvetica Neue', sans-serif;
-}
-
-/* Home container */
-.home {
+/* HERO CONTENT (1st - 7th Column) */
+.hero-content {
+  grid-column: 1 / span 6; /* Spans first column to start of 7th */
+  width: 588px; 
   display: flex;
   flex-direction: column;
-  align-items: center;
-  background-color: #f8f9fa; /* Light background */
-  padding: 20px;
-  min-height: 100vh; /* Ensures it fills at least the full viewport height */
-  justify-content: space-between; /* Distributes sections and pushes footer to the bottom */
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%; /* Ensures it takes full grid height */
+  z-index: 0; /* Ensures text is above the image */
+  background-color: #f8f9fa;
 }
 
-/* Section styling */
-section {
-  width: 100%;
-  padding: 50px 0;
-}
-
-/* Hero Section */
-.hero-landing-page {
-  display: flex;
-  align-items: center;
-  justify-content: space-between; /* Space between text and image */
-  padding: 100px 40px;
-  background-color: #f8f9fa; /* Matches light background */
-}
-
-.hero-content {
-  flex: 1; /* Take up available space */
-  max-width: 50%; /* Restrict the text container width */
-  text-align: left;
-  color: #4D4D4D; /* Default text color */
-  margin-left: 144px; /* Start 144px from the left edge */
-}
-
+/* Ensuring h1 fills the container */
 .hero-title {
-  font-size: 3rem;
+  font-size: clamp(3rem, 5vw, 4.5rem);
   font-weight: bold;
   line-height: 1.2;
-  margin-bottom: 1rem;
+  color: var(--color-primary);
+  width: 100%; /* Ensures full width */
 }
 
+.hero-title span {
+  color: var(--color-accent);
+}
+
+/* Subtitle (Placed in the row below h1) */
 .hero-subtitle {
+  font-size: 1.75rem;
+  margin-top: 16px;
+  color: #4D4D4D;
+  width: 100%;
+}
+/* Override styles for hero-subtitle */
+.hero-section .hero-content .hero-subtitle {
+  font-size: 16px !important;
+  line-height: 1.5 !important;
+  font-family: "Nunito", sans-serif !important;
+  color: #6c757d !important;
+  margin-top: 16px; /* Adjust as needed */
+  width: 100%;
+}
+
+/* CTA Button (Placed in the row below subtitle) */
+.hero-section .primary-cta {
+  background-color: #FF7B00 !important; /* Button background */
+  color: #033043 !important;            /* Font (text) color */
+  padding: 12px 24px;
   font-size: 1.2rem;
-  margin-bottom: 2rem;
-  line-height: 1.5;
-}
-
-.cta-container .primary-cta {
-  background-color: #FDA521; /* Button color matches primary2 */
-  color: #ffffff;
-  font-size: 1rem;
-  padding: 0.75rem 1.5rem;
+  font-weight: bold;
   border: none;
-  border-radius: 5px;
+  border-radius: 4px !important;       /* 4px rounded corners */
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.cta-container .primary-cta:hover {
-  background-color: #e68f1d; /* Slightly darker hover effect */
+.hero-section .primary-cta:hover {
+  background-color: #0A7273 !important; /* A slightly darker shade for hover effect */
+  transform: translateY(-2px);
+ 
 }
 
-/* Image Styling */
-.hero-images {
-  flex: 1; /* Take up available space */
+.hero-section .primary-cta:focus {
+  outline: 2px solid var(--color-secondary);
+}
+
+/* HERO IMAGE (Overlay on the right) */
+.hero-image {
+  position: absolute; /* Positions the image absolutely within the hero section */
+  top: 130px; /* Aligns with the text, 30px below navbar */
+  right: -210px; /* Sticks to the right */
+  height: calc(100% - 30px); /* Full height minus navbar spacing */
+  width: 50%; /* Takes up half of the section */
+  max-width: 600px; /* Prevents the image from being too large */
   display: flex;
-  justify-content: flex-end; /* Align image to the right */
+  justify-content: flex-end; /* Aligns the image to the right */
   align-items: center;
+  z-index: 0; /* Ensures the image is behind the text */
 }
 
-.hero-images img {
-  max-width: 100%;
+.hero-image img {
+  width: 100%; /* Ensures it fills the container */
   height: auto;
-  object-fit: contain;
+  object-fit: cover; /* Ensures the image covers the container */
+  opacity: 0.85;
 }
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1024px) {
+  .hero-section {
+    grid-template-columns: 1fr;
+    padding: 40px 20px;
+    height: auto; /* Auto height for smaller screens */
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-content {
+    grid-column: 1 / -1;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+  }
+
+  .hero-title {
+    max-width: 90%;
+  }
+
+  .hero-subtitle,
+  .cta-container {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero-image {
+    position: static; /* Resets absolute positioning for smaller screens */
+    width: 100%;
+    max-width: none;
+    justify-self: center;
+    height: auto; /* Resets height for smaller screens */
+    margin-top: 20px; /* Adds spacing between text and image */
+  }
+
+  .hero-image img {
+    width: 100%; /* Ensures the image fits the container */
+    height: auto; /* Maintains aspect ratio */
+  }
+}
+
+
+
 
 /* Design Section */
 .design-section {
@@ -292,7 +197,7 @@ section {
 }
 
 .card {
-  background-color: #FDA521;
+  background-color: #FF7B00;
   color: #ffffff;
   padding: 20px;
   border-radius: 8px;
@@ -758,7 +663,7 @@ button.primary-nav-btn:disabled {
 
 /* Connect Section */
 .connect-section {
-  background-color: #FDA521;
+  background-color: #FF7B00;
   color: white;
   padding: 40px 20px;
   text-align: center;
@@ -842,10 +747,6 @@ footer {
   margin-bottom: 30px;
 }
 
-/* Our Story Section */
-.our-story-section {
-  margin-bottom: 30px;
-}
 
 /* UX/UI Design Section */
 .what-is-ux-ui-section {
@@ -898,7 +799,7 @@ footer {
 .section-title span.highlight {
   font-family: 'AuraCraftFont', sans-serif; /* Custom font for "AuraCraft Design Studio" */
   font-size: 2.5rem; /* Slightly larger to make it stand out */
-  color: #FDA521; /* Accent color */
+  color: #FF7B00; /* Accent color */
   font-weight: bold; /* Make it bold for emphasis */
 }
 
@@ -999,6 +900,11 @@ footer {
   background-color: #f9f9f9;
 }
 
+.ourPeeps-section {
+  padding-top: 60px !important;
+  padding-bottom: 60px !important;
+}
+
 .section-title {
   font-size: 2rem;
   font-weight: bold;
@@ -1035,78 +941,88 @@ footer {
   transform: scale(1.1); /* Slight hover effect */
 }
 
-
 /* Our Story Section */
 .our-story-section {
-  padding: 40px 20px; /* Reduced padding */
-  background-color: #f9f9f9; /* Keeps the existing background color */
+  padding: 40px 20px; /* Maintains padding */
+  margin: 15px 0; /* Maintains margin for neatness */
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
 }
 
+/* About Us Container */
 .about-us {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px; /* Reduced gap between image and text */
+  flex-wrap: wrap; /* Ensures responsiveness */
+  max-width: 1200px; /* Keeps it structured */
+  gap: 20px; /* Maintains spacing */
+  padding: 15px 0;
 }
 
-.overlap-2 {
-  position: relative;
-  display: flex;
-  justify-content: flex-end; /* Keeps alignment to the right */
-  align-items: center;
-  gap: 10px; /* Reduced gap for modern layout */
-}
-
+/* Image in Our Story Section */
 .mock-up {
-  width: 902px; /* Set exact width */
-  height: 669px; /* Set exact height */
-  object-fit: cover; /* Ensures the image fits nicely */
+  max-width: 100%; /* Makes it fully responsive */
+  width: 902px; /* Original width */
+  height: 669px; /* Original height */
+  object-fit: cover; /* Ensures image fills space properly */
 }
 
+/* Overlay Frame on the Image */
 .frame-2 {
-  position: absolute;
-  top: 50%; /* Center vertically */
-  right: 100px; /* Move to the right for overlay effect */
-  transform: translateY(-50%); /* Center vertically */
+  position: absolute; /* Maintains overlay position */
+  top: 50%; /* Centers vertically */
+  right: -300px; /* Moves further right */
+  transform: translateY(-50%); /* Perfect vertical alignment */
   background-color: #033043;
   border-radius: 4px;
   width: 488px;
   height: 523px;
-  padding: 20px; /* Padding inside the frame */
+  padding: 20px;
   box-shadow: var(--shadow-1);
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centers content vertically */
-  gap: 20px; /* Increased gap between frame content */
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
 }
 
+/* Title inside the Frame */
 .text-wrapper-15 {
   font-size: 2rem;
   font-weight: bold;
-  color: #FDA521; /* Primary color */
-  margin-bottom: 10px; /* Reduced margin for modern spacing */
+  color: #FF7B00; /* Primary color */
+  margin-bottom: 10px;
 }
 
+/* Paragraph inside the Frame */
 .for-more-than {
   font-size: 1rem;
-  color: #f8f9fa; /* Updated color for readability */
-  line-height: 1.5; /* Adjusted line height for better readability */
-  margin-bottom: 20px; /* Adjusted spacing below paragraph */
+  color: #f8f9fa;
+  line-height: 1.5;
+  margin-bottom: 20px;
 }
 
+/* Button Styling */
 .button-instance {
-  margin-top: 0px; /* Removed extra spacing */
-  background-color: #FDA521; /* Updated button background color */
-  color: #033043; /* Updated button font color */
+  margin-top: 0px;
+  background-color: #FF7B00;
+  color: #033043;
   padding: 10px 20px;
   border: none;
-  border-radius: 4px; /* Added rounded corners for modern design */
+  border-radius: 4px;
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
-  text-transform: uppercase; /* Optional: make the text stand out */
+  text-transform: uppercase;
 }
 
 .button-instance:hover {
@@ -1114,29 +1030,46 @@ footer {
   color: #033043;
 }
 
+/* ✅ Responsive Adjustments */
+@media (max-width: 1024px) {
+  .frame-2 {
+    right: -150px; /* Moves slightly left on medium screens */
+    width: 450px; /* Adjust width for balance */
+    height: auto; /* Maintain aspect ratio */
+  }
+}
+
 @media (max-width: 768px) {
   .about-us {
     flex-direction: column;
     align-items: center;
-    gap: 15px; /* Adjusted for responsiveness */
+    gap: 15px;
   }
 
   .mock-up {
-    width: 100%; /* Responsive full-width image */
-    height: auto; /* Maintain aspect ratio */
+    width: 100%; /* Full width */
+    height: auto;
   }
 
   .frame-2 {
-    position: relative;
+    position: relative; /* Removes absolute positioning */
     top: 0;
     right: 0;
     transform: none;
-    width: 100%;
+    width: 100%; /* Full width */
     height: auto;
     box-shadow: none;
     padding: 15px;
   }
 }
+
+@media (max-width: 480px) {
+  .frame-2 {
+    width: 100%; /* Full width for small devices */
+    padding: 10px;
+  }
+}
+
 
 /* What is UX/UI Design Section Styles */
 .ux-ui-section .unlock-wrapper {
@@ -1196,7 +1129,7 @@ footer {
 
 /* What is UX/UI Design Section Button Styles */
 .ux-ui-section .button-3 {
-  background-color: #fda521; /* Main button color */
+  background-color: #FF7B00; /* Main button color */
   color: #033043; /* Button text color */
   font-family: 'Nunito', Helvetica, sans-serif; /* Use consistent font */
   font-size: 18px; /* Adjusted for readability */
@@ -1223,7 +1156,7 @@ footer {
 
 /* Focused state (for accessibility) */
 .ux-ui-section .button-3:focus {
-  outline: 3px solid #fda521; /* Highlight focus for better accessibility */
+  outline: 3px solid #FF7B00; /* Highlight focus for better accessibility */
   outline-offset: 2px;
 }
 
@@ -1243,6 +1176,11 @@ footer {
   border-bottom: 1px solid var(--wwwmakingsconzmercury);
   padding: 130px 20px 40px;
   text-align: center;
+}
+
+.meeting-google-standards {
+  padding-top: 60px !important;
+  padding-bottom: 60px !important;
 }
 
 .meeting-google-standards .text-wrapper-16 {
@@ -1298,12 +1236,12 @@ footer {
 }
 
 .meeting-google-standards .url-input:focus {
-  border-color: #fda521;
+  border-color: #FF7B00;
   box-shadow: 0 0 4px rgba(253, 165, 33, 0.5);
 }
 
 .meeting-google-standards .analyse-button {
-  background-color: #fda521;
+  background-color: #FF7B00;
   color: var(--wwwmakingsconzwhite);
   border: none;
   border-radius: 5px;
@@ -1377,7 +1315,7 @@ footer {
 
 /* Front-End Development Section Button Styles */
 .frontend-section .button-3 {
-  background-color: #fda521; /* Main button color */
+  background-color: #FF7B00; /* Main button color */
   color: #033043; /* Button text color */
   font-family: 'Nunito', Helvetica, sans-serif; /* Consistent font */
   font-size: 18px; /* Adjusted for readability */
@@ -1404,7 +1342,7 @@ footer {
 
 /* Focused state (for accessibility) */
 .frontend-section .button-3:focus {
-  outline: 3px solid #fda521; /* Highlight focus for better accessibility */
+  outline: 3px solid #FF7B00; /* Highlight focus for better accessibility */
   outline-offset: 2px;
 }
 
@@ -1579,7 +1517,7 @@ footer {
 }
 
 .connect-section .highlight:hover {
-  color: #FDA521; /* Add hover effect for interactivity */
+  color: #FF7B00; /* Add hover effect for interactivity */
 }
 
 /* Optional: Style the ConnectForm component if needed */
@@ -1840,4 +1778,9 @@ section {
 footer {
   margin-top: 0; 
   padding-top: 0; 
+}
+
+.hero-section {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
 }

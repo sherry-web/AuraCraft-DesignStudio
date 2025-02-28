@@ -1,423 +1,450 @@
 @import url('./global.css');
 
-.about-page {
-  font-family: var(--font-secondary);
-  color: var(--color-primary);
-  background-color: var(--color-white); /* Ensure the background is white */
+/* General Page Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Hero Section */
-.about-hero-section {
-  display: flex;
-  align-items: center; /* Vertically center content */
-  justify-content: space-between; /* Space between text and image */
-  height: 100vh; /* Full viewport height */
-  padding: 0 40px;
-  background-color: var(--color-white); /* Ensure the background is white */
-  position: relative;
-  overflow: hidden;
-  
+* {
+  border-radius: 0 !important;
 }
 
-.about-hero-section .hero-content {
-  text-align: left;
-  color: var(--color-primary); /* Default text color */
-  width: 50%; /* Take up half the width */
-  z-index: 1; /* Keep content above the background */
-  font-family: var(--font-primary); /* Use Nunito for titles */
+.about-us-page {
+  padding: 0; /* Remove padding to eliminate gaps */
+  margin: 0; /* Ensure no margins between sections */
+  box-shadow: none; /* Remove any box shadows */
 }
 
-.about-hero-section .hero-title {
-  font-size: 4rem; /* Adjusted font size for title */
-  font-weight: bold;
-  line-height: 1.2;
-  margin-bottom: 1rem;
-  font-family: var(--font-primary); /* Nunito for the title */
-  color: var(--color-primary); /* Primary dark blue */
+/* Section Styling */
+section {
+  padding: 0; /* Remove padding to eliminate gaps */
+  margin: 0; /* Ensure no margins between sections */
+  box-shadow: none; /* Remove any box shadows */
 }
 
-.about-hero-section .hero-subtitle {
-  font-size: 1.2rem; /* Smaller font size for subtitle */
-  margin-bottom: 1rem;
-  line-height: 1.6;
-  font-family: var(--font-secondary); /* Use Poppins for body text */
+/* Specific Section Adjustments */
+.hero-section,
+.who-we-are-section,
+.our-values-section,
+.our-journey-section,
+.create-something-section {
+  padding: 0; /* Remove padding to eliminate gaps */
+  margin: 0; /* Ensure no margins between sections */
+  box-shadow: none; /* Remove any box shadows */
 }
 
-.about-hero-section .foreword-container {
+/* HERO SECTION */
+.hero-section {
   display: flex;
   align-items: center;
-  gap: 15px; /* Gap between title and text */
-  margin-bottom: 1rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 60px 10%;
+  background-color: #fff;
 }
 
-.about-hero-section .foreword-title {
-  font-size: 1.1rem;
-  text-decoration: underline; /* Underline the foreword title */
-}
-
-.about-hero-section .foreword-text {
-  font-size: 1rem;
-  line-height: 1.5;
-  max-width: 300px; /* Ensure the text fills the container */
-}
-
-.about-hero-section .hero-description {
-  font-size: 1rem;
-  margin-bottom: 2rem;
-  line-height: 1.6;
-  font-family: var(--font-secondary); /* Use Poppins for body text */
-}
-
-.about-hero-section .cta-container .primary-cta {
-  background-color: var(--color-secondary); /* Vibrant yellow */
-  color: var(--color-primary); /* Dark blue text */
-  font-size: 1.2rem; /* Adjusted font size for button */
-  font-weight: bold;
-  padding: 12px 24px;
-  border: none;
-  border-radius: 6px;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
-}
-
-.about-hero-section .cta-container .primary-cta:hover {
-  background-color: var(--color-accent); /* Teal Green */
-  color: var(--color-white); /* White text */
-  transform: translateY(-2px); /* Subtle lift */
-}
-
-
-.about-hero-section .hero-image img {
+.hero-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
-  height: 100%;
-  position:absolute;
-  right: 0; /* Align image to the right */
-  top: 0;
-  width: 50%; /* Restrict image width to half of the section */
-  height: 100%; /* Full height */
-  z-index: 0;
-  
+  max-width: 1200px;
+  padding: 0 50px;
+  margin: auto;
+  background-color: transparent;
+  box-shadow: none;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  .about-hero-section {
-    flex-direction: column; /* Stack content vertically */
-    padding: 40px 20px;
-    justify-content: center; /* Center content horizontally */
-  }
-
-  .about-hero-section .hero-content {
-    max-width: 100%; /* Full width for smaller screens */
-    text-align: center; /* Center-align text */
-    margin-right: 0; /* Remove right margin */
-  }
-
-  .about-hero-section .hero-image {
-    width: 100%; /* Full width for smaller screens */
-    height: 50%; /* Half height */
-    position: relative; /* Change position to relative */
-  }
-
-  .about-hero-section .hero-title {
-    font-size: 8vw; /* Adjust title size for smaller screens */
-  }
-
-  .about-hero-section .hero-subtitle {
-    font-size: 4vw; /* Adjust subtitle size for smaller screens */
-  }
-
-  .about-hero-section .primary-cta {
-    padding: 2vw 4vw;
-    font-size: 4vw; /* Adjust button size for smaller screens */
-  }
-}
-
-/* Info Container */
-.info-container {
-  max-width: 90%; /* Ensure responsiveness */
+.hero-content {
+  flex: 1;
   display: flex;
-  justify-content: space-between; /* Space out the containers equally */
-  align-items: stretch; /* Ensure equal height for containers */
-  gap: 50px; /* Gap between the two containers */
-  margin: 40px auto; /* Add top and bottom spacing */
-  padding: 40px 0;
-  flex-wrap: wrap; /* Enable wrapping on smaller screens */
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  color: var(--color-primary);
+  font-family: var(--font-primary);
+  width: auto;
 }
 
-/* Text Container */
-.text-container {
-  flex: 1; /* Equal width for both containers */
-  min-width: 300px; /* Ensure a minimum width */
-  max-width: 500px; /* Limit the maximum width */
-  display: flex;
-  flex-direction: column; /* Stack content vertically */
-  justify-content: space-between; /* Distribute child elements evenly */
-  align-items: flex-start; /* Left-align text */
-  padding: 20px; /* Padding inside each container */
-  gap: 15px; /* Ensure consistent spacing between rows */
-  box-sizing: border-box; /* Include padding in width/height */
-  background-color: var(--color-white); /* White background for consistency */
-}
-
-/* Section Title */
-.text-container .section-title {
-  font-family: var(--font-primary); /* Nunito for titles */
-  font-size: 2.5rem; /* Font size for the title */
+.hero-title {
+  font-size: 3rem;
   font-weight: bold;
+  text-align: left;
   line-height: 1.2;
-  color: #0A7273; /* Accent teal color */
-  margin-bottom: 15px; /* Add gap below title */
-  text-align: left; /* Ensure left alignment */
+  color: var(--color-primary);
 }
 
-/* Section Subtitle */
-.text-container .section-subtitle {
-  font-family: var(--font-secondary); /* Use Poppins for subtitles */
-  font-size: 1rem; /* Slightly larger for readability */
-  color: var(--color-primary); /* Primary dark blue */
-  text-transform: capitalize; /* Capitalize first letters */
-  margin-bottom: 15px; /* Add gap below subtitle */
-  text-align: left; /* Left-align text */
+.hero-subtitle {
+  font-size: 0.875rem;
+  font-weight: normal;
+  text-align: left;
+  line-height: 1.4;
+  font-family: var(--font-secondary);
 }
 
-/* Section Description */
-.text-container .section-description {
-  font-family: var(--font-secondary); /* Use Poppins for descriptions */
-  font-size: var(--font-size-body); /* Standard body font size */
-  line-height: 1.6; /* Consistent line height */
-  color: var(--color-primary); /* Primary dark blue */
-  max-width: 100%; /* Ensure the description doesn't overflow */
-  text-align: left; /* Left-align descriptions */
-  margin: 0; /* No additional margins */
+.hero-section .hero-subtitle {
+  font-size: 0.8rem;
+  font-weight: normal;
+  left: 30px;
+  line-height: 1.4;
+  font-family: var(--font-secondary);
 }
 
-/* Offer List */
+.foreword-container {
+  display: flex;
+  width: 513px;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 60px;
+}
+
+.foreword-title {
+  font-size: 1rem;
+  text-decoration: underline;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.foreword-text {
+  flex-grow: 1;
+  width: 100%;
+  max-width: 256px;
+  line-height: 1.6;
+  font-style: italic;
+  text-align: justify;
+}
+
+.hero-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  font-family: var(--font-secondary);
+}
+
+.cta-container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+}
+
+/* Who We Are Section */
+.who-we-are-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 30px 20px;
+  box-sizing: border-box;
+  background-color: var(--color-white);
+}
+
+.info-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 50px;
+  max-width: 1200px;
+  width: 100%;
+  padding: 40px 20px;
+  margin: 0 auto;
+}
+
+.text-container {
+  flex: 1;
+  max-width: 500px;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  gap: 15px;
+  text-align: left;
+  background-color: var(--color-white);
+  box-sizing: border-box;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.section-subtitle {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #0A7273;
+  margin-bottom: 20px;
+}
+
+.section-description {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+}
+
 .offer-list {
-  list-style-type: none; /* Remove default bullet points */
-  padding: 0;
-  margin-top: 15px; /* Add consistent gap above list */
+  text-align: left;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 .offer-item {
-  font-family: var(--font-secondary); /* Use Poppins */
-  font-size: var(--font-size-body); /* Standard body size */
-  line-height: 1.5; /* Add space between lines */
-  color: var(--color-primary); /* Primary color for list items */
-  margin-bottom: 10px; /* Add spacing between list items */
+  font-size: 1rem;
+  font-weight: 500;
+  color: #444;
+  margin-bottom: 10px;
 }
 
-.offer-item strong {
-  font-weight: bold; /* Highlight key terms */
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  .info-container {
-    flex-direction: column; /* Stack containers vertically */
-    align-items: center; /* Center-align containers on mobile */
-    gap: 30px; /* Reduce gap for smaller screens */
-  }
-
-  .text-container {
-    align-items: center; /* Center-align text */
-    text-align: center; /* Center-align content within each container */
-  }
-
-  .text-container .section-title,
-  .text-container .section-subtitle,
-  .text-container .section-description {
-    align-self: center; /* Override alignment to center */
-  }
-
-  .offer-list {
-    margin: 15px auto; /* Center-align the list */
-  }
-}
-
-/* Our Values Section */
 /* Our Values Section */
 .our-values-section {
-  padding: 40px 0; /* Reduce padding to decrease overall height */
-  background-color: var(--color-white); /* Background color */
+  background-color: #f4f4f4;
+  padding: 60px 10%;
 }
 
-/* Values Container */
+.values-header {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #222;
+  margin: 0;
+}
+
 .values-container {
   display: flex;
-  justify-content: space-between; /* Space out value items equally */
-  align-items: flex-start; /* Align items to the top */
-  gap: 20px; /* Add spacing between value items */
-  max-width: 1080px; /* Limit container width */
-  margin: 0 auto; /* Center-align the container */
-  height: 214px; /* Restrict the height of the section */
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
-/* Value Items */
 .value-item {
-  flex: 1; /* Distribute space equally between items */
-  display: flex;
-  flex-direction: column; /* Stack title and description */
-  justify-content: flex-start; /* Align content to the top */
-  align-items: flex-start; /* Left-align text */
-  text-align: left; /* Ensure left alignment */
-  height: 100%; /* Fill available height */
-  padding: 0; /* Remove padding */
-  background: none; /* Remove background color */
-  box-shadow: none; /* Remove box shadow */
-}
-
-/* Value Titles */
-.value-item .value-title {
-  font-family: var(--font-primary); /* Use Nunito font */
-  font-size: 1.5rem; /* Smaller size for reduced height */
-  font-weight: bold;
-  line-height: 1.2;
-  color: #0A7273; /* Accent teal color */
-  margin-bottom: 10px; /* Add small spacing below title */
-}
-
-/* Value Descriptions */
-.value-item .value-description {
-  font-family: var(--font-secondary); /* Use Poppins for descriptions */
-  font-size: var(--font-size-body); /* Body size */
-  line-height: 1.5; /* Consistent spacing */
-  color: var(--color-primary); /* Use primary color */
-  margin: 0; /* Remove default margin */
-  flex-grow: 1; /* Ensure text takes up available space */
-}
-
-/* Responsive Adjustments */
-@media (max-width: 1024px) {
-  .values-container {
-    gap: 15px; /* Reduce gap for smaller screens */
-  }
-}
-
-@media (max-width: 768px) {
-  .values-container {
-    flex-direction: column; /* Stack value items vertically */
-    align-items: center; /* Center-align value items */
-    gap: 20px; /* Add spacing between rows */
-    height: auto; /* Allow height to adjust */
-  }
-
-  .value-item {
-    align-items: center; /* Center-align text */
-    text-align: center; /* Center-align text content */
-  }
-
-  .value-title,
-  .value-description {
-    text-align: center; /* Center-align title and description */
-  }
-}
-
-/* Our Journey Section *//* Our Journey Section */
-.our-journey-section {
-  padding: 40px 0; /* Padding for top and bottom spacing */
-  background-color: var(--color-white); /* White background */
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
   text-align: center;
-  height: 377px; /* Fixed height for the section */
-}
-
-/* Section Title and Subtitle */
-.our-journey-section .section-title {
-  font-family: var(--font-primary); /* Nunito for titles */
-  font-size: 2.5rem; /* Adjusted title size */
-  font-weight: bold;
-  line-height: 1.2;
-  color: var(--color-primary); /* Primary dark blue */
-  margin-bottom: 15px; /* Space below the title */
-}
-
-.our-journey-section .section-subtitle {
-  font-family: var(--font-secondary); /* Poppins for subtitles */
-  font-size: 1rem; /* Smaller subtitle size */
-  color: var(--color-primary); /* Primary dark blue */
-  margin-bottom: 20px; /* Space below the subtitle */
-  text-transform: capitalize;
-}
-
-/* Journey Content */
-.journey-content {
-  display: flex;
-  justify-content: space-between; /* Space text and image apart */
-  align-items: center; /* Vertically align content */
-  max-width: 1080px; /* Limit max width */
-  margin: 0 auto; /* Center the content */
-  height: 100%; /* Fill the height of the section */
-}
-
-/* Journey Text (Left Content) */
-.journey-text {
-  flex: 1; /* Take equal space */
-  display: flex;
-  flex-direction: column; /* Stack text vertically */
-  justify-content: center; /* Center-align text vertically */
-  align-items: flex-start; /* Align text to the left */
-  gap: 15px; /* Spacing between description rows */
-  padding-right: 20px; /* Add padding to the right for spacing */
-}
-
-.journey-description {
-  font-family: var(--font-secondary); /* Poppins for body text */
-  font-size: var(--font-size-body); /* Standard body size */
-  line-height: 1.6; /* Consistent line height */
-  color: var(--color-primary); /* Primary dark blue */
-  margin: 0; /* No additional margins */
-}
-
-/* Journey Image (Right Content) */
-.journey-image {
-  flex: 1; /* Take equal space */
-  display: flex;
-  justify-content: center; /* Center the image horizontally */
-  align-items: center; /* Center the image vertically */
-  max-height: 100%; /* Restrict image height */
-}
-
-.journey-image img {
-  width: 100%; /* Ensure image fits within its container */
-  max-width: 500px; /* Restrict image width */
-  height: auto; /* Maintain aspect ratio */
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  .journey-content {
-    flex-direction: column; /* Stack text and image vertically */
-    text-align: center; /* Center-align text and image */
-  }
-
-  .journey-text {
-    align-items: center; /* Center-align text */
-    padding-right: 0; /* Remove right padding */
-  }
-
-  .journey-image img {
-    max-width: 100%; /* Allow full width on smaller screens */
-  }
-}
-
-/* Let's Create Something Section */.create-something-section {
-  padding: 80px 40px;
-  background-color: var(--color-white); /* Ensure the background is white */
-  text-align: center;
+  width: 300px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.value-icon {
+  font-size: 50px; /* Adjust size as needed */
+  color: #ff7b00; /* Match your theme color */
+  margin-bottom: 10px;
+}
+
+.value-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ff7b00;
+}
+
+.value-description {
+  font-size: 1rem;
+  color: #444;
+  margin-top: 10px;
+}
+
+/* Our Journey Section */
+.our-journey-section {
+  display: flex;
   justify-content: center;
-  gap: 15px; /* Add gap between title, description, and button */
+  padding: 60px 10%;
+  background-color: #fff;
+}
+
+.our-journey-section .section-title {
+  text-align: left; /* Align the title to the left */
+}
+
+.our-journey-section .journey-image img {
+  position: relative;
+  top: 100px; /* Adjust this value to align with the third <li> */
+}
+
+.journey-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; 
+  max-width: 1200px;
+  width: 100%;
+  gap: 410px;
+}
+
+.journey-text {
+  flex: 1;
+  max-width: 600px;
+}
+
+.journey-list {
+  list-style-type: disc; 
+  padding-left: 20px; 
+  margin-top: 20px; 
+}
+
+.journey-description {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+.journey-image {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start; 
+  position: relative; 
+}
+
+.journey-image img {
+  max-width: 1200%;
+  height: auto;
+  display: block;
+  position: relative;
+  top: 100px; /* Adjust this value to align with the third <li> */
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .journey-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .journey-image img {
+    top: 0; 
+    margin-top: 20px; 
+  }
+
+  .journey-list {
+    padding-left: 0; 
+    list-style-position: inside; 
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .journey-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .journey-image img {
+    top: 0; /* Reset top positioning on smaller screens */
+    margin-top: 20px; /* Add spacing between text and image */
+  }
+}
+
+/* CTA Section */
+.create-something-section {
+  text-align: center;
+  background-color: #ff7b00;
+  color: #fff;
+  padding: 60px 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers child elements horizontally */
 }
 
 .create-something-section .section-title {
-  font-size: 4rem; /* Match the section title style */
-  font-weight: bold;
-  line-height: 1.2;
-  margin-bottom: 1rem;
-  font-family: var(--font-primary); /* Nunito for the title */
-  color: var(--color-primary); /* Primary dark blue */
+  font-size: 2.5rem;
+}
+
+.create-something-section .section-description {
+  font-size: 1rem;
+  margin-top: 15px;
+}
+
+/* CTA Button */
+.cta-container {
+  margin-top: 20px;
+}
+
+.cta-container button {
+  background: #fff;
+  color: #ff7b00;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.cta-container button:hover {
+  background: #222;
+  color: #fff;
+}
+
+
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .hero-section,
+  .our-journey-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .values-container {
+    flex-direction: column;
+  }
+
+  .value-item {
+    width: 100%;
+  }
+
+  .hero-container {
+    width: 100%;
+  }
+
+  .foreword-container {
+    flex-direction: column;
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .foreword-title {
+    justify-content: flex-start;
+    width: 100%;
+    padding-bottom: 5px;
+  }
+
+  .foreword-text {
+    max-width: 100%;
+    text-align: left;
+  }
+}
+
+@media (max-width: 1024px) {
+  .info-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .text-container {
+    align-items: center;
+    text-align: center;
+  }
 }
