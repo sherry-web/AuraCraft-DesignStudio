@@ -1,149 +1,146 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './styles/Services.css';
-import serviceHero from '../assets/servicehero.svg'; // Hero image
-import serviceDualSectImage from '../assets/servicedualsectimage.svg'; // Dual-section image
+import React from "react";
+import { Link } from "react-router-dom";
+import "./styles/Services.css";
+import serviceHero from "../assets/servicehero.svg";
+import serviceDualSectImage from "../assets/servicedualsectimage.svg";
+import ScrollButton from "../components/ScrollButton";
 
 // Material UI icons
-import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
-import DesignServicesIcon from '@mui/icons-material/DesignServices';
-import CodeIcon from '@mui/icons-material/Code';
-import CampaignIcon from '@mui/icons-material/Campaign';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import TrendingUpIcon from '@mui/icons-material/TrendingUp';
-import { Button } from '@mui/material';
+import DesignServicesIcon from "@mui/icons-material/DesignServices";
+import CodeIcon from "@mui/icons-material/Code";
+import CampaignIcon from "@mui/icons-material/Campaign";
+import { Button } from "@mui/material";
 
-const Services = () => (
-  <>
-    {/* Hero Section */}
-    <section className="hero-section">
-      <div className="hero-container">
-        <div className="hero-image">
-          <img src={serviceHero} alt="Our Services" />
-        </div>
-        <div className="hero-content">
-          <h1>What We Offer</h1>
-          <p>Crafting Digital Experiences that Elevate Your Brand.</p>
-        </div>
-      </div>
-    </section>
-
- {/* Services Section */}
-<section id="services" className="services-container">
-  <h2>Our Expertise</h2>
-  <div className="services-cards">
-    
-    {/* UX/UI Design Card */}
-    <div className="service-card">
-      <h3 className="card-title">UX/UI Design</h3>
-      <DesignServicesIcon className="card-icon" fontSize="large" />
-      <div className="card-bullets">
-  <div className="bullet-row">
-    <li className="bullet">User Research</li>
-  </div>
-  <div className="bullet-row">
-    <li className="bullet">Wireframing</li>
-    <li className="bullet">Prototyping</li>
-  </div>
-  <div className="bullet-row">
-    <li className="bullet">Usability Testing</li>
-    <li className="bullet">Visual Design</li>
-  </div>
-</div>
-      <div className="card-cta">
-        <Link to="/services/ux-ui" className="cta-link">Get Started</Link>
-      </div>
-    </div>
-
-    {/* Front-End Development Card */}
-    <div className="service-card">
-      <h3 className="card-title">Front-End Development</h3>
-      <CodeIcon className="card-icon" fontSize="large" />
-        <div className="card-bullets">
-  <div className="bullet-row">
-    <li className="bullet">Responsive Design</li>
-  </div>
-  <div className="bullet-row">
-    <li className="bullet">Modern JavaScript</li>
-    <li className="bullet">React & Vue</li>
-  </div>
-  <div className="bullet-row">
-    <li className="bullet">Performance Optimization</li>
-    <li className="bullet">Cross-Browser Compatibility</li>
-  </div>
-</div>  
-      <div className="card-cta">
-        <Link to="/services/front-end" className="cta-link">Get Started</Link>
-      </div>
-    </div>
-
-    {/* Brand Strategy Card */}
-    <div className="service-card">
-      <h3 className="card-title">Digital Strategy</h3>
-      <CampaignIcon className="card-icon" fontSize="large" />
-      <div className="card-bullets">
-  <div className="bullet-row">
-    <li className="bullet">Market Research</li>
-  </div>
-  <div className="bullet-row">
-    <li className="bullet">Digital Positioning</li>
-    <li className="bullet">Identity Design</li>
-  </div>
-  <div className="bullet-row">
-    <li className="bullet">Competitive Analysis</li>
-    <li className="bullet">Growth Strategy</li>
-  </div>
-</div>  
-      <div className="card-cta">
-        <Link to="/services/branding" className="cta-link">Get Started</Link>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-   {/* Why You Need This & How We Achieve It Sections */}
-<section className="dual-section-container">
-  <div className="left-column">
-    <div className="why-you-need-this">
-      <h2>Why You Need This</h2>
-      <h3>Unlock the Full Potential of Your Digital Presence</h3>
-      <p>
-        In today's digital landscape, a strong online presence is crucial.
-      </p>
-      <ul>
-        <li>Stunning visual design</li>
-        <li>High-performance optimization</li>
-        <li>User-focused interaction</li>
-      </ul>
-    </div>
-
-    {/* How We Achieve It Section */}
-    <div className="how-we-achieve-it">
-      <h2>How Do We Achieve It</h2>
-      <h3>Creating intuitive and engaging user experiences.</h3>
-      <ul>
-        <li>Responsive and user-friendly designs</li>
-        <li>Performance-focused approach</li>
-        <li>Data-driven design decisions</li>
-        <li>Continuous iteration &amp; feedback loops</li>
-      </ul>
-      <Button variant="contained" color="primary" size="large">
+// Service card component for DRY code
+const ServiceCard = ({ title, icon: Icon, points, linkTo, className = "" }) => (
+  <div className={`service-card ${className}`}>
+    <h3 className="card-title">{title}</h3>
+    <Icon className="card-icon" fontSize="large" />
+    <ul className="card-bullets">
+      {points.map((point, index) => (
+        <li key={index} className="bullet">
+          {point}
+        </li>
+      ))}
+    </ul>
+    <div className="card-cta">
+      <Link to={linkTo} className="cta-link">
         Get Started
-      </Button>
+      </Link>
     </div>
   </div>
-  <div className="right-column">
-    <img src={serviceDualSectImage} alt="Illustration" />
-  </div>
-</section>
-
-
-
-
-    
-  </>
 );
+
+const Services = () => {
+  const serviceCards = [
+    {
+      title: "Front-End Development",
+      icon: CodeIcon,
+      points: [
+        "Responsive Design",
+        "Modern JavaScript (React & Vue)",
+        "Performance Optimization",
+        "Cross-Browser Compatibility",
+      ],
+      linkTo: "/services/front-end",
+      className: "frontend-card",
+    },
+    {
+      title: "UX/UI Design",
+      icon: DesignServicesIcon,
+      points: [
+        "User Research",
+        "Wireframing & Prototyping",
+        "Usability Testing",
+        "Visual Design",
+      ],
+      linkTo: "/services/ux-ui",
+      className: "ux-card",
+    },
+    {
+      title: "Digital Strategy",
+      icon: CampaignIcon,
+      points: [
+        "Market Research",
+        "Digital Positioning & Branding",
+        "Competitive Analysis",
+        "Growth Strategy",
+      ],
+      linkTo: "/services/branding",
+      className: "",
+    },
+  ];
+
+  return (
+    <div className="services-page">
+      {/* Hero Section */}
+      <section className="services-hero-section">
+        <div className="grid-layout">
+          <div className="hero-content">
+            <h1 className="section-title">What We Offer</h1>
+            <p className="section-description">
+              Crafting Digital Experiences that Elevate Your Brand.
+            </p>
+          </div>
+          <div className="hero-image">
+            <img src={serviceHero} alt="Our Services" />
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="services-container">
+        <h2 className="section-title">Our Expertise</h2>
+        <div className="grid-layout">
+          {serviceCards.map((card, index) => (
+            <ServiceCard
+              key={index}
+              title={card.title}
+              icon={card.icon}
+              points={card.points}
+              linkTo={card.linkTo}
+              className={card.className}
+            />
+          ))}
+        </div>
+      </section>
+
+      {/* Dual Section */}
+      <section className="dual-section-container">
+        <div className="grid-layout">
+          <div className="left-column">
+            <h2 className="section-title">Why You Need This</h2>
+            <p className="section-description">
+              In today's digital landscape, a strong online presence is crucial for success.
+            </p>
+            <ul className="benefit-list">
+              <li>Stunning visual design</li>
+              <li>High-performance optimization</li>
+              <li>User-focused interaction</li>
+            </ul>
+
+            <h2 className="section-title">How We Achieve It</h2>
+            <p className="section-description">
+              We create intuitive and engaging user experiences through:
+            </p>
+            <ul className="benefit-list">
+              <li>Responsive and user-friendly designs</li>
+              <li>Performance-focused approach</li>
+              <li>Data-driven design decisions</li>
+              <li>Continuous iteration & feedback loops</li>
+            </ul>
+            <Button variant="contained" className="primary-button">
+              Get Started
+            </Button>
+          </div>
+
+          <div className="right-column">
+            <img src={serviceDualSectImage} alt="Our approach to digital services" />
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
 
 export default Services;

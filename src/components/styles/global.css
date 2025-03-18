@@ -3,18 +3,17 @@
 
 /* Global Font Styles */
 :root {
+  /* Fonts */
   --font-primary: 'Nunito', sans-serif; /* For titles, headings, and buttons */
   --font-secondary: 'Poppins', sans-serif; /* For body text and paragraphs */
 
   /* Color Palette */
   --color-primary: #033043; /* Primary Dark Blue */
-  --color-secondary: #FF7B00; /* Vibrant Yellow */
+  --color-secondary: #FF7B00; /* Vibrant Orange */
   --color-accent: #0A7273; /* Teal Green */
-  --color-light: #ffffff; /* Changed to white for consistency */
-  --color-white: #ffffff;
-  --color-black: #717171;
-  --color-black: #4D4D4D;
-  
+  --color-light: #ffffff; /* White */
+  --color-gray-medium: #717171; /* Medium Gray */
+  --color-gray-dark: #4D4D4D; /* Dark Gray */
 
   /* Typography */
   --font-size-base: 16px;
@@ -43,10 +42,149 @@
 /* Global Body Styles */
 body {
   font-family: var(--font-secondary);
-  color: var(--color-primary);
-  background-color: var(--color-light); /* Changed to var(--color-light) which is now white */
+  color: var(--color-gray-dark);
+  background-color: var(--color-light);
   font-size: var(--font-size-base);
   margin: 0;
   padding: 0;
   line-height: 1.6;
+}
+
+section {
+  width: 100%;
+  max-width: 1440px;
+  padding: 80px 5%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* You can include additional common rules here */
+}
+
+/* General Hero Section */
+.hero-section {
+  margin-top: 80px;
+  background-size: cover;
+  background-position: center;
+  padding: 30px 0;
+  text-align: center;
+  width: 100%;
+}
+
+.home-page {
+  padding-top: 80px; /* Adds space from the navbar */
+}
+
+/* Headings */
+h1, h2, h3 {
+  font-family: var(--font-primary);
+  color: var(--color-primary);
+  margin: 0;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+}
+
+h3 {
+  font-size: var(--font-size-h3);
+}
+
+/* Links */
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-secondary);
+  text-decoration: underline;
+}
+
+/* Buttons */
+.button {
+  display: inline-block;
+  padding: var(--spacing-small) var(--spacing-medium);
+  font-family: var(--font-primary);
+  font-size: var(--font-size-body);
+  color: var(--color-light);
+  background-color: var(--color-secondary);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: var(--color-accent);
+}
+
+/* Cards */
+.card {
+  background-color: var(--color-light);
+  border: 1px solid var(--color-gray-medium);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-medium);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+.footer {
+  background-color: var(--color-primary);
+  color: var(--color-light);
+  padding: var(--spacing-large) 0;
+  text-align: center;
+}
+
+.footer a {
+  color: var(--color-secondary);
+}
+
+.footer a:hover {
+  color: var(--color-light);
+}
+
+/* Global Grid Layout for Sections */
+.grid-layout {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1440px;
+}
+
+/* Section Container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 60px 10%;
+  text-align: center;
+}
+
+/* Section Titles & Descriptions */
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.section-description {
+  font-size: 1.2rem;
+  color: var(--color-secondary);
+  line-height: 1.6;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .grid-layout {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
 }

@@ -9,6 +9,9 @@ import { SvgIcon } from '@mui/material';
 import BrushIcon from '@mui/icons-material/Brush'; // Creativity
 import VerifiedIcon from '@mui/icons-material/Verified'; // Quality
 import PeopleIcon from '@mui/icons-material/People'; // Community
+import ScrollButton from "../components/ScrollButton"; // Import ScrollButton
+import { ArrowUpward } from "@mui/icons-material";
+
 // Styles
 import "./styles/AboutUs.css";
 
@@ -16,12 +19,12 @@ const AboutUs = () => {
   return (
     <div className="about-us-page">
       {/* Hero Section */}
-      <section className="hero-section about-us-section">
-        <div className="hero-container">
+      <section className="about-hero-section">
+        <div className="about-hero-container">
           {/* Left Content */}
           <div className="hero-content">
             <h1 className="hero-title">Our Story</h1>
-            <h2 className="hero-subtitle">MEET THE FOUNDER</h2>
+            <h2 className="about-hero-subtitle">MEET THE FOUNDER</h2>
 
             <div className="foreword-container">
               <p className="foreword-title">A Foreword From Sherry</p>
@@ -41,7 +44,7 @@ const AboutUs = () => {
         </div>
 
         {/* Move Right Image OUTSIDE .hero-container */}
-        <div className="hero-image">
+        <div className="about-hero-image">
           <img src={aboutHeroImage} alt="Our Story" />
         </div>
       </section>
@@ -75,52 +78,50 @@ const AboutUs = () => {
 
       {/* Our Values Section */}
       <section className="our-values-section about-us-section">
-  <div className="values-header">
-    <h2 className="section-title">Our Values</h2>
-  </div>
-  <br></br>
-  <br></br>
-  <div className="values-container">
-    <div className="value-item">
-      <SvgIcon component={BrushIcon} className="value-icon" />
-      <h3 className="value-title">Creativity</h3>
-      <p className="value-description">Pushing the boundaries of design to create unique solutions.</p>
-    </div>
-    <div className="value-item">
-      <SvgIcon component={VerifiedIcon} className="value-icon" />
-      <h3 className="value-title">Quality</h3>
-      <p className="value-description">Ensuring excellence in every project.</p>
-    </div>
-    <div className="value-item">
-      <SvgIcon component={PeopleIcon} className="value-icon" />
-      <h3 className="value-title">Community</h3>
-      <p className="value-description">Building strong relationships and supporting your growth.</p>
-    </div>
-  </div>
-</section>
+        <div className="values-header">
+          <h2 className="section-title">Our Values</h2>
+        </div>
+        <div className="values-container">
+          <div className="value-item">
+            <SvgIcon component={BrushIcon} className="value-icon" />
+            <h3 className="value-title">Creativity</h3>
+            <p className="value-description">Pushing the boundaries of design to create unique solutions.</p>
+          </div>
+          <div className="value-item">
+            <SvgIcon component={VerifiedIcon} className="value-icon" />
+            <h3 className="value-title">Quality</h3>
+            <p className="value-description">Ensuring excellence in every project.</p>
+          </div>
+          <div className="value-item">
+            <SvgIcon component={PeopleIcon} className="value-icon" />
+            <h3 className="value-title">Community</h3>
+            <p className="value-description">Building strong relationships and supporting your growth.</p>
+          </div>
+        </div>
+      </section>
 
-    {/* Our Journey Section */}
-<section className="our-journey-section about-us-section">
-  <div className="journey-content">
-    {/* Left Content */}
-    <div className="journey-text">
-      <h2 className="section-title">Our Journey</h2>
-      <h3 className="section-subtitle">A Path of Passion and Innovation</h3>
-      <ul className="journey-list">
-        <li className="journey-description">2020: AuraCraft was born from a desire to innovate.</li>
-        <li className="journey-description">2021: Expanded to offer comprehensive development services.</li>
-        <li className="journey-description">2022: Launched new AI-driven solutions.</li>
-        <li className="journey-description">2023: Opened new offices worldwide.</li>
-        <li className="journey-description">2024: Reached 1 million users globally.</li>
-      </ul>
-    </div>
+      {/* Our Journey Section */}
+      <section className="our-journey-section about-us-section">
+        <div className="journey-content">
+          {/* Left Content */}
+          <div className="journey-text">
+            <h2 className="section-title">Our Journey</h2>
+            <h3 className="section-subtitle">A Path of Passion and Innovation</h3>
+            <ul className="journey-list">
+              <li className="journey-description">2020: AuraCraft was born from a desire to innovate.</li>
+              <li className="journey-description">2021: Expanded to offer comprehensive development services.</li>
+              <li className="journey-description">2022: Launched new AI-driven solutions.</li>
+              <li className="journey-description">2023: Opened new offices worldwide.</li>
+              <li className="journey-description">2024: Reached 1 million users globally.</li>
+            </ul>
+          </div>
 
-    {/* Right Image */}
-    <div className="journey-image">
-      <img src={journeyImage} alt="Our Journey" />
-    </div>
-  </div>
-</section>
+          {/* Right Image */}
+          <div className="journey-image">
+            <img src={journeyImage} alt="Our Journey" />
+          </div>
+        </div>
+      </section>
 
       {/* Call to Action Section */}
       <section className="create-something-section about-us-section">
@@ -132,6 +133,8 @@ const AboutUs = () => {
           <MyButton text="Get Started" onClick={() => alert("Get Started")} />
         </div>
       </section>
+
+    
     </div>
   );
 };
