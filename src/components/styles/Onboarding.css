@@ -1,0 +1,50 @@
+.onboarding-container {
+    max-width: 500px;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .onboarding-step {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .progress-indicator {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .progress-indicator .dot {
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+    background: #ccc;
+    border-radius: 50%;
+  }
+  
+  .progress-indicator .dot.active {
+    background: #FDA521;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background: #033043;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background: #0A7273;
+  }
+  

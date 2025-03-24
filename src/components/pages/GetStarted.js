@@ -1,17 +1,26 @@
-import React from 'react';
-import '../styles/GetStarted.css';
+import StepOne from "../../components/Onboarding/StepOne";
+import StepTwo from "../../components/Onboarding/StepTwo";
+import StepThree from "../../components/Onboarding/StepThree";
+import ProgressIndicator from "../../components/Onboarding/ProgressIndicator";
+import "../styles/Onboarding.css";
 
-const GetStarted = () => (
-  <div className="get-started">
-    <h1>Welcome to AuraCraft!</h1>
-    <p>Start your journey with us by following the steps below:</p>
-    <ul>
-      <li>Create your account</li>
-      <li>Choose your services</li>
-      <li>Kickstart your project!</li>
-    </ul>
-    <button>Sign Up Now</button>
-  </div>
-);
+
+
+
+const GetStarted = () => {
+  const [step, setStep] = useState(1);
+
+  const nextStep = () => setStep((prev) => Math.min(prev + 1, 3));
+  const prevStep = () => setStep((prev) => Math.max(prev - 1, 1));
+
+  return (
+    <div className="onboarding-container">
+      <ProgressIndicator step={step} />
+      {step === 1 && <StepOne nextStep={nextStep} />}
+      {step === 2 && <StepTwo nextStep={nextStep} prevStep={prevStep} />}
+      {step === 3 && <StepThree prevStep={prevStep} />}
+    </div>
+  );
+};
 
 export default GetStarted;

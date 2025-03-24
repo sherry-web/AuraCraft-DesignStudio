@@ -1,29 +1,31 @@
-import React, { useState, Suspense } from "react";
+// src/App.js
+import React from "react";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import AppRoutes from "./routes/Routes";
 import ScrollToTop from "./components/ScrollToTop";
 import ScrollButton from "./components/ScrollButton";
+import ErrorBoundary from "./components/ErrorBoundary";
 import "./App.css";
 
+// Make sure this is a function component with proper export
 const App = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
   return (
     <>
-      {/* Ensures page starts at top on navigation */}
-      <ScrollToTop />
-      <div className="App">
-        <NavBar />
-        <Suspense fallback={<div>Loading...</div>}>
-          <AppRoutes />
-        </Suspense>
-        <Footer />
-      </div>
-      {/* Button to scroll to top */}
-      <ScrollButton />
+      <ErrorBoundary>
+        <ScrollToTop />
+        <div className="App">
+          <NavBar />
+          <ErrorBoundary>
+            <AppRoutes />
+          </ErrorBoundary>
+          <Footer />
+        </div>
+        <ScrollButton />
+      </ErrorBoundary>
     </>
   );
 };
 
+// Add this default export
 export default App;

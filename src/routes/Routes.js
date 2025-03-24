@@ -1,3 +1,4 @@
+// src/routes/Routes.js
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "../components/Home/Home";
@@ -12,11 +13,9 @@ import Articles from "../components/pages/Articles";
 import IntroJourney from "../components/IntroJourney";
 import Login from "../components/pages/Login";
 import Dashboard from "../components/pages/Dashboard";
-import PrivateRoute from "./PrivateRoute";
+import PrivateRoute from "./PrivateRoute"; // Make sure this path is correct
 
 function AppRoutes() {
-  const isAuthenticated = localStorage.getItem("auth") === "true";
-
   return (
     <Routes>
       <Route path="/" element={<Home />} />
@@ -33,7 +32,7 @@ function AppRoutes() {
       <Route
         path="/dashboard"
         element={
-          <PrivateRoute isAuthenticated={isAuthenticated}>
+          <PrivateRoute>
             <Dashboard />
           </PrivateRoute>
         }

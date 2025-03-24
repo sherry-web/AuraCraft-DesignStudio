@@ -12,9 +12,28 @@ import {
   faLightbulb,
   faPalette,
   faUserFriends,
-  faMagic
+  faMagic,
 } from "@fortawesome/free-solid-svg-icons";
 import { useInView } from "react-intersection-observer";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
+import { useNavigate } from "react-router-dom";
+const SafeImage = ({ src, alt, fallback, className }) => {
+  const [imgSrc, setImgSrc] = useState(src);
+
+  const handleError = () => {
+    if (fallback) setImgSrc(fallback);
+  };
+
+  return (
+    <img 
+      src={imgSrc} 
+      alt={alt} 
+      onError={handleError} 
+      className={className}
+    />
+  );
+};
 
 // Components
 import MyButton from "../Button";
@@ -42,40 +61,41 @@ import SendIcon from "../../assets/send.png";
 import herobg1 from "../../assets/herobg1.svg";
 
 // Styles
-import "./Home.css";
+import "./Home.css"; 
+
 
 
 // UX/UI Design Services
 const designServices = [
-  { 
-    title: "User Interface Design", 
+  {
+    title: "User Interface Design",
     icon: faPalette,
-    description: "Creating visually appealing and intuitive interfaces that your users will love."
+    description: "Creating visually appealing and intuitive interfaces that your users will love.",
   },
-  { 
-    title: "User Experience Design", 
+  {
+    title: "User Experience Design",
     icon: faUserFriends,
-    description: "Crafting seamless journeys that keep users engaged and satisfied."
+    description: "Crafting seamless journeys that keep users engaged and satisfied.",
   },
-  { 
-    title: "Front-End Development", 
+  {
+    title: "Front-End Development",
     icon: faCode,
-    description: "Bringing designs to life with responsive, interactive code."
+    description: "Bringing designs to life with responsive, interactive code.",
   },
-  { 
-    title: "E-Commerce Solutions", 
+  {
+    title: "E-Commerce Solutions",
     icon: faShoppingCart,
-    description: "Building shopping experiences that convert browsers to buyers."
+    description: "Building shopping experiences that convert browsers to buyers.",
   },
-  { 
-    title: "Interactive Prototypes", 
+  {
+    title: "Interactive Prototypes",
     icon: faMagic,
-    description: "Testing concepts with functional prototypes before full development."
+    description: "Testing concepts with functional prototypes before full development.",
   },
-  { 
-    title: "Conversion Optimization", 
+  {
+    title: "Conversion Optimization",
     icon: faChartLine,
-    description: "Analyzing user behavior to maximize your digital ROI."
+    description: "Analyzing user behavior to maximize your digital ROI.",
   },
 ];
 
@@ -84,60 +104,62 @@ const projectCategories = [
   "UX/UI Design",
   "Front-End Development",
   "E-Commerce",
-  "Mobile Apps"
+  "Mobile Apps",
 ];
 
 // Project data with more detailed information
 const projectData = [
-  { 
-    img: project1, 
-    title: "Financial App Redesign", 
+  {
+    img: project1,
+    title: "Financial App Redesign",
     description: "A complete UX/UI overhaul for a leading fintech platform, increasing user engagement by 43%.",
     category: "UX/UI Design",
-    technologies: ["Figma", "React", "CSS", "User Testing"]
+    technologies: ["Figma", "React", "CSS", "User Testing"],
   },
-  { 
-    img: project2, 
-    title: "E-commerce Website", 
+  {
+    img: project2,
+    title: "E-commerce Website",
     description: "Responsive online store with streamlined checkout process resulting in 27% conversion rate improvement.",
     category: "E-Commerce",
-    technologies: ["React", "Node.js", "Stripe API", "Redux"]
+    technologies: ["React", "Node.js", "Stripe API", "Redux"],
   },
-  { 
-    img: project3, 
-    title: "Healthcare Portal", 
+  {
+    img: project3,
+    title: "Healthcare Portal",
     description: "Patient-centric interface design making medical information accessible and easy to navigate.",
     category: "UX/UI Design",
-    technologies: ["Adobe XD", "Angular", "SCSS", "Accessibility Tools"]
+    technologies: ["Adobe XD", "Angular", "SCSS", "Accessibility Tools"],
   },
-  { 
-    img: project4, 
-    title: "Travel Companion App", 
+  {
+    img: project4,
+    title: "Travel Companion App",
     description: "Mobile application with intuitive journey planning and real-time updates for travelers.",
     category: "Mobile Apps",
-    technologies: ["React Native", "Firebase", "Maps API", "Offline Functionality"]
+    technologies: ["React Native", "Firebase", "Maps API", "Offline Functionality"],
   },
-  { 
-    img: project5, 
-    title: "Corporate Dashboard", 
+  {
+    img: project5,
+    title: "Corporate Dashboard",
     description: "Data visualization platform with customizable widgets and real-time analytics for business intelligence.",
     category: "Front-End Development",
-    technologies: ["Vue.js", "D3.js", "GraphQL", "Responsive Design"]
-  }
+    technologies: ["Vue.js", "D3.js", "GraphQL", "Responsive Design"],
+  },
 ];
 
 // Custom hook for animation with intersection observer
 const useAnimateOnScroll = (threshold = 0.2) => {
   const [ref, inView] = useInView({
     threshold,
-    triggerOnce: true
+    triggerOnce: true,
   });
-  
+
   return [ref, inView];
 };
 
 const HomePage = () => {
-  // States and refs (unchanged)
+  const navigate = useNavigate();
+  
+  // States and refs
   const [activeMenu, setActiveMenu] = useState("All Projects");
   const [projects, setProjects] = useState([]);
   const [activeDot, setActiveDot] = useState(0);
@@ -147,10 +169,12 @@ const HomePage = () => {
     design: 0,
     development: 0,
     ecommerce: 0,
-    mobile: 0
+    mobile: 0,
   });
   const [showPreferencePrompt, setShowPreferencePrompt] = useState(false);
   const [urlInput, setUrlInput] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [feedbackMessage, setFeedbackMessage] = useState("");
 
   // Refs for sections to track user engagement
   const heroRef = useRef(null);
@@ -158,7 +182,7 @@ const HomePage = () => {
   const uxuiRef = useRef(null);
   const frontendRef = useRef(null);
   const projectsRef = useRef(null);
-  
+
   // Animation refs
   const [designSectionRef, designSectionInView] = useAnimateOnScroll();
   const [ourPeepsRef, ourPeepsInView] = useAnimateOnScroll();
@@ -172,12 +196,12 @@ const HomePage = () => {
   // Initialize projects from data
   useEffect(() => {
     filterProjects(activeMenu);
-    
+
     // Start tracking after 30 seconds
     const timer = setTimeout(() => {
       setShowPreferencePrompt(true);
     }, 30000);
-    
+
     return () => clearTimeout(timer);
   }, [activeMenu]);
 
@@ -185,12 +209,12 @@ const HomePage = () => {
   useEffect(() => {
     const options = {
       root: null,
-      rootMargin: '0px',
+      rootMargin: "0px",
       threshold: 0.5,
     };
 
     const handleIntersect = (entries, observer) => {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           // Track which section the user is viewing
           const sectionId = entry.target.id;
@@ -202,21 +226,21 @@ const HomePage = () => {
     };
 
     const observer = new IntersectionObserver(handleIntersect, options);
-    
+
     const elements = [
-      heroRef.current, 
-      designRef.current, 
-      uxuiRef.current, 
-      frontendRef.current, 
-      projectsRef.current
+      heroRef.current,
+      designRef.current,
+      uxuiRef.current,
+      frontendRef.current,
+      projectsRef.current,
     ];
-    
-    elements.forEach(el => {
+
+    elements.forEach((el) => {
       if (el) observer.observe(el);
     });
 
     return () => {
-      elements.forEach(el => {
+      elements.forEach((el) => {
         if (el) observer.unobserve(el);
       });
     };
@@ -224,7 +248,7 @@ const HomePage = () => {
 
   // Function to track user interests based on sections they view
   const trackUserInterest = (sectionId) => {
-    setUserInterests(prev => {
+    setUserInterests((prev) => {
       // Check if already in array to avoid duplicates
       if (!prev.includes(sectionId)) {
         return [...prev, sectionId];
@@ -233,10 +257,10 @@ const HomePage = () => {
     });
 
     // Update preferences based on section interactions
-    if (sectionId === 'uxui-section') {
-      setUserPreferences(prev => ({...prev, design: prev.design + 1}));
-    } else if (sectionId === 'frontend-section') {
-      setUserPreferences(prev => ({...prev, development: prev.development + 1}));
+    if (sectionId === "uxui-section") {
+      setUserPreferences((prev) => ({ ...prev, design: prev.design + 1 }));
+    } else if (sectionId === "frontend-section") {
+      setUserPreferences((prev) => ({ ...prev, development: prev.development + 1 }));
     }
   };
 
@@ -245,7 +269,7 @@ const HomePage = () => {
     if (category === "All Projects") {
       setProjects(projectData);
     } else {
-      setProjects(projectData.filter(project => project.category === category));
+      setProjects(projectData.filter((project) => project.category === category));
     }
   };
 
@@ -260,7 +284,7 @@ const HomePage = () => {
   const handleMenuClick = (menu) => {
     setActiveMenu(menu);
     setActiveDot(0); // Reset to first project when changing categories
-    
+
     // Track which category the user clicks on
     incrementPreference(menu);
   };
@@ -268,13 +292,13 @@ const HomePage = () => {
   // Update user preferences based on their interactions
   const incrementPreference = (category) => {
     if (category === "UX/UI Design") {
-      setUserPreferences(prev => ({...prev, design: prev.design + 1}));
+      setUserPreferences((prev) => ({ ...prev, design: prev.design + 1 }));
     } else if (category === "Front-End Development") {
-      setUserPreferences(prev => ({...prev, development: prev.development + 1}));
+      setUserPreferences((prev) => ({ ...prev, development: prev.development + 1 }));
     } else if (category === "E-Commerce") {
-      setUserPreferences(prev => ({...prev, ecommerce: prev.ecommerce + 1}));
+      setUserPreferences((prev) => ({ ...prev, ecommerce: prev.ecommerce + 1 }));
     } else if (category === "Mobile Apps") {
-      setUserPreferences(prev => ({...prev, mobile: prev.mobile + 1}));
+      setUserPreferences((prev) => ({ ...prev, mobile: prev.mobile + 1 }));
     }
   };
 
@@ -282,9 +306,9 @@ const HomePage = () => {
   const getPersonalizedSuggestion = () => {
     const { design, development, ecommerce, mobile } = userPreferences;
     const max = Math.max(design, development, ecommerce, mobile);
-    
+
     if (max === 0) return null;
-    
+
     if (max === design) {
       return "Based on your interests, our UX/UI Design services might be perfect for your next project!";
     } else if (max === development) {
@@ -301,7 +325,7 @@ const HomePage = () => {
     if (urlInput) {
       // In a real implementation, you would process this URL
       // For now, just set a preference
-      setUserPreferences(prev => ({...prev, design: prev.design + 1}));
+      setUserPreferences((prev) => ({ ...prev, design: prev.design + 1 }));
       alert(`Thank you for submitting ${urlInput} for analysis. Our team will review your site and provide UX/UI recommendations.`);
       setUrlInput("");
     }
@@ -318,26 +342,36 @@ const HomePage = () => {
     return suggestion || "Ready to transform your digital presence? Start your project with us today!";
   };
 
+  const handleCTAClick = () => {
+    navigate("/get-started");
+  };
+
+
+  // safeimage component
+  const SafeImage = ({ src, alt, fallback, className }) => {
+    const [imgSrc, setImgSrc] = useState(src);
+  
+    const handleError = () => {
+      if (fallback) setImgSrc(fallback);
+    };
+  
+    return (
+      <img 
+        src={imgSrc} 
+        alt={alt} 
+        onError={handleError} 
+        className={className}
+      />
+    );
+  };
+
+
   return (
     <div className="landing-page">
       <div className="overlap-wrapper">
         <div className="overlap">
           <div className="home">
             <div className="frame">
-              {/* Interactive prompt that appears after user browses */}
-              {showPreferencePrompt && (
-                <div className="preference-prompt">
-                  <div className="prompt-content">
-                    <FontAwesomeIcon icon={faLightbulb} className="prompt-icon" />
-                    <p>Would you like a personalized experience based on your interests?</p>
-                    <div className="prompt-buttons">
-                      <button onClick={dismissPreferencePrompt} className="prompt-yes">Yes, customize my experience</button>
-                      <button onClick={() => setShowPreferencePrompt(false)} className="prompt-no">No, thanks</button>
-                    </div>
-                  </div>
-                </div>
-              )}
-
               {/* Hero Section with interaction tracking */}
               <section id="home-hero-section" ref={heroRef} className="home-hero-section">
                 <div className="about-hero-container">
@@ -346,27 +380,40 @@ const HomePage = () => {
                       Creating Digital <span>Experiences</span> That Matter
                     </h1>
                     <p className="hero-subtitle">
-                      We blend creativity with technology <br></br>to design interfaces that delight users and drive business growth.
+                      We blend creativity with technology <br />to design interfaces that delight users and drive business growth.
                     </p>
                     <div className="cta-container">
                       {isInteractiveMode ? (
-                        <button className="primary-cta interactive-cta">
+                        <button
+                          aria-label="Start Your Project"
+                          onClick={handleCTAClick}
+                          className="primary-cta interactive-cta"
+                        >
                           {getPersonalizedCTA()}
                         </button>
                       ) : (
-                        <button className="primary-cta">Start Your Project</button>
+                        <button
+                          aria-label="Start Your Project"
+                          onClick={handleCTAClick}
+                          disabled={isLoading}
+                          className="primary-cta"
+                        >
+                          {isLoading ? <div className="spinner"></div> : "Start Your Project"}
+                        </button>
                       )}
                     </div>
+                    {feedbackMessage && <p className="feedback-message">{feedbackMessage}</p>}
                   </div>
                 </div>
-
-                <div className="about-hero-image">
-                  <img src={herobg1} alt="Hero Background" />
-                </div>
+               <SafeImage 
+                  src={herobg1} 
+                  alt="Hero Background" 
+                  fallback="/fallback-hero.jpg" 
+                  className="hero-image"
+                />
               </section>
-
-              {/* Design Section with interactive features */}
-              <section 
+              {/* Design Services Section */}    {/* Design Section with interactive features */}
+                         <section 
                 id="design-section" 
                 ref={el => { designRef.current = el; designSectionRef(el); }} 
                 className="about-us-section"
@@ -652,7 +699,6 @@ const HomePage = () => {
                   </button>
                 </div>
               </section>
-
             </div>
           </div>
         </div>

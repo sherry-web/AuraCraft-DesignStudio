@@ -1,16 +1,26 @@
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+
 module.exports = {
-    // Other configurations...
-    devServer: {
-      setupMiddlewares: (middlewares, devServer) => {
-        // Custom middleware logic
-        // You can access devServer here and add any necessary middleware
-        // Example:
-        // middlewares.unshift(/* your middleware here */);
-  
-        // Return the middlewares array
-        return middlewares;
-      },
-      // Other devServer options
+  // ... existing config
+  devServer: {
+    historyApiFallback: {
+      index: '/index.html', // Explicit fallback
+      disableDotRule: true,
     },
-  };
-  
+    static: {
+      directory: path.join(__dirname, 'public'),
+      publicPath: '/', // Explicit public path
+    },
+    hot: true,
+    port: 3000,
+    client: {
+      overlay: {
+        errors: true,
+        warnings: false,
+      },
+    },
+  },
+  // ... rest of your config
+};

@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import './styles/NavBar.css';
 import GetStartedButton from './GetStartedButton';
 import logo from '../assets/logo.png';
-import ScrollButton from './ScrollButton'; // Import the ScrollButton component
+import ScrollButton from './ScrollButton';
 
 const NavBar = () => {
   const location = useLocation();
@@ -17,13 +17,19 @@ const NavBar = () => {
           </Link>
         </div>
         <ul className="navbar-links">
-          {["/", "/About", "/Services", "/Projects", "/Contact"].map((path) => (
-            <li key={path}>
+          {[
+            { path: "/", name: "Home" },
+            { path: "/about", name: "About" },
+            { path: "/services", name: "Services" },
+            { path: "/projects", name: "Projects" },
+            { path: "/contact", name: "Contact" }
+          ].map((item) => (
+            <li key={item.path}>
               <Link
-                to={path}
-                className={location.pathname === path ? "active-link" : ""}
+                to={item.path}
+                className={location.pathname === item.path ? "active-link" : ""}
               >
-                {path.replace("/", "") || "Home"}
+                {item.name}
               </Link>
             </li>
           ))}
@@ -32,8 +38,6 @@ const NavBar = () => {
           <button className="navbar-login">Login</button>
         </div>
       </nav>
-
-      {/* Add the ScrollButton component here */}
       <ScrollButton />
     </>
   );

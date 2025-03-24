@@ -1705,3 +1705,24 @@ section {
     gap: 15px;
   }
 }
+
+/* Ensure touch targets are large enough */
+button, a {
+  min-width: 48px;
+  min-height: 48px;
+  padding: 12px;
+}
+
+/* Loading spinner styles */
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #09f;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
