@@ -1,4 +1,3 @@
-// src/App.js
 import React from "react";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
@@ -8,7 +7,6 @@ import ScrollButton from "./components/ScrollButton";
 import ErrorBoundary from "./components/ErrorBoundary";
 import "./App.css";
 
-// Make sure this is a function component with proper export
 const App = () => {
   return (
     <>
@@ -16,9 +14,11 @@ const App = () => {
         <ScrollToTop />
         <div className="App">
           <NavBar />
-          <ErrorBoundary>
-            <AppRoutes />
-          </ErrorBoundary>
+          <main>
+            <ErrorBoundary>
+              <AppRoutes />
+            </ErrorBoundary>
+          </main>
           <Footer />
         </div>
         <ScrollButton />
@@ -27,5 +27,4 @@ const App = () => {
   );
 };
 
-// Add this default export
 export default App;

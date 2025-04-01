@@ -1,16 +1,30 @@
-.articles {
-    padding: 2rem;
-    background-color: #E9E3D5;
-    text-align: center;
-  }
-  .articles h2 {
-    color: #033043;
-  }
-  .articles ul {
-    list-style: none;
-    padding: 0;
-  }
-  .articles li {
-    margin: 1rem 0;
-  }
-      
+.articles-page {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.placeholder-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.placeholder-card {
+  border: 1px solid #eee;
+  padding: 1.5rem;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.placeholder-card:hover {
+  transform: translateY(-5px);
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 2rem;
+  color: #0066cc;
+  text-decoration: none;
+}

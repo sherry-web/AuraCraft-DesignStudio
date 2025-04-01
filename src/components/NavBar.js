@@ -7,6 +7,7 @@ import ScrollButton from './ScrollButton';
 
 const NavBar = () => {
   const location = useLocation();
+  console.log('Current path:', location.pathname); // Debugging line
 
   return (
     <>

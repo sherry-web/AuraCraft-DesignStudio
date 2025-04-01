@@ -1,18 +1,20 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './styles/Footer.css';
-
-import FooterLogo from '../assets/FooterLogo.svg';  // Updated to .svg
+import FooterLogo from '../assets/FooterLogo.svg';
 import SocialIconsBe from '../assets/SocialIconsBe.png';
 import SocialIconsIG from '../assets/SocialIconsIG.png';
 import SocialIconsX from '../assets/SocialIconsX.png';
-import SendIcon from '../assets/send.png';  // Updated to send.png
+import SendIcon from '../assets/send.png';
 
 const Footer = () => (
   <footer className="footer-container">
     <div className="footer-grid">
       {/* Company Info Section */}
       <div className="footer-column company-info-section">
-        <img className="footer-logo" alt="Logo" src={FooterLogo} />
+        <Link to="/">
+          <img className="footer-logo" alt="Logo" src={FooterLogo} />
+        </Link>
         <div className="footer-copy">
           <p>Copyright © {new Date().getFullYear()} Aura-Craft Design Studio.</p>
           <p>All rights reserved</p>
@@ -34,11 +36,11 @@ const Footer = () => (
       <div className="footer-column">
         <h3 className="footer-heading">Company</h3>
         <ul className="footer-list">
-          <li><a href="/about-us">About us</a></li>
-          <li><a href="/blog">Blog</a></li>
-          <li><a href="/contact-us">Contact us</a></li>
-          <li><a href="/pricing">Pricing</a></li>
-          <li><a href="/testimonials">Testimonials</a></li>
+          <li><Link to="/about">About us</Link></li>
+          <li><Link to="/articles">Blog</Link></li> {/* Assuming you have Articles.js */}
+          <li><Link to="/contact">Contact us</Link></li>
+          <li><Link to="/get-started#pricing">Pricing</Link></li> {/* Link to pricing section */}
+          <li><Link to="/about#testimonials">Testimonials</Link></li> {/* Link to testimonials section */}
         </ul>
       </div>
 
@@ -46,10 +48,10 @@ const Footer = () => (
       <div className="footer-column">
         <h3 className="footer-heading">Support</h3>
         <ul className="footer-list">
-          <li><a href="/help-center">Help center</a></li>
-          <li><a href="/terms-of-service">Terms of service</a></li>
-          <li><a href="/legal">Legal</a></li>
-          <li><a href="/privacy-policy">Privacy policy</a></li>
+          <li><Link to="/contact">Help center</Link></li>
+          <li><Link to="/terms">Terms of service</Link></li>
+          <li><Link to="/legal">Legal</Link></li>
+          <li><Link to="/privacy">Privacy policy</Link></li>
         </ul>
       </div>
 
@@ -72,9 +74,9 @@ const Footer = () => (
     {/* Footer Bottom Bar */}
     <div className="footer-bottom">
       <ul className="footer-links">
-        <li><a href="/privacy-policy">Privacy Policy</a></li>
-        <li><a href="/terms">Terms of Service</a></li>
-        <li><a href="/contact">Contact Us</a></li>
+        <li><Link to="/privacy">Privacy Policy</Link></li>
+        <li><Link to="/terms">Terms of Service</Link></li>
+        <li><Link to="/contact">Contact Us</Link></li>
       </ul>
     </div>
   </footer>
